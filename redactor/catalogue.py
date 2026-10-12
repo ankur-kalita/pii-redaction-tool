@@ -28,7 +28,7 @@ from .detectors.people import find_cited_names, plausible_person
 
 EMAIL_DOMAIN_RE = re.compile(r"@([\w-]+(?:\.[\w-]+)+)")
 EMAIL_LOCAL_RE = re.compile(r"\b([A-Za-z][\w.]*)@[\w-]+\.")
-CAP_WORDS_RE = re.compile(r"[A-Z][A-Za-z'\-]*\.?(?:\s+[A-Z][A-Za-z'\-]*\.?)*")
+WORD_RE = re.compile(r"[^\W\d_][\w'’\-]*\.?")  # a word in any script, with apostrophes
 # A nickname right after a company name: '... Limited (“CareEdge Research”)'.
 ALIAS_RE = re.compile(r"\s*\(\s*(?:the\s+)?[“\"]([^”\"]{2,60})[”\"]")
 ACRONYM_RE = re.compile(r"[A-Z][A-Z\-]{1,11}")
@@ -250,6 +250,23 @@ def owned_url(url: str, cat: Catalogue, before: str = "") -> bool:
     return any(t in host for t in cat.brand_tokens | set(cat.person_tokens) if len(t) >= 3)
 
 
+def _capitalised_runs(text: str) -> list[list[tuple[str, int]]]:
+    """Runs of capitalised words separated only by spaces, as (word, offset).
+    "Natalia's" counts as "Natalia"; the possessive stays outside the span."""
+    runs: list[list[tuple[str, int]]] = []
+    run: list[tuple[str, int]] = []
+    prev_end = 0
+    for m in WORD_RE.finditer(text):
+        word = m.group(0)
+        if run and (not word[0].isupper() or not text[prev_end : m.start()].isspace()):
+            runs.append(run)
+            run = []
+        if word[0].isupper():
+            run.append((re.sub(r"['’]s$", "", word), m.start()))
+            prev_end = m.end()
+    return [*runs, run] if run else runs
+
+
 def _initial(tok: str) -> bool:
     return len(tok.strip(".")) == 1
 
@@ -304,12 +321,7 @@ class CatalogueDetector:
 
     def _people(self, text: str) -> list[Span]:
         spans = []
-        for m in CAP_WORDS_RE.finditer(text):
-            # "Natalia's" is matched as "Natalia"; the possessive stays outside the span
-            toks = [
-                (re.sub(r"'s$", "", t.group(0)), m.start() + t.start())
-                for t in re.finditer(r"[A-Za-z'\-]+\.?", m.group(0))
-            ]
+        for toks in _capitalised_runs(text):
             i = 0
             while i < len(toks):
                 j = i

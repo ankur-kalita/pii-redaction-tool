@@ -12,7 +12,7 @@ NON_NAME_WORDS = set(
     chowk circular clause colony committee company complex corporate department director
     district dollars e-mail east ebit ebitda email equity estate facility finance fiscal fiscals
     floor foundation fund funds group highway hospital house huf id ind india industrial
-    investor investors lane leasing limited llc llp ltd management marg mission nagar north
+    investor investors lane leasing limited llc llp ltd management marg mission north
     offer office officer park partner pat peth pin plant plot portal portion price private
     registered regulations road rules schedule scheme secretary section sector securities share
     shares slip society south states station street taluka tower transformation trust unit

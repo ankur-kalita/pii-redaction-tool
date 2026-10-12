@@ -142,7 +142,7 @@ class Pseudonymizer:
         return match_case(fake, core)
 
     def person(self, real: str) -> str:
-        return re.sub(r"[A-Za-z][A-Za-z'\-]*\.?", lambda m: self.name_token(m.group(0)), real)
+        return re.sub(r"[^\W\d_][\w'’\-]*\.?", lambda m: self.name_token(m.group(0)), real)
 
     # --- organisations ----------------------------------------------------
     def brand(self, token: str) -> str:

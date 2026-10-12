@@ -83,3 +83,23 @@ def test_website_introduced_as_someones_is_masked():
     assert owned_url("https://rajeshweber.edu", cat, "You can also visit my personal website at ")
     assert owned_url("blog.amber_sasaki.org", cat, "updates are posted on her blog, ")
     assert not owned_url("https://www.ijert.org/", cat, "Published by : ")
+
+
+def test_common_name_shapes_are_accepted():
+    from redactor.detectors.people import plausible_person
+
+    for name in ["Rohan Kapur", "Amit Nagar", "Neil D'Souza", "Sean O'Brien", "José Álvarez"]:
+        assert plausible_person(name, set(), set()), name
+    assert not plausible_person("Supa Ahilyanagar", set(), set())  # a place
+    assert not plausible_person("Shivaji Nagar", {"shivaji", "nagar"}, set())  # seen in an address
+
+
+def test_accented_and_apostrophe_names_are_matched_and_fully_replaced():
+    from redactor.pseudonymizer import Pseudonymizer
+
+    cat = Catalogue()
+    cat.add_person("José Álvarez")
+    cat.add_person("Sean O'Brien")
+    found = [s.text for s in CatalogueDetector(cat).detect("José Álvarez met Sean O'Brien's team")]
+    assert found == ["José Álvarez", "Sean O'Brien"]
+    assert Pseudonymizer("k").person("José Álvarez").isascii()  # no stray accent
