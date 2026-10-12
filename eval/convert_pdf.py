@@ -1,9 +1,8 @@
-"""Turn NIST SP 800-122 (PDF) into a .docx the redactor can read: one Word
+"""Turn a PDF into a .docx the redactor can read: one Word
 paragraph per text block from `pdftotext`. Formatting is irrelevant for
 scoring detection.
 
-Usage: python eval/nist/convert.py doc/nistspecialpublication800-122.pdf eval/nist/nist.docx
-(the PDF is public: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf)
+Usage: python eval/convert_pdf.py INPUT.pdf OUTPUT.docx
 """
 import re
 import subprocess
