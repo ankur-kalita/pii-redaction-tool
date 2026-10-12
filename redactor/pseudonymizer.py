@@ -19,7 +19,7 @@ from datetime import datetime, timedelta
 from faker.providers.address.en_IN import Provider as AddressProvider
 from faker.providers.person.en_IN import Provider as PersonProvider
 
-from .detectors.lexicon import GENERIC_ORG_WORDS, KEEP_DOMAINS, ROLE_WORDS
+from .detectors.lexicon import GENERIC_ORG_WORDS, ROLE_WORDS, public_host
 from .detectors.organizations import distinctive_tokens
 from .detectors.patterns import digits, luhn_valid, verhoeff_check_digit
 
@@ -178,7 +178,7 @@ class Pseudonymizer:
 
     # --- emails & websites -------------------------------------------------
     def _domain(self, domain: str) -> str:
-        if domain.lower() in PUBLIC_EMAIL_DOMAINS or KEEP_DOMAINS.search(domain):
+        if domain.lower() in PUBLIC_EMAIL_DOMAINS or public_host(domain):
             return domain
         labels = domain.split(".")
         tld_start = len(labels) - (2 if len(labels) > 2 and labels[-2] in {"co", "gov", "org", "ac", "net"} else 1)
@@ -229,7 +229,7 @@ class Pseudonymizer:
             return real
         scheme, host, path = m.group(1) or "", m.group(2), m.group(3)
         spaced = host.replace(" ", "")
-        if KEEP_DOMAINS.search(spaced):
+        if public_host(spaced):
             return real
         return scheme + self._domain(spaced) + path
 

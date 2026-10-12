@@ -103,3 +103,14 @@ def test_accented_and_apostrophe_names_are_matched_and_fully_replaced():
     found = [s.text for s in CatalogueDetector(cat).detect("José Álvarez met Sean O'Brien's team")]
     assert found == ["José Álvarez", "Sean O'Brien"]
     assert Pseudonymizer("k").person("José Álvarez").isascii()  # no stray accent
+
+
+def test_public_hosts_are_anchored_to_the_hostname():
+    from redactor.detectors.lexicon import KEEP_ORG_RE, public_host
+
+    assert public_host("https://www.sebi.gov.in/sebiweb/") and public_host("http://www.whitehouse.gov/omb")
+    assert public_host("www.bseindia.com") and public_host("info@agency.gov")
+    assert not public_host("https://www.kshinternational.com/r?u=sebi.gov.in")
+    assert not public_host("www.notgov.in.example.com")
+    assert KEEP_ORG_RE.search("National Stock Exchange of India Limited")
+    assert not KEEP_ORG_RE.search("Acme Stock Exchange Services Private Limited")

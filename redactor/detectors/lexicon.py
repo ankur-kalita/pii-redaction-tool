@@ -72,7 +72,8 @@ KEEP_ORG_RE = re.compile(
             r"ministry of",
             r"income tax",
             r"unique identification authority",
-            r"stock exchange",
+            r"\b(?:bombay|metropolitan|calcutta) stock exchange",
+            r"^(?:the\s+)?stock exchanges?(?:\s+limited)?$",
             r"national company law",
             r"\bnclt\b",
             r"\bicai\b",
@@ -93,11 +94,22 @@ KEEP_ORG_RE = re.compile(
     re.IGNORECASE,
 )
 
-KEEP_DOMAINS = re.compile(
-    r"sebi\.gov\.in|bseindia\.com|nseindia\.com|rbi\.org\.in|nsdl\.co\.in|cdslindia\.com|incometax|"
-    r"npci\.org\.in|gov\.in|\.gov\b|\.gov\.[a-z]{2}\b|\.mil\b|\.int\b",
+# Public-sector hosts, matched at the end of the hostname only.
+PUBLIC_HOST_RE = re.compile(
+    r"(?:^|\.)(?:bseindia\.com|nseindia\.com|rbi\.org\.in|nsdl\.co\.in|cdslindia\.com|npci\.org\.in|"
+    r"gov\.in|gov|gov\.[a-z]{2}|mil|int)$",
     re.IGNORECASE,
 )
+
+
+def public_host(address: str) -> bool:
+    """True for a URL, domain or email address hosted by a public body. Only
+    the hostname counts: "x.com/r?u=sebi.gov.in" is not public."""
+    host = address.replace(" ", "").split("@")[-1]
+    host = re.sub(r"(?i)^[a-z]+://", "", host)
+    host = re.split(r"[/?#:]", host)[0].rstrip(".")
+    return bool(PUBLIC_HOST_RE.search(host))
+
 
 # Mailbox names that describe a role, not a person.
 ROLE_WORDS = set(

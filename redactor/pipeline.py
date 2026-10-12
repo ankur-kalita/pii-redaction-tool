@@ -11,7 +11,7 @@ import spacy
 from .catalogue import Catalogue, CatalogueDetector, discover, owned_url
 from .detectors.addresses import address_line, continues_address, find_addresses
 from .detectors.base import Span
-from .detectors.lexicon import KEEP_DOMAINS, role_mailbox
+from .detectors.lexicon import public_host, role_mailbox
 from .detectors.organizations import find_orgs
 from .detectors.registry import STRUCTURED_DETECTORS
 from .docx_io import DocxDocument, Replacement, apply_replacements
@@ -65,7 +65,7 @@ def resolve_overlaps(spans: list[Span]) -> list[Span]:
 def is_allowed(span: Span) -> bool:
     """Policy: public-sector websites and role mailboxes there are not PII; a
     person's address is, whatever the domain."""
-    if span.label not in ("URL", "EMAIL") or not KEEP_DOMAINS.search(span.text.replace(" ", "")):
+    if span.label not in ("URL", "EMAIL") or not public_host(span.text):
         return False
     return span.label == "URL" or role_mailbox(span.text)
 
