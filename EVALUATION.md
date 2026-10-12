@@ -12,7 +12,8 @@
 | Capri College PII policy | whole document | 4 | 100% | 100% | 100% | 100% |
 | Research paper (IJERT) | whole document | 20 | 55.6% | 100% | 71.4% | 99.56% |
 
-- **Leakage:** none of the 238 real values detected in the prospectus remains anywhere in the redacted output.
+- **Leakage:** none of the 238 real values detected in the prospectus remains anywhere in the redacted file. The scan reads **every XML part** of the file: text, link targets, field codes and metadata.
+- **Correction:** an earlier version of this report claimed zero leakage while scanning only paragraph text. A review found 27 real email addresses still in the file, inside Word `HYPERLINK` field codes (the hidden link targets behind clickable text). They are now rewritten, and the scan covers the whole file.
 - **Headline number:** the held-out prospectus sample, because the document the tool was built for matters most. The other documents show how well the tool generalises.
 - **Reproduce:** `python eval/run_all.py` rebuilds every test document from `doc/` (or from the generator), redacts it and writes the results above to `eval/<set>/results.json`.
 
@@ -63,8 +64,9 @@
    - Fixes: citation names, institution names, and masking a URL only when its owner is masked.
    - The same round **removed every document-specific word list.** They were replaced by evidence rules: related word forms ("Integrated" → "integration") and glossary terms ("PMAY" | "Pradhan Mantri Awas Yojana").
 
-**Real leaks found on the way.** Both are fixed and are the strongest argument for testing beyond the target document:
+**Real leaks found on the way.** All three are fixed and are the strongest argument for testing beyond the target document:
 - **Round 3:** contact names that NER had missed (Sachin Gawade, Hitesh Ramani, Manisha Shukla, Sharmila Hayer) were left in the redacted prospectus, in the text and in their emails. The leakage scan couldn't see them, because it only checks detected values. Fix: names are learned from email addresses, and unknown words in an email address are masked by default.
+- **External review:** 27 real email addresses survived inside Word `HYPERLINK` field codes, which the tool never read; the old leak scan read only paragraph text, so it missed them too. Fix: field codes are rewritten like visible links, and the leak scan reads every XML part.
 - **Round 4:** a hard-coded word list was hiding "EVEREST" (Everest Family Trust, a selling shareholder) in a capitals heading. Removing the list fixed it.
 
 ## Per-type results, prospectus held-out sample

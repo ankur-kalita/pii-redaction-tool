@@ -19,7 +19,7 @@ The redacted prospectus is in `output/`. The evaluation report is [EVALUATION.md
 
 **Rules + spaCy NER, in two passes, with keyed deterministic fakes.** It runs offline and needs no LLM.
 
-1. **Read the .docx at the XML level.** Body, tables, text boxes, headers, footers, footnotes and hyperlink targets are all read. Word splits text into formatting "runs", so detection works on whole paragraphs and each replacement is mapped back onto the runs. When a fake has the same number of words as the original, each word keeps its own formatting ("Rashi **Patil**" → "Jatin **Nanda**").
+1. **Read the .docx at the XML level.** Body, tables, text boxes, headers, footers, footnotes, hyperlink targets and `HYPERLINK` field codes are all read. Word splits text into formatting "runs", so detection works on whole paragraphs and each replacement is mapped back onto the runs. When a fake has the same number of words as the original, each word keeps its own formatting ("Rashi **Patil**" → "Jatin **Nanda**").
 2. **Structured PII uses a pattern plus a check that rejects look-alikes:**
    - email and URL;
    - phone numbers, only with a signal: a country code (`+91`, `+1`, `+44`), an area code written as one (`022-68052182`, `(591)341-7776`), or a label (`Tel:`);
@@ -78,10 +78,11 @@ The redacted prospectus is in `output/`. The evaluation report is [EVALUATION.md
 
 - **Labelling:** every set was labelled by hand before the tool ran on it.
 - **Fixes:** every fix was a general rule, checked against the prospectus by comparing its output word by word before and after.
-- **Leakage:** none of the 238 detected values remains anywhere in the redacted prospectus.
+- **Leakage:** none of the 238 detected values remains anywhere in the redacted prospectus file, including link targets and Word field codes (an external review found 27 emails there; now fixed).
 
 ## Trade-offs, false positives and false negatives
 
+- **Not read yet:** image alt text, charts, embedded objects and content controls (none hold PII in the prospectus, but another file could).
 - **Precision over recall for ambiguous single words.** A company word that is also an English word ("Broad" in Broad Family Trust) is replaced only inside the full name, never on its own.
 - **Consistency amplifies mistakes.** "Find once, replace everywhere" also spreads a wrong discovery. That's why discovery needs evidence from the document (the lower-case, acronym and glossary rules).
 - **False positives:**
