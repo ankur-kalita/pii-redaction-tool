@@ -1,10 +1,22 @@
 """Detector tests. The prospectus has no PAN/Aadhaar/SSN/card/IP/DOB in its text,
 so these types are covered here with synthetic examples."""
+
 import pytest
 
-from redactor.detectors.entities import find_addresses, find_orgs
+from redactor.detectors.addresses import find_addresses
+from redactor.detectors.organizations import find_orgs
 from redactor.detectors.patterns import (
-    AADHAAR, CIN, CREDIT_CARD, DOB, EMAIL, IP_ADDRESS, PAN, PHONE, REG_NUMBER, SSN, URL,
+    AADHAAR,
+    CIN,
+    CREDIT_CARD,
+    DOB,
+    EMAIL,
+    IP_ADDRESS,
+    PAN,
+    PHONE,
+    REG_NUMBER,
+    SSN,
+    URL,
 )
 
 
@@ -12,21 +24,27 @@ def found(detector, text):
     return [s.text for s in detector.detect(text)]
 
 
-@pytest.mark.parametrize("text, expected", [
-    ("Email: cs.connect@kshinternational.com", ["cs.connect@kshinternational.com"]),
-    ("no email here @ all", []),
-])
+@pytest.mark.parametrize(
+    "text, expected",
+    [
+        ("Email: cs.connect@kshinternational.com", ["cs.connect@kshinternational.com"]),
+        ("no email here @ all", []),
+    ],
+)
 def test_email(text, expected):
     assert found(EMAIL, text) == expected
 
 
-@pytest.mark.parametrize("text, expected", [
-    ("Telephone: + 91 20 4505 3237;", ["+ 91 20 4505 3237"]),
-    ("Tel: +91 22 40094400", ["+91 22 40094400"]),
-    ("Telephone: 022-68052182 Email", ["022-68052182"]),
-    ("Telephone: +91-20-26234000", ["+91-20-26234000"]),
-    ("allotted 4,50,00,000 Equity Shares worth 2025 2026", []),  # amounts/years are not phones
-])
+@pytest.mark.parametrize(
+    "text, expected",
+    [
+        ("Telephone: + 91 20 4505 3237;", ["+ 91 20 4505 3237"]),
+        ("Tel: +91 22 40094400", ["+91 22 40094400"]),
+        ("Telephone: 022-68052182 Email", ["022-68052182"]),
+        ("Telephone: +91-20-26234000", ["+91-20-26234000"]),
+        ("allotted 4,50,00,000 Equity Shares worth 2025 2026", []),  # amounts/years are not phones
+    ],
+)
 def test_phone(text, expected):
     assert found(PHONE, text) == expected
 
@@ -75,10 +93,15 @@ def test_org_suffix_and_generic_phrases():
 
 
 def test_addresses_in_prose_and_lines():
-    text = ("having its Registered Office at 11/3, Village Birdewadi, Chakan Taluka - Khed, Pune – 410 501, "
-            "Maharashtra, India and its Corporate Office at 201, Tower 2, Baner, Pune – 411 045, Maharashtra, India")
+    text = (
+        "having its Registered Office at 11/3, Village Birdewadi, Chakan Taluka - Khed, Pune – 410 501, "
+        "Maharashtra, India and its Corporate Office at 201, Tower 2, Baner, Pune – 411 045, Maharashtra, India"
+    )
     spans = [s.text for s in find_addresses(text)]
-    assert spans == ["11/3, Village Birdewadi, Chakan Taluka - Khed, Pune – 410 501", "201, Tower 2, Baner, Pune – 411 045"]
+    assert spans == [
+        "11/3, Village Birdewadi, Chakan Taluka - Khed, Pune – 410 501",
+        "201, Tower 2, Baner, Pune – 411 045",
+    ]
     assert find_addresses("CORPORATE IDENTITY NUMBER: U28129PN1979PLC141032") == []
 
 

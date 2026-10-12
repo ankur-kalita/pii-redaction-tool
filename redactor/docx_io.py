@@ -8,6 +8,7 @@ back onto the underlying ``<w:t>`` elements.
 All text-bearing parts are processed: body, tables, text boxes, headers,
 footers, footnotes, endnotes and comments.
 """
+
 from __future__ import annotations
 
 import re
@@ -121,7 +122,7 @@ def _replace_word_aligned(text: str, rep: Replacement, touched: list[Segment]) -
         return False
     out = {id(s): [] for s in touched}
     pos = rep.start
-    for old, new in zip(old_pieces, new_pieces):
+    for old, new in zip(old_pieces, new_pieces, strict=True):
         owner = next((s for s in touched if s.start <= pos < s.end), None)
         if owner is None:
             return False  # piece starts in a tab/break separator

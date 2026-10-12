@@ -1,12 +1,14 @@
 """Rules that make the tool work beyond Indian documents: international
 phones and addresses, acronyms, public-sector sites, companies without a
 legal suffix, and names revealed by email addresses."""
+
 import pytest
 import spacy
 
 from redactor.catalogue import discover
+from redactor.detectors.addresses import find_addresses
 from redactor.detectors.base import Span
-from redactor.detectors.entities import find_addresses, find_orgs
+from redactor.detectors.organizations import find_orgs
 from redactor.detectors.patterns import PHONE, PHONE_LABELLED
 from redactor.pipeline import is_allowed
 from redactor.pseudonymizer import Pseudonymizer
@@ -18,16 +20,19 @@ def phones(text):
     return [s.text for d in (PHONE, PHONE_LABELLED) for s in d.detect(text)]
 
 
-@pytest.mark.parametrize("text, expected", [
-    ("call +1-780-563-6083 today", ["+1-780-563-6083"]),
-    ("UK office +44(0)115 4960914", ["+44(0)115 4960914"]),
-    ("reach me at (591)341-7776", ["(591)341-7776"]),
-    ("or 206.269.0743", ["206.269.0743"]),
-    ("Leeds desk 0113 496 0141", ["0113 496 0141"]),
-    ("Callback number: 8503911770.", ["8503911770"]),
-    ("Order ORD-8430815, amount $882.72, version 9.13.73", []),
-    ("8503911770 shares were allotted", []),  # a bare digit run needs a phone signal
-])
+@pytest.mark.parametrize(
+    "text, expected",
+    [
+        ("call +1-780-563-6083 today", ["+1-780-563-6083"]),
+        ("UK office +44(0)115 4960914", ["+44(0)115 4960914"]),
+        ("reach me at (591)341-7776", ["(591)341-7776"]),
+        ("or 206.269.0743", ["206.269.0743"]),
+        ("Leeds desk 0113 496 0141", ["0113 496 0141"]),
+        ("Callback number: 8503911770.", ["8503911770"]),
+        ("Order ORD-8430815, amount $882.72, version 9.13.73", []),
+        ("8503911770 shares were allotted", []),  # a bare digit run needs a phone signal
+    ],
+)
 def test_international_phones(text, expected):
     assert phones(text) == expected
 
@@ -39,13 +44,20 @@ def test_phone_fake_keeps_country_code_and_format():
     assert p.phone("+91 22 4009 4400").replace(" ", "") == p.phone("+91 22 40094400").replace(" ", "")
 
 
-@pytest.mark.parametrize("text, expected", [
-    ("Shipping address on file: 86570 Williams Squares, Hollandburgh, NY 30246.",
-     ["86570 Williams Squares, Hollandburgh, NY 30246"]),
-    ("Shipping address on file: 9 Warren Spring, McDonaldborough, W9 0TU.",
-     ["9 Warren Spring, McDonaldborough, W9 0TU"]),
-    ("Ticket TCK-100000 | Priority P1", []),  # a code in capitals is not "City - PIN"
-])
+@pytest.mark.parametrize(
+    "text, expected",
+    [
+        (
+            "Shipping address on file: 86570 Williams Squares, Hollandburgh, NY 30246.",
+            ["86570 Williams Squares, Hollandburgh, NY 30246"],
+        ),
+        (
+            "Shipping address on file: 9 Warren Spring, McDonaldborough, W9 0TU.",
+            ["9 Warren Spring, McDonaldborough, W9 0TU"],
+        ),
+        ("Ticket TCK-100000 | Priority P1", []),  # a code in capitals is not "City - PIN"
+    ],
+)
 def test_us_and_uk_addresses(text, expected):
     assert [s.text for s in find_addresses(text)] == expected
 
@@ -80,7 +92,10 @@ def test_public_sector_sites_are_kept():
 
 def test_companies_without_legal_suffix():
     words = {"wants", "the", "credit", "trade", "employ"}
-    found = lambda t: [s.text for s in find_orgs(t, words)]
+
+    def found(text):
+        return [s.text for s in find_orgs(text, words)]
+
     assert found("Customer works at Sharp, Wood and Chang now") == ["Sharp, Wood and Chang"]
     assert found("Supplier: Lopez Group") == ["Lopez Group"]
     assert found("Supplier: Murphy and Sons") == ["Murphy and Sons"]

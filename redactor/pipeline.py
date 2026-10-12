@@ -1,5 +1,6 @@
 """End-to-end redaction: discover entities, detect PII in every paragraph,
 replace it with consistent fakes, replace images, write the new .docx."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -7,18 +8,33 @@ from dataclasses import dataclass, field
 import spacy
 
 from .catalogue import Catalogue, CatalogueDetector, discover, owned_url
+from .detectors.addresses import address_line, continues_address, find_addresses
 from .detectors.base import Span
-from .detectors.entities import KEEP_DOMAINS, address_line, continues_address, find_addresses, find_orgs
+from .detectors.lexicon import KEEP_DOMAINS
+from .detectors.organizations import find_orgs
 from .detectors.registry import STRUCTURED_DETECTORS
 from .docx_io import DocxDocument, Replacement, apply_replacements
 from .images import replace_images
 from .pseudonymizer import Pseudonymizer
 
-# When two detections overlap, the longer one wins; on equal length, the more
-# specific type wins (an email beats the person name inside it).
+# Overlaps: the longer span wins, then the more specific type (an email beats the name inside it).
 PRIORITY = [
-    "EMAIL", "URL", "CIN", "GSTIN", "PAN", "AADHAAR", "CREDIT_CARD", "SSN", "IP_ADDRESS",
-    "PHONE", "REGISTRATION_ID", "DATE_OF_BIRTH", "ADDRESS", "ORGANIZATION", "LOCATION", "PERSON",
+    "EMAIL",
+    "URL",
+    "CIN",
+    "GSTIN",
+    "PAN",
+    "AADHAAR",
+    "CREDIT_CARD",
+    "SSN",
+    "IP_ADDRESS",
+    "PHONE",
+    "REGISTRATION_ID",
+    "DATE_OF_BIRTH",
+    "ADDRESS",
+    "ORGANIZATION",
+    "LOCATION",
+    "PERSON",
 ]
 
 
@@ -70,8 +86,7 @@ class Redactor:
             spans = [s for s in spans if s.label != "URL" or owned_url(s.text, cat)]
             spans = [s for s in resolve_overlaps(spans) if not is_allowed(s)]
             per_paragraph.append(spans)
-        # Addresses split over lines: the street line has no PIN of its own,
-        # so it is recognised from the "City – PIN" line below it.
+        # an address split over lines: the street line is recognised from the postal code below it
         for i in range(1, len(texts)):
             prev = per_paragraph[i - 1]
             if continues_address(texts[i - 1], texts[i]) and not any(s.label == "ADDRESS" for s in prev):
@@ -88,14 +103,13 @@ class Redactor:
         fakes = Pseudonymizer(self.secret, reserved=reserved)
         fakes.person_roles = {t: ("last" if c["last"] > c["first"] else "first") for t, c in cat.person_tokens.items()}
         fakes.common_words = cat.lower_words
-        # Map every company first, so emails/websites seen earlier in the
-        # document already reuse the company's fake name.
-        # Mixed-case names first, so "Makalu" is styled as a word, not an acronym.
+        # companies first, so earlier emails/websites reuse their fake brand;
+        # mixed case first, so "Makalu" becomes a word, not an acronym
         for org in sorted(cat.orgs, key=lambda o: (o.isupper(), o)):
             fakes.organization(org)
 
         result = RedactionResult()
-        for para, spans in zip(doc.paragraphs, per_paragraph):
+        for para, spans in zip(doc.paragraphs, per_paragraph, strict=True):
             reps = []
             for s in spans:
                 new = fakes.fake(s.label, s.text)

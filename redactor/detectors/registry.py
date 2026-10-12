@@ -8,6 +8,7 @@ Adding a new PII type:
 Names, organisations and addresses are handled by the catalogue (two-pass)
 because they have no fixed shape.
 """
+
 from .patterns import (
     AADHAAR,
     CIN,
@@ -25,4 +26,19 @@ from .patterns import (
     URL,
 )
 
-STRUCTURED_DETECTORS = [EMAIL, URL, PHONE, PHONE_LABELLED, PAN, AADHAAR, SSN, CREDIT_CARD, IP_ADDRESS, DOB, CIN, GSTIN, SEBI_REG, REG_NUMBER]
+STRUCTURED_DETECTORS = [
+    EMAIL,
+    URL,
+    PHONE,
+    PHONE_LABELLED,
+    PAN,
+    AADHAAR,
+    SSN,
+    CREDIT_CARD,
+    IP_ADDRESS,
+    DOB,
+    CIN,
+    GSTIN,
+    SEBI_REG,
+    REG_NUMBER,
+]

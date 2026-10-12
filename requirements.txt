@@ -4,3 +4,4 @@ spacy>=3.8
 faker>=30.0
 pytest>=8.0
 pillow>=10.0
+ruff>=0.6  # lint and format (development)

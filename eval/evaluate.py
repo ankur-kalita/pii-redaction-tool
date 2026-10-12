@@ -17,6 +17,7 @@ held-out set is eval/sample_holdout.jsonl eval/ground_truth_holdout.jsonl)
 * Leakage: every real value the script detected anywhere in the document, and
   every gold value, is searched for in the redacted output.
 """
+
 from __future__ import annotations
 
 import json
@@ -60,8 +61,13 @@ def prf(tp_p: int, n_pred: int, tp_g: int, n_gold: int) -> tuple[float, float, f
     return p, r, f
 
 
-def main(input_path: str, redacted_path: str, sample_path: str = "eval/sample.jsonl",
-         gold_path: str = "eval/ground_truth.jsonl", results_path: str = "eval/results.json") -> None:
+def main(
+    input_path: str,
+    redacted_path: str,
+    sample_path: str = "eval/sample.jsonl",
+    gold_path: str = "eval/ground_truth.jsonl",
+    results_path: str = "eval/results.json",
+) -> None:
     with open(sample_path) as f:
         sample = [json.loads(line) for line in f]
     gold = load_gold(sample, gold_path)
@@ -69,10 +75,13 @@ def main(input_path: str, redacted_path: str, sample_path: str = "eval/sample.js
     doc = DocxDocument(input_path)
     redactor = Redactor()
     _, per_par = redactor.detect([p.text for p in doc.paragraphs])
-    pred_by_uid = {p.uid: [(s.start, s.end, s.label, s.text) for s in spans] for p, spans in zip(doc.paragraphs, per_par)}
+    pred_by_uid = {
+        p.uid: [(s.start, s.end, s.label, s.text) for s in spans]
+        for p, spans in zip(doc.paragraphs, per_par, strict=True)
+    }
 
     labels = sorted({g[2] for spans in gold.values() for g in spans} | {"(all)"})
-    counts = {l: Counter() for l in labels}
+    counts = {label: Counter() for label in labels}
     errors = {"fn": [], "fp": []}
     tok_agree = tok_total = 0
 
@@ -89,7 +98,7 @@ def main(input_path: str, redacted_path: str, sample_path: str = "eval/sample.js
             counts[g[2]]["gold"] += 1
             counts[g[2]]["gold_hit"] += hit_typed
             if not hit_any:
-                errors["fn"].append((g[2], g[3], text[max(0, g[0] - 40): g[1] + 20]))
+                errors["fn"].append((g[2], g[3], text[max(0, g[0] - 40) : g[1] + 20]))
         for p in p_spans:
             hit_any = any(overlaps(p, g) for g in g_spans)
             counts["(all)"]["pred"] += 1
@@ -98,7 +107,7 @@ def main(input_path: str, redacted_path: str, sample_path: str = "eval/sample.js
                 counts[p[2]]["pred"] += 1
                 counts[p[2]]["pred_hit"] += any(overlaps(p, g) and p[2] == g[2] for g in g_spans)
             if not hit_any:
-                errors["fp"].append((p[2], p[3], text[max(0, p[0] - 40): p[1] + 20]))
+                errors["fp"].append((p[2], p[3], text[max(0, p[0] - 40) : p[1] + 20]))
         # token-level accuracy
         for m in re.finditer(r"\S+", text):
             t = (m.start(), m.end())
@@ -115,10 +124,10 @@ def main(input_path: str, redacted_path: str, sample_path: str = "eval/sample.js
     leaked_gold = sorted(v for v in gold_values if v in out_text)
 
     lines = ["| PII type | Gold | Predicted | Precision | Recall | F1 |", "|---|---|---|---|---|---|"]
-    for l in ["(all)"] + [x for x in labels if x != "(all)"]:
-        c = counts[l]
+    for label in ["(all)"] + [x for x in labels if x != "(all)"]:
+        c = counts[label]
         p, r, f = prf(c["pred_hit"], c["pred"], c["gold_hit"], c["gold"])
-        name = "**All PII (redaction view)**" if l == "(all)" else l
+        name = "**All PII (redaction view)**" if label == "(all)" else label
         lines.append(f"| {name} | {c['gold']} | {c['pred']} | {p:.1%} | {r:.1%} | {f:.1%} |")
     report = {
         "table": "\n".join(lines),
@@ -137,7 +146,8 @@ def main(input_path: str, redacted_path: str, sample_path: str = "eval/sample.js
     print("Token accuracy:", report["token_accuracy"])
     print("False negatives:", *errors["fn"], sep="\n  ")
     print("False positives:", *errors["fp"], sep="\n  ")
-    print(f"Leakage: {len(leaked_detected)} of {len(detected_values)} detected values still in output; gold values still in output: {leaked_gold}")
+    print(f"Leakage: {len(leaked_detected)} of {len(detected_values)} detected values still in output;", end=" ")
+    print(f"gold values still in output: {leaked_gold}")
 
 
 if __name__ == "__main__":

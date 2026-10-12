@@ -1,0 +1,7 @@
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP", "SIM", "I"]
+ignore = ["SIM905"]  # word lists read better as "a b c".split()

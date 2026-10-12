@@ -1,10 +1,12 @@
 """Catalogue rules for company names that are also English words ("CARE"),
 defined-term nicknames, and addresses split over several lines."""
+
 import spacy
 
 from redactor.catalogue import CatalogueDetector, discover
+from redactor.detectors.addresses import address_line, continues_address
 from redactor.detectors.base import Span
-from redactor.detectors.entities import address_line, continues_address, find_orgs
+from redactor.detectors.organizations import find_orgs
 from redactor.pseudonymizer import Pseudonymizer
 
 NLP = spacy.blank("en")  # no NER: these rules must work from text alone
@@ -53,7 +55,9 @@ def test_nickname_fake_is_linked_to_the_company_fake():
 
 
 def test_bank_of_place_is_a_bank_name_but_regulators_are_kept():
-    assert [s.text for s in find_orgs("State Bank of India, Industrial Finance Branch", {"state"})] == ["State Bank of India"]
+    assert [s.text for s in find_orgs("State Bank of India, Industrial Finance Branch", {"state"})] == [
+        "State Bank of India"
+    ]
     assert find_orgs("regulated by the Reserve Bank of India", {"reserve"}) == []
     assert find_orgs("Export-Import Bank of India", {"export"}) == []
 

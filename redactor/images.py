@@ -1,12 +1,9 @@
-"""Image redaction.
+"""Images are replaced by same-size placeholders.
 
-Every image in this document is identifying: the issuer's logo, the QR code
-linking to the real prospectus, the intermediaries' logos, and two scanned
-identity documents (a PAN card and an Aadhaar card with photo, name, date of
-birth and ID number). Text inside images is not reachable by the text
-detectors, so each image is replaced by a neutral placeholder of the same
-pixel size and format, which keeps the page layout unchanged.
+Logos, QR codes and scanned ID cards identify people and companies, and their
+text is out of reach of the text detectors (no OCR), so every image goes.
 """
+
 from __future__ import annotations
 
 import io
@@ -36,7 +33,7 @@ def placeholder(original: bytes, fmt: str) -> bytes:
 def replace_images(doc: DocxDocument) -> int:
     count = 0
     for name, data in doc.media().items():
-        ext = name[name.rfind("."):].lower()
+        ext = name[name.rfind(".") :].lower()
         if ext in FORMATS:
             doc.replace_media(name, placeholder(data, FORMATS[ext]))
             count += 1

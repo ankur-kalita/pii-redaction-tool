@@ -4,6 +4,7 @@ scoring detection.
 
 Usage: python eval/convert_pdf.py INPUT.pdf OUTPUT.docx
 """
+
 import re
 import subprocess
 import sys
