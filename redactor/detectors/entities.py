@@ -94,6 +94,11 @@ ORG_RE = re.compile(
     rf"\b(?:{_ORG_WORD}\s+){{0,6}}?{LEGAL_SUFFIX}(?![A-Za-z])",
 )
 ORG_RE_CAPS = re.compile(rf"\b(?:{_ORG_WORD}\s+){{0,6}}?{LEGAL_SUFFIX}(?![A-Za-z])", re.IGNORECASE)
+# "State Bank of India", "Bank of Baroda": "Bank of <Place>" is itself the
+# signal that this is a bank's name, even when every word is a common word.
+BANK_OF_RE = re.compile(r"\b(?:[A-Z][A-Za-z\-]+\s+){0,3}Bank\s+of\s+[A-Z][a-z]+\b")
+# Legal-form words: part of a company name, but never its distinctive part.
+LEGAL_WORDS = {"llc", "llp", "plc", "ltd", "inc", "pvt", "huf", "gmbh"}
 
 # Leading words that the suffix regex can sweep up but are not part of a name.
 ORG_LEADING_JUNK = {
@@ -108,7 +113,7 @@ ORG_LEADING_JUNK = {
 }
 
 
-def _is_caps(text: str) -> bool:
+def is_caps(text: str) -> bool:
     letters = [c for c in text if c.isalpha()]
     return bool(letters) and sum(c.isupper() for c in letters) / len(letters) > 0.8
 
@@ -116,7 +121,7 @@ def _is_caps(text: str) -> bool:
 def find_orgs(text: str, lower_words: set[str] = frozenset()) -> list[Span]:
     """Company names ending in a legal suffix ("... Private Limited", "... LLP",
     "... Family Trust"), with leading non-name words trimmed off."""
-    regex = ORG_RE_CAPS if _is_caps(text) else ORG_RE
+    regex = ORG_RE_CAPS if is_caps(text) else ORG_RE
     spans = []
     for m in regex.finditer(text):
         start, value = m.start(), m.group(0)
@@ -135,7 +140,18 @@ def find_orgs(text: str, lower_words: set[str] = frozenset()) -> list[Span]:
         if KEEP_ORG_RE.search(value):
             continue
         spans.append(Span(start, m.end(), "ORGANIZATION", value))
-    return spans
+    for m in BANK_OF_RE.finditer(text):
+        start = m.start()
+        words = m.group(0).split()
+        while words and words[0].lower() in ORG_LEADING_JUNK:  # "The State Bank of India"
+            start = text.index(words[1], start + len(words[0]))
+            words = words[1:]
+        value = text[start : m.end()]
+        if (KEEP_ORG_RE.search(value) or not distinctive_tokens(value)
+                or any(s.start < m.end() and start < s.end for s in spans)):
+            continue
+        spans.append(Span(start, m.end(), "ORGANIZATION", value))
+    return sorted(spans, key=lambda s: s.start)
 
 
 def distinctive_tokens(org_name: str) -> list[str]:
@@ -194,9 +210,7 @@ def find_addresses(text: str, org_spans: list[Span] = ()) -> list[Span]:
         # An address line without a PIN must look strongly like one.
         if len(ADDRESS_WORD_RE.findall(text)) < 2 or len(stripped) > 160 or not re.search(r"\d", text):
             return []
-        start = _skip_orgs(text, len(text) - len(text.lstrip()), org_spans)
-        end = len(text.rstrip(" ,;"))
-        return _span(text, start, end)
+        return address_line(text, org_spans)
 
     spans: list[Span] = []
     prev_end = 0
@@ -216,6 +230,30 @@ def find_addresses(text: str, org_spans: list[Span] = ()) -> list[Span]:
         spans += _span(text, start, end)
         prev_end = end
     return spans
+
+
+def continues_address(prev_line: str, line: str) -> bool:
+    """An address split over lines: a line that is only "City – PIN" ends an
+    address whose street part is on the line above ("2401 Gen Thimmayya Road,
+    Cantonment" / "Pune – 411 001"). The line above must look like a street
+    line: short, a number or an address word, and not a "Telephone:" style
+    label or an email."""
+    prev, cur = prev_line.strip(), line.strip().rstrip(",;")
+    if not CITY_PIN_RE.fullmatch(cur) or not prev or len(prev) > 120:
+        return False
+    if re.search(r"@|:|www\.|https?://", prev):
+        return False
+    return bool(re.search(r"\d", prev) or ADDRESS_WORD_RE.search(prev))
+
+
+def address_line(text: str, org_spans: list[Span] = ()) -> list[Span]:
+    """The whole line as one address, minus a company name written in front."""
+    start = _skip_orgs(text, len(text) - len(text.lstrip()), org_spans)
+    # "IndusInd Bank| Limited 2401 ...": a legal suffix left after the name
+    suffix = re.match(r"\s*(?:Private\s+Limited|Pvt\.?\s+Ltd\.?|Limited|Ltd\.?|LLP)\b", text[start:])
+    if suffix and start > 0:
+        start += suffix.end()
+    return _span(text, start, len(text.rstrip(" ,;")))
 
 
 def _skip_orgs(text: str, start: int, org_spans: list[Span]) -> int:

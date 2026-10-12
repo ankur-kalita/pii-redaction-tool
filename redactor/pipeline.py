@@ -8,7 +8,7 @@ import spacy
 
 from .catalogue import CatalogueDetector, discover
 from .detectors.base import Span
-from .detectors.entities import KEEP_DOMAINS, find_addresses, find_orgs
+from .detectors.entities import KEEP_DOMAINS, address_line, continues_address, find_addresses, find_orgs
 from .detectors.registry import STRUCTURED_DETECTORS
 from .docx_io import DocxDocument, Replacement, apply_replacements
 from .images import replace_images
@@ -69,6 +69,13 @@ class Redactor:
             spans += find_addresses(text, [s for s in entity_spans if s.label == "ORGANIZATION"])
             spans = [s for s in resolve_overlaps(spans) if not is_allowed(s)]
             per_paragraph.append(spans)
+        # Addresses split over lines: the street line has no PIN of its own,
+        # so it is recognised from the "City – PIN" line below it.
+        for i in range(1, len(texts)):
+            prev = per_paragraph[i - 1]
+            if continues_address(texts[i - 1], texts[i]) and not any(s.label == "ADDRESS" for s in prev):
+                orgs = [s for s in prev if s.label == "ORGANIZATION"]
+                per_paragraph[i - 1] = resolve_overlaps(prev + address_line(texts[i - 1], orgs))
         return cat, per_paragraph
 
     def redact(self, input_path: str, output_path: str) -> RedactionResult:

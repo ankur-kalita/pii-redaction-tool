@@ -16,16 +16,21 @@ from .detectors.entities import (
     ADDRESS_WORD_RE,
     GENERIC_ORG_WORDS,
     KEEP_ORG_RE,
+    LEGAL_WORDS,
     NON_NAME_WORDS,
     MAJOR_PLACES,
     NOT_STANDALONE,
     distinctive_tokens,
     find_addresses,
     find_orgs,
+    is_caps,
     plausible_person,
 )
 
 CAP_WORDS_RE = re.compile(r"[A-Z][A-Za-z'\-]*\.?(?:\s+[A-Z][A-Za-z'\-]*\.?)*")
+# A defined-term nickname right after a company name:
+# 'CARE Analytics and Advisory Private Limited (“CareEdge Research”)'.
+ALIAS_RE = re.compile(r"\s*\(\s*(?:the\s+)?[“\"]([^”\"]{2,60})[”\"]")
 
 
 @dataclass
@@ -38,6 +43,7 @@ class Catalogue:
     standalone_ok: set[str] = field(default_factory=set)  # tokens safe to match on their own
     lower_words: set[str] = field(default_factory=set)  # words seen in lower case anywhere
     localities: set[str] = field(default_factory=set)  # rare place names (Chakan, Birdewadi)
+    caps_brands: set[str] = field(default_factory=set)  # "CARE": matched only in ALL CAPS
 
     def add_person(self, name: str) -> None:
         canonical = " ".join(t.strip(".").title() if len(t.strip(".")) > 1 else t for t in name.split())
@@ -66,6 +72,9 @@ def discover(paragraph_texts: list[str], nlp) -> Catalogue:
         orgs = find_orgs(text, cat.lower_words)
         for o in orgs:
             cat.add_org(o.text)
+            alias = ALIAS_RE.match(text, o.end)
+            if alias and _reuses_brand(alias.group(1), o.text):
+                cat.add_org(alias.group(1))
         for a in find_addresses(text, orgs):
             cat.place_tokens.update(t.lower() for t in re.findall(r"[A-Za-z]+", a.text))
 
@@ -97,6 +106,18 @@ def discover(paragraph_texts: list[str], nlp) -> Catalogue:
     for tok in cat.brand_tokens:
         if len(tok) >= 3 and not is_english(tok):
             cat.standalone_ok.add(tok)
+    # A distinctive word that is also an English word ("CARE" in "CARE
+    # Analytics ... Limited") cannot be matched in every casing, but the
+    # document writing it in ALL CAPS inside a company name shows that the
+    # ALL-CAPS form is the brand. Only that exact form is matched; "care" and
+    # "Care" stay untouched.
+    for org in cat.orgs:
+        if is_caps(org):
+            continue  # an ALL-CAPS heading says nothing about the brand's casing
+        for tok in distinctive_tokens(org):
+            if (tok.isupper() and len(tok) >= 3 and tok.lower() not in cat.standalone_ok
+                    and tok.lower() not in LEGAL_WORDS):
+                cat.caps_brands.add(tok)
     # Localities: rare place names seen inside an address ("Chakan",
     # "Birdewadi"). Mentioned on their own ("Unit 2 in Chakan") they still
     # pinpoint the company's plants. Major cities/states are kept.
@@ -107,6 +128,14 @@ def discover(paragraph_texts: list[str], nlp) -> Catalogue:
                 and tok not in NON_NAME_WORDS and tok not in GENERIC_ORG_WORDS and tok != "embassy"):
             cat.localities.add(tok)
     return cat
+
+
+def _reuses_brand(alias: str, org: str) -> bool:
+    """A nickname counts only if it reuses the company's distinctive word
+    ("CareEdge Research" for "CARE Analytics ..."); defined terms like
+    "Practicing Company Secretary" or "Group Entities" are roles, not names."""
+    brands = [t.lower() for t in distinctive_tokens(org) if len(t) >= 3]
+    return any(w.lower().startswith(b) for w in alias.split() for b in brands)
 
 
 class CatalogueDetector:
@@ -123,6 +152,8 @@ class CatalogueDetector:
         self.place_re = re.compile(r"\b(?:" + "|".join(map(re.escape, places)) + r")\b", re.IGNORECASE) if places else None
         brands = sorted((b for b in cat.brand_tokens if b in cat.standalone_ok), key=len, reverse=True)
         self.brand_re = re.compile(r"\b(?:" + "|".join(map(re.escape, brands)) + r")\b", re.IGNORECASE) if brands else None
+        caps = sorted(cat.caps_brands, key=len, reverse=True)
+        self.caps_re = re.compile(r"\b(?:" + "|".join(map(re.escape, caps)) + r")\b") if caps else None  # case-sensitive
 
     def detect(self, text: str) -> list[Span]:
         spans: list[Span] = []
@@ -133,6 +164,10 @@ class CatalogueDetector:
                 word = m.group(0)
                 if word[0].isupper():  # proper-noun usage only
                     spans.append(Span(m.start(), m.end(), "ORGANIZATION", word))
+        # In an ALL-CAPS paragraph "CARE" may be the English word ("WE TAKE
+        # CARE OF ..."), so there it is only matched in short cells ("‘CARE A-’").
+        if self.caps_re and (not is_caps(text) or len(text.split()) <= 3):
+            spans += [Span(m.start(), m.end(), "ORGANIZATION", m.group(0)) for m in self.caps_re.finditer(text)]
         if self.place_re:
             spans += [Span(m.start(), m.end(), "LOCATION", m.group(0)) for m in self.place_re.finditer(text) if m.group(0)[0].isupper()]
         spans += self._people(text)

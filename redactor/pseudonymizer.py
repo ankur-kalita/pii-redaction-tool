@@ -126,6 +126,13 @@ class Pseudonymizer:
         casings, so "KSH", "Ksh" and "ksh" (in an email) agree. The style
         (acronym vs word) is fixed by the first, normally-cased sighting."""
         def make(r: random.Random) -> str:
+            # A word built on a known brand ("CareEdge" after "CARE") keeps
+            # that link: the brand part gets the brand's fake ("PNVKEdge").
+            known = self._maps.get("brand", {})
+            for k in sorted(known, key=len, reverse=True):
+                rest = token[len(k):]
+                if len(k) >= 3 and token.lower().startswith(k) and rest[:1].isupper():
+                    return match_case(known[k], token[: len(k)]) + rest
             if token.isupper() and len(token) <= 6:  # acronym: KSH -> RVT
                 # no letter in the same position as the real one (KSH -> KNH would hint at KSH)
                 return "".join(r.choice([c for c in "ABCDEFGHKLMNPRSTVWZ" if c != real_c]) for real_c in token)
