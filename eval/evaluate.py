@@ -23,8 +23,8 @@ import sys
 from collections import Counter, defaultdict
 
 sys.path.insert(0, ".")
-from redactor.docx_io import DocxDocument  # noqa: E402
-from redactor.pipeline import Redactor  # noqa: E402
+from redactor.docx_io import DocxDocument
+from redactor.pipeline import Redactor
 
 
 def load_gold(sample: list[dict], path: str) -> dict[str, list[tuple[int, int, str, str]]]:
@@ -32,9 +32,10 @@ def load_gold(sample: list[dict], path: str) -> dict[str, list[tuple[int, int, s
     the text in that paragraph, dropping occurrences inside a longer gold span."""
     texts = {s["paragraph"]: s["text"] for s in sample}
     raw = defaultdict(set)
-    for line in open(path):
-        g = json.loads(line)
-        raw[g["paragraph"]].add((g["label"], g["text"]))
+    with open(path) as f:
+        for line in f:
+            g = json.loads(line)
+            raw[g["paragraph"]].add((g["label"], g["text"]))
     gold = {}
     for uid, items in raw.items():
         spans = []
@@ -58,7 +59,8 @@ def prf(tp_p: int, n_pred: int, tp_g: int, n_gold: int) -> tuple[float, float, f
 
 
 def main(input_path: str, redacted_path: str) -> None:
-    sample = [json.loads(l) for l in open("eval/sample.jsonl")]
+    with open("eval/sample.jsonl") as f:
+        sample = [json.loads(line) for line in f]
     gold = load_gold(sample, "eval/ground_truth.jsonl")
 
     doc = DocxDocument(input_path)
@@ -126,7 +128,8 @@ def main(input_path: str, redacted_path: str) -> None:
         "leaked_gold_values": leaked_gold,
         "detected_values_checked": len(detected_values),
     }
-    json.dump(report, open("eval/results.json", "w"), indent=1, ensure_ascii=False)
+    with open("eval/results.json", "w") as f:
+        json.dump(report, f, indent=1, ensure_ascii=False)
     print(report["table"])
     print("Token accuracy:", report["token_accuracy"])
     print("False negatives:", *errors["fn"], sep="\n  ")

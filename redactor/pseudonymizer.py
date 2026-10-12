@@ -127,7 +127,8 @@ class Pseudonymizer:
         (acronym vs word) is fixed by the first, normally-cased sighting."""
         def make(r: random.Random) -> str:
             if token.isupper() and len(token) <= 6:  # acronym: KSH -> RVT
-                return "".join(r.choice("ABCDEFGHKLMNPRSTVWZ") for _ in token)
+                # no letter in the same position as the real one (KSH -> KNH would hint at KSH)
+                return "".join(r.choice([c for c in "ABCDEFGHKLMNPRSTVWZ" if c != real_c]) for real_c in token)
             return "".join(r.choice(SYLLABLES) for _ in range(2 if len(token) < 7 else 3)).capitalize()
         return match_case(self._consistent("brand", token.lower(), make), token)
 
