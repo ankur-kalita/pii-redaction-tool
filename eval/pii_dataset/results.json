@@ -1,0 +1,707 @@
+{
+ "documents": 4434,
+ "overall": "precision 91.6%, recall 61.7%, F1 73.7%",
+ "in_scope": "precision 93.7%, recall 61.7%, F1 74.4%",
+ "token_accuracy": "98.50% (1352725/1373345 tokens)",
+ "recall_by_type": "| PII type | Gold | Recall |\n|---|---|---|\n| PERSON | 11104 | 74.0% |\n| EMAIL | 3794 | 80.5% |\n| PHONE | 2419 | 60.0% |\n| ADDRESS | 3543 | 17.8% |\n| URL | 620 | 48.5% |\n| USERNAME | 718 | 5.2% |",
+ "false_negatives": [
+  [
+   "ADDRESS",
+   2913
+  ],
+  [
+   "PERSON",
+   2888
+  ],
+  [
+   "PHONE",
+   968
+  ],
+  [
+   "EMAIL",
+   740
+  ],
+  [
+   "USERNAME",
+   681
+  ],
+  [
+   "URL",
+   319
+  ]
+ ],
+ "false_negative_examples": [
+  [
+   "PHONE",
+   "(95) 94215-7906"
+  ],
+  [
+   "ADDRESS",
+   "97 Lincoln Street"
+  ],
+  [
+   "PHONE",
+   "0475 4429797"
+  ],
+  [
+   "ADDRESS",
+   "826 Webster Street"
+  ],
+  [
+   "ADDRESS",
+   "1309 Southwest 71st Terrace"
+  ],
+  [
+   "PHONE",
+   "0304 2215930"
+  ],
+  [
+   "ADDRESS",
+   "736 Sicard Street Southeast"
+  ],
+  [
+   "ADDRESS",
+   "5701 North 67th Avenue"
+  ],
+  [
+   "PERSON",
+   "Baha's"
+  ],
+  [
+   "PERSON",
+   "Baha's"
+  ],
+  [
+   "PERSON",
+   "Baha's"
+  ],
+  [
+   "PHONE",
+   "(98) 96894-7830"
+  ],
+  [
+   "ADDRESS",
+   "6420 Via Baron"
+  ],
+  [
+   "ADDRESS",
+   "1890 Orchard View Road"
+  ],
+  [
+   "ADDRESS",
+   "4188 Summerview Drive"
+  ],
+  [
+   "USERNAME",
+   "(@ashok.ma"
+  ],
+  [
+   "ADDRESS",
+   "5036 Jericho Street"
+  ],
+  [
+   "PHONE",
+   "(13) 98824-5547"
+  ],
+  [
+   "ADDRESS",
+   "5036 Jericho Street"
+  ],
+  [
+   "ADDRESS",
+   "3904 Martagon Circle"
+  ],
+  [
+   "USERNAME",
+   "rluo"
+  ],
+  [
+   "USERNAME",
+   "er @ram_watanab"
+  ],
+  [
+   "ADDRESS",
+   "is 7930 Ronnie Tra"
+  ],
+  [
+   "PHONE",
+   "0953 350 216"
+  ],
+  [
+   "ADDRESS",
+   "9106 Ellis Way"
+  ],
+  [
+   "PHONE",
+   "(48) 96198-7145"
+  ],
+  [
+   "EMAIL",
+   "shenma@aol.gov"
+  ],
+  [
+   "ADDRESS",
+   "6418 Iris Way"
+  ],
+  [
+   "ADDRESS",
+   "4537 Tanglewood Trail"
+  ],
+  [
+   "PERSON",
+   "Aiguo Ma"
+  ],
+  [
+   "URL",
+   "https://www.aiguo_ma.net/blog.jsp"
+  ],
+  [
+   "USERNAME",
+   "@aiguo.ma"
+  ],
+  [
+   "USERNAME",
+   "chenpan13"
+  ],
+  [
+   "PERSON",
+   "Lee's"
+  ],
+  [
+   "PERSON",
+   "Lee's"
+  ],
+  [
+   "PERSON",
+   "Lee's"
+  ],
+  [
+   "PERSON",
+   "Lee's"
+  ],
+  [
+   "USERNAME",
+   "lee_koch15"
+  ],
+  [
+   "PERSON",
+   "Lee's"
+  ],
+  [
+   "ADDRESS",
+   "17372 Crestview Road"
+  ],
+  [
+   "PHONE",
+   "0139 257 342"
+  ],
+  [
+   "EMAIL",
+   "yokomccallister@hotmail.gov"
+  ],
+  [
+   "PERSON",
+   "Tadashi's"
+  ],
+  [
+   "ADDRESS",
+   "433 Keith Street"
+  ],
+  [
+   "EMAIL",
+   "tu_sasaki@outlook.gov"
+  ],
+  [
+   "ADDRESS",
+   "2140 East 56th Avenue"
+  ],
+  [
+   "PERSON",
+   "Manchu's"
+  ],
+  [
+   "PHONE",
+   "0832 887 825"
+  ],
+  [
+   "ADDRESS",
+   "74 Westerly Street"
+  ],
+  [
+   "ADDRESS",
+   "4 Marsh Haven Lane"
+  ],
+  [
+   "ADDRESS",
+   "301 Southeast 37th Street"
+  ],
+  [
+   "PHONE",
+   "(70) 98738-4976"
+  ],
+  [
+   "ADDRESS",
+   "11 Water Street"
+  ],
+  [
+   "EMAIL",
+   "katsumi.sasaki@msn.gov"
+  ],
+  [
+   "ADDRESS",
+   "6880 Ramos Lane"
+  ],
+  [
+   "ADDRESS",
+   "11715 Linda Locks Suite 740"
+  ],
+  [
+   "USERNAME",
+   "shanti_kimura46"
+  ],
+  [
+   "ADDRESS",
+   "52 Oleary Drive"
+  ],
+  [
+   "PERSON",
+   "Mieko's"
+  ],
+  [
+   "PHONE",
+   "0628 7524235"
+  ]
+ ],
+ "false_positives": [
+  [
+   "PERSON",
+   730
+  ],
+  [
+   "ORGANIZATION",
+   333
+  ],
+  [
+   "EMAIL",
+   110
+  ],
+  [
+   "URL",
+   51
+  ],
+  [
+   "PHONE",
+   15
+  ],
+  [
+   "LOCATION",
+   9
+  ],
+  [
+   "ADDRESS",
+   3
+  ]
+ ],
+ "false_positive_examples": [
+  [
+   "PERSON",
+   "Operation Safe Haven",
+   "mpact on his community. The project, aptly named \"Operation Safe Haven,\" aimed to address the growin"
+  ],
+  [
+   "PERSON",
+   "Operation Safe Haven",
+   " widespread recognition and respect. His project, Operation Safe Haven, became a model for other law"
+  ],
+  [
+   "PERSON",
+   "Sophia Rodriguez",
+   "ant odors. I received a call from the owner, Mrs. Sophia Rodriguez, who explained the problem an"
+  ],
+  [
+   "PERSON",
+   "Rodriguez",
+   "smoothly, and the foul odor had disappeared. Mrs. Rodriguez expressed her gratitude for m"
+  ],
+  [
+   "PERSON",
+   "Rodriguez",
+   " To ensure customer satisfaction, I provided Mrs. Rodriguez with a warranty for the repai"
+  ],
+  [
+   "ORGANIZATION",
+   "Seoul",
+   "scape. My journey began in the vibrant streets of Seoul, South Korea, where I was rai"
+  ],
+  [
+   "ORGANIZATION",
+   "Seoul National University",
+   "e a degree in computer science at the prestigious Seoul National University. During my time at university"
+  ],
+  [
+   "URL",
+   "www.xavier-kimura.com",
+   "ura@outlook.edu. You can also visit my website at www.xavier-kimura.com. My address is 6030 Newland S"
+  ],
+  [
+   "ORGANIZATION",
+   "Acme Corporation",
+   "oud of is the redesign of the company website for Acme Corporation. The existing website was out"
+  ],
+  [
+   "ORGANIZATION",
+   "Acme Corporation",
+   "as both informative and engaging, and that helped Acme Corporation to attract new customers and "
+  ],
+  [
+   "EMAIL",
+   "santos@hotmail.edu",
+   " Dos Santos 86 Pine Street 0851 9620965 jesus.dos santos@hotmail.edu"
+  ],
+  [
+   "ORGANIZATION",
+   "First National Bank",
+   "During my tenure as a banker at First National Bank, I had the privilege of leadi"
+  ],
+  [
+   "ORGANIZATION",
+   "Acme Corporation",
+   "bstantial sales contract with a prominent client, Acme Corporation, a leading provider of innova"
+  ],
+  [
+   "ORGANIZATION",
+   "Acme Corporation",
+   "ed her approach, conducting extensive research on Acme Corporation's business objectives, challe"
+  ],
+  [
+   "ORGANIZATION",
+   "Acme Corporation",
+   "out the sales cycle, Jazmin proactively addressed Acme Corporation's concerns and provided compr"
+  ],
+  [
+   "ORGANIZATION",
+   "Acme Corporation",
+   "t outlined a comprehensive strategy for achieving Acme Corporation's objectives. Jazmin's tenaci"
+  ],
+  [
+   "ORGANIZATION",
+   "Acme Corporation",
+   "ile to provide exceptional support, ensuring that Acme Corporation had all the necessary informa"
+  ],
+  [
+   "EMAIL",
+   "angelina_fontaine@outlook.net",
+   "et in touch with me, you can reach me by email at angelina_fontaine@outlook.net or by phone at (84) 95275-600"
+  ],
+  [
+   "PERSON",
+   "Golden Retriever",
+   " a beloved family pet named Luna. Luna, a playful Golden Retriever, was brought to our animal cl"
+  ],
+  [
+   "EMAIL",
+   "santos@outlook.edu",
+   "d camping. You can reach me via email at mary.dos santos@outlook.edu if you'd like to connect."
+  ],
+  [
+   "ORGANIZATION",
+   "Taiwan",
+   "y journey began in the vibrant streets of Taipei, Taiwan, where I was born and raised."
+  ],
+  [
+   "ORGANIZATION",
+   "National Taiwan University",
+   "y intensified. I pursued a degree in geography at National Taiwan University, where I delved into the intr"
+  ],
+  [
+   "ORGANIZATION",
+   "Taiwan",
+   "ains, lush forests, and bustling cities that make Taiwan so unique. After graduating, "
+  ],
+  [
+   "ORGANIZATION",
+   "Columbia University",
+   "d a master's degree in international relations at Columbia University. My studies focused on global"
+  ],
+  [
+   "PERSON",
+   "Sarah Watson",
+   " to patient care. The project involved a patient, Sarah Watson, who had been struggling with"
+  ],
+  [
+   "PERSON",
+   "Sarah",
+   " Dr. Martinez maintained close communication with Sarah, ensuring that she was fully "
+  ],
+  [
+   "PERSON",
+   "Sarah Johnson",
+   "ness. The patient, a 65-year-old woman named Mrs. Sarah Johnson, presented with a constellati"
+  ],
+  [
+   "PERSON",
+   "Johnson",
+   "dering a battery of tests, I discovered that Mrs. Johnson was suffering from an extreme"
+  ],
+  [
+   "PERSON",
+   "Johnson",
+   "d respiratory failure. Determined to provide Mrs. Johnson with the best possible care, "
+  ],
+  [
+   "PERSON",
+   "Johnson",
+   "ons, and providing emotional support to both Mrs. Johnson and her family. Despite the r"
+  ],
+  [
+   "PERSON",
+   "Johnson",
+   "trumental in fostering a strong rapport with Mrs. Johnson and her family. I made myself"
+  ],
+  [
+   "EMAIL",
+   "santos2327@msn.edu",
+   "ou can reach me at +27 98 312 5852 or masahirodos santos2327@msn.edu. You can also find me at 1930"
+  ],
+  [
+   "PERSON",
+   "John Smith. John",
+   "ne that stands out is the case of a patient named John Smith. John, a 55-year-old male, came to "
+  ],
+  [
+   "PERSON",
+   "John",
+   "inflammation and pain. I presented this option to John, and he agreed to try it. The"
+  ],
+  [
+   "EMAIL",
+   "richter797@outlook.net",
+   " him at +86 11376 8069 or send an email to vinod. richter797@outlook.net. Additionally, you can visit "
+  ],
+  [
+   "ORGANIZATION",
+   "National Institute of Health",
+   "accolades, including a prestigious grant from the National Institute of Health. Yukio's expertise and leader"
+  ],
+  [
+   "ORGANIZATION",
+   "New Horizons LLC",
+   "the launch of a new product line for her company, New Horizons LLC. Naya began working on the pr"
+  ],
+  [
+   "ORGANIZATION",
+   "New Horizons LLC",
+   "ales and profits, and it also helped to establish New Horizons LLC as a leader in the industry. "
+  ],
+  [
+   "PERSON",
+   "Maria Garcia. Maria",
+   "ing cases. But one that stands out is the case of Maria Garcia. Maria was a 35-year-old woman who c"
+  ],
+  [
+   "PERSON",
+   "Maria",
+   "broid surgically. The surgery was successful, and Maria made a full recovery. She was"
+  ],
+  [
+   "PERSON",
+   "Maria",
+   "l lead to new treatments that can help women like Maria live full and healthy lives. "
+  ],
+  [
+   "PERSON",
+   "Emily Carter",
+   "tuation that arose one afternoon. A patient, Mrs. Emily Carter, arrived at the clinic visibl"
+  ],
+  [
+   "PERSON",
+   "Carter",
+   " the clinic's policy regarding appointments, Mrs. Carter became increasingly upset and"
+  ],
+  [
+   "EMAIL",
+   "yuxuan.fournier2180@gmail.com",
+   "ess in the banking industry. (You can reach me at yuxuan.fournier2180@gmail.com if you have any questions.)"
+  ],
+  [
+   "PERSON",
+   "Treacher Collins",
+   "d Sarah with a rare congenital condition known as Treacher Collins syndrome. This syndrome affec"
+  ],
+  [
+   "ORGANIZATION",
+   "Pasteur Institute",
+   ", I embarked on a research career at the renowned Pasteur Institute in Paris. Here, I dedicated m"
+  ],
+  [
+   "ORGANIZATION",
+   "Howard Hughes Medical Institute",
+   "ld and received a prestigious fellowship from the Howard Hughes Medical Institute. This honor allowed me to con"
+  ],
+  [
+   "ORGANIZATION",
+   "Massachusetts Institute of Technology",
+   "ntinue my pursuit of scientific excellence at the Massachusetts Institute of Technology (MIT). There, I established m"
+  ],
+  [
+   "ORGANIZATION",
+   "Medical",
+   "ious awards, including the Lasker Award for Basic Medical Research and election to the "
+  ],
+  [
+   "ORGANIZATION",
+   "National Academy of Sciences",
+   "rd for Basic Medical Research and election to the National Academy of Sciences. I am deeply humbled by these"
+  ],
+  [
+   "ORGANIZATION",
+   "First National Bank",
+   "The renovation of the First National Bank's online banking platform was"
+  ],
+  [
+   "PERSON",
+   "Sarah Anderson",
+   "ne of these was a piece by a young composer named Sarah Anderson. Her composition, titled \"Urb"
+  ],
+  [
+   "PHONE",
+   "555-555-5555",
+   " by email at marceau-roy@yahoo.net or by phone at 555-555-5555. My address is 305 Broderick "
+  ],
+  [
+   "PERSON",
+   "Augustine Sinclair",
+   "t journey to honor the memory of the departed Mr. Augustine Sinclair. As Yukio received the call f"
+  ],
+  [
+   "PERSON",
+   "Sinclair",
+   "rranging a dignified wake, Yukio ensured that the Sinclair family's wishes were fulfille"
+  ],
+  [
+   "PERSON",
+   "Sinclair",
+   "he day of the funeral, Yukio arrived early at the Sinclair residence, his presence a com"
+  ],
+  [
+   "PERSON",
+   "Sinclair",
+   "he burial at the town cemetery, ensuring that Mr. Sinclair was laid to rest with the utm"
+  ],
+  [
+   "PERSON",
+   "Sinclair",
+   "re process, leaving an enduring impression on the Sinclair family. Their gratitude was h"
+  ],
+  [
+   "PHONE",
+   "(555) 555-5555",
+   "ached at gabriel.fischer@gmail.org or by phone at (555) 555-5555. My address is 1636 Briarview"
+  ],
+  [
+   "ORGANIZATION",
+   "Tsinghua University",
+   "ledge led me to pursue a degree in engineering at Tsinghua University, one of China's most prestigi"
+  ],
+  [
+   "PERSON",
+   "Van Gogh",
+   " works of the great Post-Impressionists, Cézanne, Van Gogh, and Gauguin, whose bold expe"
+  ],
+  [
+   "EMAIL",
+   "silva@yahoo.edu",
+   "each me, you can contact me via email at james_da silva@yahoo.edu or by phone at (39) 93578-178"
+  ],
+  [
+   "ORGANIZATION",
+   "Hilltop Middle School",
+   "g career. I am Chao Anderson, a school teacher at Hilltop Middle School. My email address is chao_and"
+  ],
+  [
+   "PERSON",
+   "Clara Johnson",
+   "r a property ownership issue. The plaintiff, Mrs. Clara Johnson, claimed ownership of a piece"
+  ],
+  [
+   "PERSON",
+   "Robert Smith",
+   "rom her late parents. However, the defendant, Mr. Robert Smith, had purchased the same land "
+  ],
+  [
+   "PERSON",
+   "Johnson",
+   "ubious means. As the legal representative of Mrs. Johnson, I conducted a thorough inves"
+  ],
+  [
+   "PERSON",
+   "Johnson",
+   "stice prevailed. The court ruled in favor of Mrs. Johnson, recognizing her legal entitl"
+  ],
+  [
+   "ORGANIZATION",
+   "Alpha University",
+   "My name is Iman Dong. My work at Alpha University spans over 16 years, teaching"
+  ],
+  [
+   "PERSON",
+   "Jacklyn Hayes",
+   " identified the individual as a known thief named Jacklyn Hayes, who had a history of targeti"
+  ],
+  [
+   "PERSON",
+   "Jacklyn",
+   "enforcement agencies, Detective Tang tracked down Jacklyn Hayes' hideout, where he reco"
+  ],
+  [
+   "PERSON",
+   "Jacklyn Hayes",
+   "long with several other stolen goods. He arrested Jacklyn Hayes and brought her to justice, s"
+  ],
+  [
+   "ADDRESS",
+   "123 Main Street, Anytown, CA 12345",
+   "everal weeks. I work at Mercy Hospital located at 123 Main Street, Anytown, CA 12345, and I can be reached at arth"
+  ],
+  [
+   "PERSON",
+   "Emily Carter",
+   "and required a creative solution. A patient, Mrs. Emily Carter, came to me with an unusual m"
+  ],
+  [
+   "PERSON",
+   "Carter",
+   "ation and pain. I explained the condition to Mrs. Carter and discussed various treatme"
+  ],
+  [
+   "PERSON",
+   "Carter",
+   "ere able to achieve a successful outcome for Mrs. Carter, improving her quality of lif"
+  ],
+  [
+   "EMAIL",
+   "tadashi_dos_santos@yahoo.com",
+   "n reach me by phone at 0918 231 9759, by email at tadashi_dos_santos@yahoo.com, or by mail at 717 Joseph Ave"
+  ],
+  [
+   "PERSON",
+   "Arecibo Observatory",
+   " and I'm an astronomer working at the prestigious Arecibo Observatory in Puerto Rico. My journey in"
+  ],
+  [
+   "ORGANIZATION",
+   "Tokyo University",
+   "ee in Mechanical Engineering from the prestigious Tokyo University, where I excelled in my studi"
+  ],
+  [
+   "ORGANIZATION",
+   "ABC Corporation",
+   " a software development firm. A prominent client, ABC Corporation, reached out with concerns re"
+  ],
+  [
+   "ORGANIZATION",
+   "ABC Corporation",
+   "fy any discrepancies. I was deeply satisfied when ABC Corporation expressed their gratitude for"
+  ]
+ ]
+}
