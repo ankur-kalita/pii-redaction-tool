@@ -8,8 +8,7 @@ ordinary dates, amounts, acronyms) are mixed in to measure precision.
 
 The set was generated and frozen *before* any change made for it.
 
-Usage: python eval/tickets/generate.py   (writes eval/tickets/tickets.docx,
-       sample.jsonl and ground_truth.jsonl)
+Usage: python eval/tickets/generate.py OUT.docx GOLD.jsonl
 """
 
 from __future__ import annotations
@@ -25,7 +24,6 @@ from faker import Faker
 sys.path.insert(0, ".")
 from redactor.docx_io import DocxDocument  # noqa: E402
 
-OUT = "eval/tickets/"
 SEED = 2026
 LOCALES = ["en_US"] * 6 + ["en_GB"] * 2 + ["en_IN"] * 2
 PRODUCTS = ["VPN client", "billing portal", "mobile app", "SSO login", "API gateway", "CRM sync", "invoice export"]
@@ -135,7 +133,7 @@ def ticket(r: random.Random, i: int) -> list[Line]:
     return lines
 
 
-def main() -> None:
+def main(docx_path: str, gold_path: str) -> None:
     r = random.Random(SEED)
     d = docx.Document()
     d.add_paragraph("Support ticket export - Q3 review. Internal use only.")
@@ -144,18 +142,14 @@ def main() -> None:
         for line in ticket(r, i):
             d.add_paragraph(line.text)
             all_lines.append(line)
-    path = OUT + "tickets.docx"
-    d.save(path)
-    # uids come from the same reader the tool uses
-    paras = DocxDocument(path).paragraphs[1:]
+    d.save(docx_path)
+    paras = DocxDocument(docx_path).paragraphs[1:]  # uids from the reader the tool uses
     assert [p.text for p in paras] == [line.text for line in all_lines]
-    with open(OUT + "sample.jsonl", "w") as s, open(OUT + "ground_truth.jsonl", "w") as g:
+    with open(gold_path, "w") as g:
         for p, line in zip(paras, all_lines, strict=True):
-            s.write(json.dumps({"paragraph": p.uid, "stratum": "all", "text": p.text}, ensure_ascii=False) + "\n")
             for label, value in line.spans:
                 g.write(json.dumps({"paragraph": p.uid, "label": label, "text": value}, ensure_ascii=False) + "\n")
-    print(f"{len(all_lines)} paragraphs, {sum(len(line.spans) for line in all_lines)} PII spans -> {path}")
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1], sys.argv[2])

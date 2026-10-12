@@ -7,8 +7,8 @@
   measures recall where PII actually is. The signal is deliberately simpler
   than the detectors, so the sample is not biased toward what they find.
 
-Usage: python eval/sample.py INPUT.docx OUT.jsonl [SEED] [EXCLUDE.jsonl]
-A second, held-out sample (seed 8) excludes every paragraph of the first one.
+Usage: python eval/prospectus/sample.py INPUT.docx OUT.jsonl [SEED] [EXCLUDE.jsonl]
+The held-out sample (seed 8) excludes every paragraph of the first (seed 7).
 
 Paragraphs longer than 700 characters are skipped to keep manual labelling
 reliable (noted as a limitation in the report).

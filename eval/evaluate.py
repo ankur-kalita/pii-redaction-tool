@@ -1,8 +1,7 @@
-"""Score the redactor against the hand-labelled ground truth.
+"""Score the redactor against hand-labelled ground truth.
 
-Usage: python eval/evaluate.py INPUT.docx REDACTED.docx [SAMPLE GOLD RESULTS]
-(defaults: eval/sample.jsonl eval/ground_truth.jsonl eval/results.json; the
-held-out set is eval/sample_holdout.jsonl eval/ground_truth_holdout.jsonl)
+Usage: python eval/evaluate.py INPUT.docx REDACTED.docx GOLD.jsonl RESULTS.json [--sample SAMPLE.jsonl]
+Without --sample, every paragraph of the document is scored.
 
 * Detection is run on the whole document (the catalogue needs the full text),
   then predictions are compared with gold labels on the sampled paragraphs.
@@ -20,6 +19,7 @@ held-out set is eval/sample_holdout.jsonl eval/ground_truth_holdout.jsonl)
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import sys
@@ -61,18 +61,15 @@ def prf(tp_p: int, n_pred: int, tp_g: int, n_gold: int) -> tuple[float, float, f
     return p, r, f
 
 
-def main(
-    input_path: str,
-    redacted_path: str,
-    sample_path: str = "eval/sample.jsonl",
-    gold_path: str = "eval/ground_truth.jsonl",
-    results_path: str = "eval/results.json",
-) -> None:
-    with open(sample_path) as f:
-        sample = [json.loads(line) for line in f]
+def main(input_path: str, redacted_path: str, gold_path: str, results_path: str, sample_path: str | None) -> None:
+    doc = DocxDocument(input_path)
+    if sample_path:
+        with open(sample_path) as f:
+            sample = [json.loads(line) for line in f]
+    else:
+        sample = [{"paragraph": p.uid, "text": p.text} for p in doc.paragraphs]
     gold = load_gold(sample, gold_path)
 
-    doc = DocxDocument(input_path)
     redactor = Redactor()
     _, per_par = redactor.detect([p.text for p in doc.paragraphs])
     pred_by_uid = {
@@ -151,4 +148,11 @@ def main(
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:6])
+    ap = argparse.ArgumentParser(description="Score a redaction against ground truth.")
+    ap.add_argument("input")
+    ap.add_argument("redacted")
+    ap.add_argument("gold")
+    ap.add_argument("results")
+    ap.add_argument("--sample", help="JSONL of the scored paragraphs (default: the whole document)")
+    a = ap.parse_args()
+    main(a.input, a.redacted, a.gold, a.results, a.sample)

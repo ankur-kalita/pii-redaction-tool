@@ -8,3 +8,6 @@ doc/
 *.mapping.json
 # Detections and mappings contain real PII
 private/
+
+# Rebuilt by eval/run_all.py
+eval/.work/
