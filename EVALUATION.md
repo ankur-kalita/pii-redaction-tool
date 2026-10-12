@@ -190,7 +190,7 @@ python eval/evaluate.py "doc/Red Herring Prospectus (6).docx" "output/Red Herrin
 # first sample
 python eval/evaluate.py "doc/Red Herring Prospectus (6).docx" "output/Red Herring Prospectus - redacted.docx"
 # NIST (PDF in doc/, public) and the synthetic ticket log
-python eval/nist/convert.py doc/nistspecialpublication800-122.pdf eval/nist/nist.docx
+python eval/convert_pdf.py doc/nistspecialpublication800-122.pdf eval/nist/nist.docx
 python -m redactor eval/nist/nist.docx -o eval/nist/nist_redacted.docx
 python eval/evaluate.py eval/nist/nist.docx eval/nist/nist_redacted.docx eval/nist/sample.jsonl eval/nist/ground_truth.jsonl eval/nist/results.json
 python eval/tickets/generate.py

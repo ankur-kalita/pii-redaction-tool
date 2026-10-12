@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 
 import spacy
 
-from .catalogue import CatalogueDetector, discover
+from .catalogue import Catalogue, CatalogueDetector, discover, owned_url
 from .detectors.base import Span
 from .detectors.entities import KEEP_DOMAINS, address_line, continues_address, find_addresses, find_orgs
 from .detectors.registry import STRUCTURED_DETECTORS
@@ -67,6 +67,7 @@ class Redactor:
             entity_spans = matcher.detect(text) + find_orgs(text, cat.lower_words)
             spans += entity_spans
             spans += find_addresses(text, [s for s in entity_spans if s.label == "ORGANIZATION"])
+            spans = [s for s in spans if s.label != "URL" or owned_url(s.text, cat)]
             spans = [s for s in resolve_overlaps(spans) if not is_allowed(s)]
             per_paragraph.append(spans)
         # Addresses split over lines: the street line has no PIN of its own,
@@ -103,16 +104,16 @@ class Redactor:
             if reps:
                 apply_replacements(para, reps)
 
-        doc.rewrite_hyperlinks(lambda target: _fake_link(target, fakes))
+        doc.rewrite_hyperlinks(lambda target: _fake_link(target, fakes, cat))
         result.images_replaced = replace_images(doc)
         doc.save(output_path)
         result.mapping = fakes.mapping()
         return result
 
 
-def _fake_link(target: str, fakes: Pseudonymizer) -> str:
+def _fake_link(target: str, fakes: Pseudonymizer, cat: Catalogue) -> str:
     if target.lower().startswith("mailto:"):
         return "mailto:" + fakes.email(target[7:])
-    if target.lower().startswith(("http://", "https://", "www.")):
+    if target.lower().startswith(("http://", "https://", "www.")) and owned_url(target, cat):
         return fakes.url(target)
     return target

@@ -1,15 +1,10 @@
 {
- "table": "| PII type | Gold | Predicted | Precision | Recall | F1 |\n|---|---|---|---|---|---|\n| **All PII (redaction view)** | 36 | 38 | 94.7% | 100.0% | 97.3% |\n| ADDRESS | 5 | 6 | 83.3% | 100.0% | 90.9% |\n| CIN | 1 | 1 | 100.0% | 100.0% | 100.0% |\n| EMAIL | 1 | 1 | 100.0% | 100.0% | 100.0% |\n| ORGANIZATION | 14 | 14 | 100.0% | 100.0% | 100.0% |\n| PERSON | 10 | 11 | 90.9% | 100.0% | 95.2% |\n| PHONE | 3 | 3 | 100.0% | 100.0% | 100.0% |\n| REGISTRATION_ID | 2 | 2 | 100.0% | 100.0% | 100.0% |",
- "token_accuracy": "99.12% (2254/2274 tokens)",
+ "table": "| PII type | Gold | Predicted | Precision | Recall | F1 |\n|---|---|---|---|---|---|\n| **All PII (redaction view)** | 36 | 37 | 97.3% | 100.0% | 98.6% |\n| ADDRESS | 5 | 6 | 83.3% | 100.0% | 90.9% |\n| CIN | 1 | 1 | 100.0% | 100.0% | 100.0% |\n| EMAIL | 1 | 1 | 100.0% | 100.0% | 100.0% |\n| ORGANIZATION | 14 | 14 | 100.0% | 100.0% | 100.0% |\n| PERSON | 10 | 10 | 100.0% | 100.0% | 100.0% |\n| PHONE | 3 | 3 | 100.0% | 100.0% | 100.0% |\n| REGISTRATION_ID | 2 | 2 | 100.0% | 100.0% | 100.0% |",
+ "token_accuracy": "99.21% (2256/2274 tokens)",
  "paragraphs": 100,
  "gold_entities": 36,
  "false_negatives": [],
  "false_positives": [
-  [
-   "PERSON",
-   "Deen Dayal",
-   "Deen Dayal Upadhyaya Gram Jyot"
-  ],
   [
    "ADDRESS",
    "Corporation Finance Department Division of Issues and Listing SEBI Bhavan, Plot No. C4 A, ‘G’ Block",

@@ -52,8 +52,9 @@ def test_credit_card_requires_luhn():
 
 
 def test_ssn_ip_dob():
-    assert found(SSN, "SSN 123-45-6789") == ["123-45-6789"]
+    assert found(SSN, "SSN 536-22-1847") == ["536-22-1847"]
     assert found(SSN, "SSN 000-45-6789") == []
+    assert found(SSN, "e.g. 123-45-6789 is an SSN") == []  # textbook example, never issued
     assert found(IP_ADDRESS, "server 10.20.30.40 up") == ["10.20.30.40"]
     assert found(IP_ADDRESS, "version 300.1.1.1") == []
     assert found(DOB, "Date of Birth: 06/05/2000") == ["06/05/2000"]

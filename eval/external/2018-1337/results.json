@@ -1,0 +1,59 @@
+{
+ "table": "| PII type | Gold | Predicted | Precision | Recall | F1 |\n|---|---|---|---|---|---|\n| **All PII (redaction view)** | 47 | 43 | 95.3% | 87.2% | 91.1% |\n| ORGANIZATION | 2 | 0 | 100.0% | 0.0% | 0.0% |\n| PERSON | 45 | 43 | 95.3% | 91.1% | 93.2% |",
+ "token_accuracy": "99.66% (3799/3812 tokens)",
+ "paragraphs": 92,
+ "gold_entities": 47,
+ "false_negatives": [
+  [
+   "ORGANIZATION",
+   "Snuvik Technologies",
+   "Mitra Product and Program Delivery Head,Snuvik Technologies Soumit Roy Architec"
+  ],
+  [
+   "PERSON",
+   "Mainak Mitra",
+   "S WITH IMPROVED ACCURACY AND EFFICIENCY Mainak Mitra Product and Program"
+  ],
+  [
+   "PERSON",
+   "Soumit Roy",
+   "ogram Delivery Head,Snuvik Technologies Soumit Roy Architect Data Anal"
+  ],
+  [
+   "ORGANIZATION",
+   "TCS",
+   "es Soumit Roy Architect Data Analytics, TCS Abstract Data gover"
+  ],
+  [
+   "PERSON",
+   "King-Harry",
+   "018, doi: 10.1016/j.procs.2018.05.020. “King-Harry/NinjaMasker-PII-Red"
+  ],
+  [
+   "PERSON",
+   "King-Harry",
+   "ilable: https://huggingface.co/datasets/King-Harry/NinjaMasker-PIIReda"
+  ]
+ ],
+ "false_positives": [
+  [
+   "PERSON",
+   "Long Short-Term Memory",
+   "Forest (RF), Logistic Regressions (LR), Long Short-Term Memory (LSTM), and Multi-L"
+  ],
+  [
+   "PERSON",
+   "Memory",
+   "ural Networks (RNN) and Long-Short Term Memory (LSTM) Recurrent Ne"
+  ]
+ ],
+ "leaked_detected_values": [],
+ "leaked_gold_values": [
+  "King-Harry",
+  "Mainak Mitra",
+  "Snuvik Technologies",
+  "Soumit Roy",
+  "TCS"
+ ],
+ "detected_values_checked": 43
+}

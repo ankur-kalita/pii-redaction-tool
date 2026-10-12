@@ -109,7 +109,12 @@ PAN = RegexDetector("PAN", r"\b[A-Z]{3}[ABCFGHLJPTK][A-Z]\d{4}[A-Z]\b")
 # Aadhaar: 12 digits, never starting with 0/1, Verhoeff checksum.
 AADHAAR = RegexDetector("AADHAAR", r"\b[2-9]\d{3}[\s-]?\d{4}[\s-]?\d{4}\b", validator=verhoeff_valid)
 
-SSN = RegexDetector("SSN", r"\b(?!000|666|9\d\d)\d{3}-(?!00)\d{2}-(?!0000)\d{4}\b")
+# Area 000/666/9xx, group 00 and serial 0000 are never issued; the others are
+# well-known void or advertising numbers that appear as examples in text.
+SSN = RegexDetector(
+    "SSN",
+    r"\b(?!000|666|9\d\d)(?!078-05-1120|219-09-9999|123-45-6789)\d{3}-(?!00)\d{2}-(?!0000)\d{4}\b",
+)
 
 CREDIT_CARD = RegexDetector("CREDIT_CARD", r"\b\d(?:[ -]?\d){12,18}\b", validator=luhn_valid)
 

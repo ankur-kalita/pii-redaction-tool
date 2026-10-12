@@ -1,0 +1,92 @@
+{
+ "table": "| PII type | Gold | Predicted | Precision | Recall | F1 |\n|---|---|---|---|---|---|\n| **All PII (redaction view)** | 20 | 36 | 55.6% | 100.0% | 71.4% |\n| ORGANIZATION | 5 | 6 | 83.3% | 100.0% | 90.9% |\n| PERSON | 15 | 28 | 53.6% | 100.0% | 69.8% |",
+ "token_accuracy": "99.56% (7274/7306 tokens)",
+ "paragraphs": 154,
+ "gold_entities": 20,
+ "false_negatives": [],
+ "false_positives": [
+  [
+   "PERSON",
+   "Spring Boot",
+   "contextual classification, and a secure Spring Boot backend for control"
+  ],
+  [
+   "PERSON",
+   "Spring Boot",
+   "s, Regular Expressions, Secure Storage, Spring Boot, Information Securi"
+  ],
+  [
+   "PERSON",
+   "Spring Boot",
+   "chanism. The backend, implemented using Spring Boot, ensures secure sto"
+  ],
+  [
+   "PERSON",
+   "Intel",
+   "uration Client Machine (Dev/Test): CPU: Intel Core i5 (4 cores, 8"
+  ],
+  [
+   "PERSON",
+   "Intel",
+   "Backend Host: CPU: Intel Xeon-class vCPU (2–"
+  ],
+  [
+   "PERSON",
+   "Spring Boot",
+   "ersions Backend & APIs: Node.js 20.x or Spring Boot 3.x; Java 17 (if Sp"
+  ],
+  [
+   "PERSON",
+   "Spring Boot",
+   "js 20.x or Spring Boot 3.x; Java 17 (if Spring Boot); Express/Koa (Node"
+  ],
+  [
+   "PERSON",
+   "Spring Web",
+   "(if Spring Boot); Express/Koa (Node) or Spring Web (Java); Maven 3.9.x"
+  ],
+  [
+   "PERSON",
+   "Requiretraini TraditionalM",
+   "nt blur,noise,or extraction handwriting Requiretraini TraditionalM Bettercontextr ngda"
+  ],
+  [
+   "PERSON",
+   "Multi-Authority Federation",
+   "y credentials. B. Multi-Institution and Multi-Authority Federation A federated verific"
+  ],
+  [
+   "ORGANIZATION",
+   "F. Single Point of Trust",
+   "be required to address this limitation. F. Single Point of Trust in the Issuance Reg"
+  ],
+  [
+   "PERSON",
+   "GitHub Repository",
+   "D/2D Barcode Image Processing Library,” GitHub Repository, 2024."
+  ],
+  [
+   "URL",
+   "https://github.com/zxing/zxing",
+   "[Online]. Available: https://github.com/zxing/zxing [5] Google Tesserac"
+  ],
+  [
+   "PERSON",
+   "GitHub Repository",
+   "CR, “Tesseract Open Source OCR Engine,” GitHub Repository, 2024. [Online]. Av"
+  ],
+  [
+   "URL",
+   "https://github.com/tesseract-ocr/tesseract",
+   " Repository, 2024. [Online]. Available: https://github.com/tesseract-ocr/tesseract [6] J. Devlin, M. C"
+  ],
+  [
+   "PERSON",
+   "Protocol Labs",
+   "Distributed File Storage and Retrieval, Protocol Labs, 2023. Available: h"
+  ]
+ ],
+ "leaked_detected_values": [],
+ "leaked_gold_values": [],
+ "detected_values_checked": 26
+}

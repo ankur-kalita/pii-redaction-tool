@@ -35,7 +35,7 @@ def test_ordinary_word_care_is_never_matched():
 
 
 def test_acronym_rule_needs_all_caps_evidence_inside_a_company_name():
-    doc = ["Prepared by Care Analytics Private Limited.", "The CARE Report."]
+    doc = ["Prepared by Care Analytics Private Limited.", "The CARE Report.", "Handle with care."]
     assert orgs_in("The CARE Report.", doc) == []
 
 

@@ -27,18 +27,10 @@ NON_NAME_WORDS = {
     "plant", "unit", "warehouse", "director", "officer", "secretary", "chairman", "partner",
     "auditor", "auditors", "accountants", "chartered", "associates", "ebit", "ebitda", "pat",
     "bill", "cap", "floor", "red", "herring", "prospectus", "annexure", "section", "clause",
-    "llc", "ab", "huf", "hospital", "pradhan", "mantri", "yojana", "awas", "kisan", "mission",
+    "llc", "ab", "huf", "hospital", "mission",
     "scheme", "portal", "sebi", "icdr", "rta", "cdp", "scsb", "ind", "states", "dollars",
     "department", "foundation", "cell", "chemistry", "analytics", "transformation", "urban",
-    "leasing", "suraksha", "urja", "advanced", "united",
-}
-# Capitalised English words that must never be matched on their own, even
-# though they are part of a company name here ("Georgia Transformer Corporation").
-NOT_STANDALONE = {
-    "federal", "georgia", "virginia", "emirates", "united", "advanced", "cell", "chemistry",
-    "urban", "analytics", "link", "foundation", "integrated", "precision", "care", "broad",
-    "everest", "states", "dollars", "transformation", "union", "self-certified", "rod", "llc",
-    "fig-ops", "kumar", "ram", "rai", "shah", "deen", "dayal", "bharat", "malabar",
+    "leasing", "advanced", "united",
 }
 PLACE_SUFFIXES = ("nagar", "wadi", "pur", "abad", "gaon", "pada", "khed", "marg")
 
@@ -83,8 +75,7 @@ KEEP_ORG_RE = re.compile("|".join(KEEP_ORG_PATTERNS), re.IGNORECASE)
 
 KEEP_DOMAINS = re.compile(
     r"(?:sebi\.gov\.in|bseindia\.com|nseindia\.com|rbi\.org\.in|mca\.gov\.in|nsdl\.co\.in|"
-    r"cdslindia\.com|incometax|uidai\.gov\.in|npci\.org\.in|gov\.in|fbil\.org\.in|oanda\.com|"
-    r"citibank\.com|\.gov\b|\.gov\.[a-z]{2}\b|\.mil\b|\.int\b)",
+    r"cdslindia\.com|incometax|uidai\.gov\.in|npci\.org\.in|gov\.in|\.gov\b|\.gov\.[a-z]{2}\b|\.mil\b|\.int\b)",
     re.IGNORECASE,
 )
 
@@ -97,12 +88,15 @@ ORG_RE = re.compile(
     rf"\b(?:{_ORG_WORD}\s+){{0,6}}?{LEGAL_SUFFIX}(?![A-Za-z])",
 )
 ORG_RE_CAPS = re.compile(rf"\b(?:{_ORG_WORD}\s+){{0,6}}?{LEGAL_SUFFIX}(?![A-Za-z])", re.IGNORECASE)
-# "State Bank of India", "Bank of Baroda": "Bank of <Place>" is itself the
-# signal that this is a bank's name, even when every word is a common word.
+# Names recognised by their shape rather than a legal suffix:
+#   "State Bank of India": "Bank of <Place>" names a bank even in common words
+#   "Capri College", "Rajarshi Shahu College of Engineering"
+#   "Sharp, Wood and Chang": a partnership of surnames (PII either way)
 BANK_OF_RE = re.compile(r"\b(?:[A-Z][A-Za-z\-]+\s+){0,3}Bank\s+of\s+[A-Z][a-z]+\b")
-# Partnership-style names without a legal suffix: "Sharp, Wood and Chang".
-# Accepted only when every word is a proper noun in this document; a list of
-# surnames is PII anyway, so masking it is safe either way.
+INSTITUTION_RE = re.compile(
+    r"\b(?:[A-Z][\w'’\-]*\s+){1,4}(?:College|University|Institute|School|Academy)"
+    r"(?:\s+of(?:\s+(?:[A-Z][a-z]+|&|and)){1,3})?\b"
+)
 PARTNERSHIP_RE = re.compile(r"\b[A-Z][a-z]+(?:-[A-Z][a-z]+)?, [A-Z][a-z]+(?:-[A-Z][a-z]+)? (?:and|&) [A-Z][a-z]+(?:-[A-Z][a-z]+)?\b")
 # Legal-form words: part of a company name, but never its distinctive part.
 LEGAL_WORDS = {"llc", "llp", "plc", "ltd", "inc", "pvt", "huf", "gmbh"}
@@ -126,66 +120,62 @@ def is_caps(text: str) -> bool:
 
 
 def find_orgs(text: str, lower_words: set[str] = frozenset()) -> list[Span]:
-    """Company names ending in a legal suffix ("... Private Limited", "... LLP",
-    "... Family Trust"), with leading non-name words trimmed off."""
-    regex = ORG_RE_CAPS if is_caps(text) else ORG_RE
-    spans = []
-    for m in regex.finditer(text):
-        start, value = m.start(), m.group(0)
-        words = value.split()
-        while words and words[0].lower().strip(",.:;()") in ORG_LEADING_JUNK:
-            start += text[start:].index(words[0]) + len(words[0])
-            while start < len(text) and text[start].isspace():
-                start += 1
-            words = words[1:]
-        value = text[start : m.end()]
-        distinct = distinctive_tokens(value)
-        if not distinct:
-            continue  # e.g. "Stock Exchanges Limited", "the Bank"
-        if WEAK_SUFFIX_RE.search(value) and not any(t.lower() not in lower_words for t in distinct):
-            continue  # "Refund Bank", "Escrow Collection Bank"
-        if KEEP_ORG_RE.search(value):
-            continue
-        spans.append(Span(start, m.end(), "ORGANIZATION", value))
-    for m in PARTNERSHIP_RE.finditer(text):
-        words = [w.lower() for w in re.findall(r"[A-Za-z]+", m.group(0)) if w not in ("and",)]
-        if (any(english_word(w, lower_words) or w in MAJOR_PLACES or w in GENERIC_ORG_WORDS or w in NON_NAME_WORDS
-                for w in words)
-                or not lower_words or re.match(r"\s+(?:Act|Rules|Regulations)\b", text[m.end():])
-                or any(s.start < m.end() and m.start() < s.end for s in spans)):
-            continue
-        spans.append(Span(m.start(), m.end(), "ORGANIZATION", m.group(0)))
-    for m in BANK_OF_RE.finditer(text):
-        start = m.start()
-        words = m.group(0).split()
-        while words and words[0].lower() in ORG_LEADING_JUNK:  # "The State Bank of India"
-            start = text.index(words[1], start + len(words[0]))
-            words = words[1:]
-        value = text[start : m.end()]
-        if (KEEP_ORG_RE.search(value) or not distinctive_tokens(value)
-                or any(s.start < m.end() and start < s.end for s in spans)):
-            continue
-        spans.append(Span(start, m.end(), "ORGANIZATION", value))
+    """Company and institution names: a legal suffix ("... Private Limited"),
+    a bank or institution shape, or a partnership of surnames."""
+    rules = [("suffix", ORG_RE_CAPS if is_caps(text) else ORG_RE), ("bank", BANK_OF_RE),
+             ("institution", INSTITUTION_RE), ("partnership", PARTNERSHIP_RE)]
+    spans: list[Span] = []
+    for rule, regex in rules:
+        for m in regex.finditer(text):
+            span = _org_span(text, m.start(), m.end(), rule, lower_words)
+            if span and not any(span.start < s.end and s.start < span.end for s in spans):
+                spans.append(span)
     return sorted(spans, key=lambda s: s.start)
 
 
+def _org_span(text: str, start: int, end: int, rule: str, lower_words: set[str]) -> Span | None:
+    skip = ORG_LEADING_JUNK | (GENERIC_ORG_WORDS | NON_NAME_WORDS if rule == "institution" else set())
+    while (word := re.match(r"\S+\s+", text[start:end])) and word.group(0).strip().lower().strip(",.:;()") in skip:
+        start += word.end()
+    if rule == "institution":
+        while (tail := re.search(r"\s+(\S+)$", text[start:end])) and tail.group(1).lower() in MAJOR_PLACES | {"and", "&"}:
+            end -= len(tail.group(0))
+    value = text[start:end]
+    distinct = distinctive_tokens(value)
+    if not distinct or KEEP_ORG_RE.search(value):
+        return None  # "Stock Exchanges Limited", "the Bank", regulators
+    if rule == "suffix" and WEAK_SUFFIX_RE.search(value) and all(t.lower() in lower_words for t in distinct):
+        return None  # "Refund Bank", "Escrow Collection Bank"
+    if rule == "institution" and all(english_word(t, lower_words) for t in distinct):
+        return None  # "Business School"
+    if rule == "partnership":
+        words = [w.lower() for w in re.findall(r"[A-Za-z]+", value) if w != "and"]
+        if (not lower_words or re.match(r"\s+(?:Act|Rules|Regulations)\b", text[end:])
+                or any(english_word(w, lower_words) or w in MAJOR_PLACES | GENERIC_ORG_WORDS | NON_NAME_WORDS
+                       for w in words)):
+            return None  # law titles ("Trades, Callings and Employment Act"), lists of places
+    return Span(start, end, "ORGANIZATION", value)
+
+
+WORD_ENDINGS = ("s", "es", "d", "ed", "ing", "ings", "ly", "er", "ion", "ions", "ation", "ment", "ments", "al")
+
+
 def english_word(word: str, lower_words: set[str]) -> bool:
-    """The document uses this word, or its base form, in lower case
-    ("Employment" -> "employ", "Trades" -> "trade"), so it is a common word."""
+    """The document uses this word, or a form of it, in lower case
+    ("Employment" -> "employ", "Integrated" -> "integration", "Broad" ->
+    "broadly"), so it is a common word rather than a name."""
     word = word.lower()
-    if word in lower_words:
-        return True
-    for suffix in ("ments", "ment", "tions", "tion", "ings", "ing", "es", "s"):
-        if word.endswith(suffix) and len(word) - len(suffix) >= 3 and word[: -len(suffix)] in lower_words:
-            return True
-    return False
+    if "-" in word:
+        return all(english_word(part, lower_words) for part in word.split("-") if part)
+    stems = {word} | {word[: -len(e)] for e in WORD_ENDINGS if word.endswith(e) and len(word) - len(e) >= 3}
+    return any(stem in lower_words or any(stem + e in lower_words for e in WORD_ENDINGS) for stem in stems)
 
 
 def distinctive_tokens(org_name: str) -> list[str]:
     """The identifying part of a company name: "KSH International Limited" ->
     ["KSH"]. Generic business words and legal suffixes are not identifying."""
     toks = re.findall(r"[A-Za-z][A-Za-z0-9'\-]*", org_name)
-    return [t for t in toks if t.lower() not in GENERIC_ORG_WORDS and t.lower() not in ORG_LEADING_JUNK]
+    return [t for t in toks if len(t) > 1 and t.lower() not in GENERIC_ORG_WORDS and t.lower() not in ORG_LEADING_JUNK]
 
 
 # --- addresses ----------------------------------------------------------------
@@ -194,7 +184,7 @@ ADDRESS_WORDS = (
     r"road|rd\.|marg|street|st\.|lane|nagar|taluka|village|district|floor|building|complex|"
     r"tower|wing|plot|survey|s\.\s?no|sector|block|phase|park|society|chowk|peth|colony|"
     r"estate|house|centre|center|bhavan|apartment|flat|near|opposite|opp\.|behind|midc|"
-    r"industrial area|cross|main|layout|gymkhana|reclamation|kurla|bandra|parel"
+    r"industrial area|cross|main|layout"
 )
 ADDRESS_WORD_RE = re.compile(rf"\b(?:{ADDRESS_WORDS})\b", re.IGNORECASE)
 # City name, an optional dash, and a 6-digit Indian PIN code ("Pune – 411 045").
@@ -326,6 +316,23 @@ def _span(text: str, start: int, end: int) -> list[Span]:
 
 
 # --- people -------------------------------------------------------------------
+
+# Citation-style names: "B. A. Beckwith", "K. El Emam", "D. Barth-Jones".
+_CITED = r"(?:[A-Z]\.\s?){1,3}(?:(?:El|De|Van|Von|Da|Di|Le|La)\s)?[A-Z][a-z]+(?:-[A-Z][a-z]+)?"
+CITED_RE = re.compile(_CITED)
+# Two or more in a list, or one followed by a quoted title or "et al."
+CITED_CONTEXT_RE = re.compile(
+    rf"{_CITED}(?:,\s(?:and\s)?{_CITED}|,?\sand\s{_CITED})+|{_CITED}(?=,\s*[“\"]|\s+et\s+al\b)"
+)
+ET_AL_RE = re.compile(r"\b([A-Z][a-z]+(?:-[A-Z][a-z]+)?)\s+et\s+al\b")
+
+
+def find_cited_names(text: str) -> list[str]:
+    """Names written as in a reference list. A lone "A. Smith" in prose is not
+    enough ("U.S. Code" has the same shape); a list or a citation is."""
+    names = [n.group(0) for m in CITED_CONTEXT_RE.finditer(text) for n in CITED_RE.finditer(m.group(0))]
+    return names + [m.group(1) for m in ET_AL_RE.finditer(text)]
+
 
 NAME_TOKEN_RE = re.compile(r"^[A-Z][a-z]+(?:-[A-Z][a-z]+)?$|^[A-Z]\.?$")
 

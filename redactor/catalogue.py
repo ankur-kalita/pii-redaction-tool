@@ -16,17 +16,20 @@ from .detectors.entities import (
     ADDRESS_WORD_RE,
     GENERIC_ORG_WORDS,
     KEEP_ORG_RE,
+    WEAK_SUFFIX_RE,
     LEGAL_WORDS,
     NON_NAME_WORDS,
     MAJOR_PLACES,
-    NOT_STANDALONE,
     distinctive_tokens,
+    english_word,
     find_addresses,
+    find_cited_names,
     find_orgs,
     is_caps,
     plausible_person,
 )
 
+EMAIL_DOMAIN_RE = re.compile(r"@([\w-]+(?:\.[\w-]+)+)")
 EMAIL_LOCAL_RE = re.compile(r"\b([A-Za-z][\w.]*)@[\w-]+\.")
 CAP_WORDS_RE = re.compile(r"[A-Z][A-Za-z'\-]*\.?(?:\s+[A-Z][A-Za-z'\-]*\.?)*")
 # A defined-term nickname right after a company name:
@@ -46,6 +49,7 @@ class Catalogue:
     localities: set[str] = field(default_factory=set)  # rare place names (Chakan, Birdewadi)
     caps_brands: set[str] = field(default_factory=set)  # "CARE": matched only in ALL CAPS
     acronyms: set[str] = field(default_factory=set)  # "omb", "nist": never part of a name
+    email_domains: set[str] = field(default_factory=set)  # "kshinternational.com"
 
     def add_person(self, name: str) -> None:
         canonical = " ".join(t.strip(".").title() if len(t.strip(".")) > 1 else t for t in name.split())
@@ -70,9 +74,12 @@ def discover(paragraph_texts: list[str], nlp) -> Catalogue:
         # Emails/URLs are lower case by convention, not evidence of a common word.
         plain = re.sub(r"\S+@\S+|\b(?:https?://|www\.)\S+", " ", text)
         cat.lower_words.update(re.findall(r"\b[a-z][a-z'\-]+\b", plain))
+    terms = defined_terms(paragraph_texts)
     for text in paragraph_texts:
         orgs = find_orgs(text, cat.lower_words)
         for o in orgs:
+            if WEAK_SUFFIX_RE.search(o.text) and _is_term(o.text, terms):
+                continue  # "Self-Certified Syndicate Bank (SCSB)" is a category, not a company
             cat.add_org(o.text)
             alias = ALIAS_RE.match(text, o.end)
             if alias and _reuses_brand(alias.group(1), o.text):
@@ -104,13 +111,19 @@ def discover(paragraph_texts: list[str], nlp) -> Catalogue:
             for part in re.split(r"\s*[/,;]\s*|\s+and\s+", ent.text):
                 part = part.strip(" .'’")
                 part = re.sub(r"['’]s$", "", part)
-                if any(t.lower() in cat.acronyms for t in part.split()):
+                if any(t.lower() in cat.acronyms for t in part.split()) or any(part.lower() in t for t in terms):
                     continue
                 if plausible_person(part, cat.place_tokens, cat.lower_words):
                     cat.add_person(part)
 
+    for text in paragraph_texts:
+        for name in find_cited_names(text):
+            if not any(t.strip(".").lower() in cat.acronyms for t in name.split()):
+                cat.add_person(name)
+
     # People revealed by their email: "sachin.gawade@bank.com" next to the
     # text "Sachin Gawade" names a person even when NER misses the name.
+    cat.email_domains = {m.group(1).lower() for t in paragraph_texts for m in EMAIL_DOMAIN_RE.finditer(t)}
     joined = "\n".join(paragraph_texts)
     for local in {m.group(1) for t in paragraph_texts for m in EMAIL_LOCAL_RE.finditer(t)}:
         parts = re.split(r"[._]", local)
@@ -123,9 +136,10 @@ def discover(paragraph_texts: list[str], nlp) -> Catalogue:
     # A token may be matched on its own (e.g. "Hegde", "KSH") only when it is
     # a proper noun in this document: it never appears in lower case. Otherwise
     # "Broad Family Trust" would turn every "broad" into a fake name.
+    term_words = {w for t in terms for w in re.findall(r"[a-z][a-z\-]*", t)}
+
     def is_english(tok: str) -> bool:
-        forms = {tok, tok + "s", tok + "es", tok.rstrip("s"), tok[:-2] if tok.endswith("es") else tok}
-        return bool(forms & cat.lower_words) or tok in NOT_STANDALONE
+        return english_word(tok, cat.lower_words) or tok in term_words
 
     for tok in cat.person_tokens:
         if len(tok) >= 3 and not is_english(tok) and tok not in cat.place_tokens:
@@ -157,12 +171,53 @@ def discover(paragraph_texts: list[str], nlp) -> Catalogue:
     return cat
 
 
+ACRONYM_RE = re.compile(r"[A-Z][A-Z\-]{1,11}")
+EXPANSION_RE = re.compile(r"((?:[A-Z][a-z]+[\s-]+(?:[a-z]+\s+)?){2,}[A-Z][a-z]+)\s*\(\s*[“\"]?([A-Z][A-Z\-]+)s?[”\"]?\s*\)")
+
+
+def defined_terms(paragraph_texts: list[str]) -> set[str]:
+    """Phrases spelled out by an acronym next to them, in a glossary row
+    ("PMAY" | "Pradhan Mantri Awas Yojana") or in brackets ("... (PMAY)").
+    They name schemes and bodies, not people."""
+    def spells(phrase: str, acronym: str) -> bool:
+        initials = "".join(w[0] for w in phrase.split() if w[0].isupper())
+        letters = acronym.replace("-", "")
+        return min(len(initials), len(letters)) >= 3 and (initials.startswith(letters) or letters.startswith(initials))
+
+    terms = set()
+    for prev, text in zip([""] + paragraph_texts, paragraph_texts):
+        if ACRONYM_RE.fullmatch(prev.strip()) and spells(text.strip(), prev.strip()):
+            terms.add(text.strip().lower())
+        terms |= {m.group(1).lower() for m in EXPANSION_RE.finditer(text) if spells(m.group(1), m.group(2))}
+    return terms
+
+
+def _is_term(name: str, terms: set[str]) -> bool:
+    words = " ".join(re.findall(r"[a-z]+", name.lower()))
+    return any(" ".join(re.findall(r"[a-z]+", t)).startswith(words) for t in terms)
+
+
+def _initial(tok: str) -> bool:
+    return len(tok.strip(".")) == 1
+
+
 def _reuses_brand(alias: str, org: str) -> bool:
     """A nickname counts only if it reuses the company's distinctive word
     ("CareEdge Research" for "CARE Analytics ..."); defined terms like
     "Practicing Company Secretary" or "Group Entities" are roles, not names."""
     brands = [t.lower() for t in distinctive_tokens(org) if len(t) >= 3]
     return any(w.lower().startswith(b) for w in alias.split() for b in brands)
+
+
+def owned_url(url: str, cat: Catalogue) -> bool:
+    """A website identifies its owner. It is masked when the owner is: its
+    domain contains a masked company or person name, or is used for email in
+    the document. Public references (a journal, github.com) are kept."""
+    host = re.sub(r"(?i)^(?:https?://)?(?:www\.)?", "", url).split("/")[0].replace(" ", "").lower()
+    if any(host == d or host.endswith("." + d) or d.endswith("." + host) for d in cat.email_domains):
+        return True
+    owners = (t for t in cat.brand_tokens | set(cat.person_tokens) if len(t) >= 3)
+    return any(t in host for t in owners)
 
 
 class CatalogueDetector:
@@ -200,22 +255,29 @@ class CatalogueDetector:
         spans += self._people(text)
         return spans
 
+    def _name_part(self, tok: str, first: bool) -> bool:
+        """A known name word, or an initial. A name may start with an initial
+        only when it is dotted ("B. A. Beckwith"), so the article in "A Hegde
+        family" is not taken for one."""
+        if tok.strip(".").lower() in self.cat.person_tokens:
+            return True
+        return _initial(tok) and (not first or tok.endswith("."))
+
     def _people(self, text: str) -> list[Span]:
-        known = self.cat.person_tokens
         spans = []
         for m in CAP_WORDS_RE.finditer(text):
             toks = [(t.group(0), m.start() + t.start()) for t in re.finditer(r"[A-Za-z'\-]+\.?", m.group(0))]
             i = 0
             while i < len(toks):
                 j = i
-                while j < len(toks) and (toks[j][0].strip(".").lower() in known or (len(toks[j][0].strip(".")) == 1 and j > i)):
+                while j < len(toks) and self._name_part(toks[j][0], first=j == i):
                     j += 1
                 run = toks[i:j]
-                while run and len(run[-1][0].strip(".")) == 1:  # don't end on a stray initial
+                while run and _initial(run[-1][0]):  # don't end on a stray initial
                     run = run[:-1]
-                named = [t for t, _ in run if len(t.strip(".")) > 1]
-                single_ok = len(named) == 1 and named[0].strip(".").lower() in self.cat.standalone_ok
-                if len(named) >= 2 or single_ok:
+                named = [t.strip(".").lower() for t, _ in run if not _initial(t)]
+                cited = len(named) == 1 and len(run) > 1  # "J. Li"
+                if len(named) >= 2 or (named and (named[0] in self.cat.standalone_ok or cited)):
                     start = run[0][1]
                     last, pos = run[-1]
                     end = pos + len(last.rstrip("."))
