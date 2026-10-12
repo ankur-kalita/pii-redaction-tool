@@ -139,7 +139,7 @@ def _learn_orgs_and_places(cat: Catalogue, texts: list[str]) -> None:
             alias = ALIAS_RE.match(text, o.end)
             if alias and _reuses_brand(alias.group(1), o.text):
                 cat.add_org(alias.group(1))
-        for a in find_addresses(text, orgs):
+        for a in find_addresses(text, orgs, cat.lower_words):
             cat.place_tokens.update(t.lower() for t in re.findall(r"[A-Za-z]+", a.text))
 
 

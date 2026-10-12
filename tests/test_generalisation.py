@@ -131,3 +131,11 @@ def test_bare_domains_are_websites():
 
     text = "see bsuzuki.edu and blog.amber_sasaki.org/contact, mail me at a.b@yahoo.com, read issuedDocs.json"
     assert [s.text for s in BARE_DOMAIN.detect(text)] == ["bsuzuki.edu", "blog.amber_sasaki.org/contact"]
+
+
+def test_amounts_are_not_postal_codes():
+    words = {"revenue", "total"}
+    assert find_addresses("Revenue Rs 150000 and Total 125000 for the year", lower_words=words) == []
+    assert [s.text for s in find_addresses("Office: 14 MG Road, Pune 411045", lower_words=words)] == [
+        "14 MG Road, Pune 411045"
+    ]

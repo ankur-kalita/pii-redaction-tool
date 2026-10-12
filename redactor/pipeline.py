@@ -86,7 +86,8 @@ class Redactor:
                 spans += det.detect(text)
             entity_spans = matcher.detect(text) + find_orgs(text, cat.lower_words)
             spans += entity_spans
-            spans += find_addresses(text, [s for s in entity_spans if s.label == "ORGANIZATION"])
+            orgs = [s for s in entity_spans if s.label == "ORGANIZATION"]
+            spans += find_addresses(text, orgs, cat.lower_words)
             spans = [
                 s for s in spans if s.label != "URL" or owned_url(s.text, cat, text[max(0, s.start - 80) : s.start])
             ]

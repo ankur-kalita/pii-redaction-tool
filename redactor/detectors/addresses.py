@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 
 from .base import Span
-from .lexicon import is_caps
+from .lexicon import english_word, is_caps
 
 ADDRESS_WORD_RE = re.compile(
     r"\b(?:road|rd\.|marg|street|st\.|lane|nagar|taluka|village|district|floor|building|complex|"
@@ -41,24 +41,24 @@ CUE_PROSE_RE = re.compile(CUE_RE.pattern + r"|\bat\s+(?=\S*\d)", re.IGNORECASE)
 LEFTOVER_SUFFIX_RE = re.compile(r"\s*(?:Private\s+Limited|Pvt\.?\s+Ltd\.?|Limited|Ltd\.?|LLP)\b")
 
 
-def find_addresses(text: str, org_spans: list[Span] = ()) -> list[Span]:
+def find_addresses(text: str, org_spans: list[Span] = (), lower_words: set[str] = frozenset()) -> list[Span]:
     """Addresses ending in a postal code, plus street addresses written without
     one ("I live at 211 West Oak Street")."""
-    spans = _postal_addresses(text, org_spans)
+    spans = _postal_addresses(text, org_spans, lower_words)
     for m in STREET_RE.finditer(text):
         if not any(m.start() < s.end and s.start < m.end() for s in spans):
             spans.append(Span(m.start(), m.end(), "ADDRESS", m.group(0)))
     return sorted(spans, key=lambda s: s.start)
 
 
-def _postal_addresses(text: str, org_spans: list[Span]) -> list[Span]:
+def _postal_addresses(text: str, org_spans: list[Span], lower_words: set[str]) -> list[Span]:
     """Every postal code ends one address. It starts at a cue ("Office at"),
     after a company name on the same line, or at the start of the line. The
     state and country after the code are kept."""
     stripped = text.strip()
     if not stripped:
         return []
-    anchors = postal_anchors(text)
+    anchors = postal_anchors(text, lower_words)
     if not anchors:
         # without a postal code, a line must look strongly like an address
         if len(ADDRESS_WORD_RE.findall(text)) < 2 or len(stripped) > 160 or not re.search(r"\d", text):
@@ -82,11 +82,11 @@ def _postal_addresses(text: str, org_spans: list[Span]) -> list[Span]:
     return spans
 
 
-def postal_anchors(text: str) -> list[tuple[int, int]]:
+def postal_anchors(text: str, lower_words: set[str] = frozenset()) -> list[tuple[int, int]]:
     """Postal codes with their city. A capitals-only "city" inside ordinary
     text ("TCK-100000") is a code, not a city."""
     caps = is_caps(text)
-    found = [m.span() for m in CITY_PIN_RE.finditer(text) if caps or not m.group(0).split()[0].rstrip(",–—-").isupper()]
+    found = [m.span() for m in CITY_PIN_RE.finditer(text) if _city_pin(m.group(0), caps, lower_words)]
     found += [m.span() for m in US_ZIP_RE.finditer(text)]
     found += [m.span() for m in UK_POSTCODE_RE.finditer(text)]
     anchors: list[tuple[int, int]] = []
@@ -94,6 +94,15 @@ def postal_anchors(text: str) -> list[tuple[int, int]]:
         if not anchors or start >= anchors[-1][1]:
             anchors.append((start, end))
     return anchors
+
+
+def _city_pin(match: str, caps: bool, lower_words: set[str]) -> bool:
+    city = re.match(r"[A-Za-z]+", match).group(0)
+    if not caps and city.isupper():
+        return False
+    # "Pune – 411 045" has a separator; "Revenue 150000" or "Rs 150000" is an amount
+    plain = re.fullmatch(r"[A-Za-z]+\s+\d{6}", match)
+    return not plain or (len(city) >= 3 and not english_word(city, lower_words))
 
 
 def continues_address(prev_line: str, line: str) -> bool:
