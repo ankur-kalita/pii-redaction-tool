@@ -93,6 +93,7 @@ class Pseudonymizer:
             "URL": self.url,
             "PHONE": self.phone,
             "ADDRESS": self.address,
+            "LOCATION": self.location,
             "PAN": self.pan,
             "AADHAAR": self.aadhaar,
             "CIN": self.cin,
@@ -297,6 +298,9 @@ class Pseudonymizer:
         return self._digits_like("dob", real)
 
     # --- addresses ----------------------------------------------------------
+    def location(self, real: str) -> str:
+        return match_case(self._consistent("location", real.lower(), lambda r: r.choice(CITIES)), real)
+
     def address(self, real: str) -> str:
         def make(r: random.Random) -> str:
             pin = re.search(r"[1-9]\d{2}\s?\d{3}\s*$", real)

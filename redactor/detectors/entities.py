@@ -163,49 +163,74 @@ ADDRESS_LABEL_RE = re.compile(
 )
 
 
+MAJOR_PLACES = {
+    "india", "maharashtra", "gujarat", "karnataka", "delhi", "new", "mumbai", "pune", "bengaluru",
+    "bangalore", "chennai", "kolkata", "hyderabad", "ahmedabad", "tamil", "nadu", "west", "bengal",
+    "uttar", "pradesh", "telangana", "rajasthan", "haryana", "kerala", "goa", "noida", "gurugram",
+}
+
+_CUE = re.compile(
+    r"\b(?:located at|situated at|office at|address(?:ed)? at|address\s*:|registered office\s*:|"
+    r"corporate office\s*:)\s*",
+    re.IGNORECASE,
+)
+_CUE_PROSE = re.compile(_CUE.pattern + r"|\bat\s+(?=\S*\d)", re.IGNORECASE)
+
+
 def find_addresses(text: str, org_spans: list[Span] = ()) -> list[Span]:
     """Postal addresses. Two shapes occur in this document:
       * an address on its own line / table cell, often split over several
-        lines, ending in "City – PIN";
-      * an address embedded in prose ("... located at <address>, Pune 411 001").
-    The State/Country tail ("Maharashtra, India") is kept: it is not
-    identifying and keeps the sentence readable."""
+        lines, usually ending in "City – PIN";
+      * addresses embedded in prose ("... Registered Office at <address>,
+        Pune – 410 501, Maharashtra, India and its Corporate Office at ...").
+    Every "City – PIN" in a paragraph ends one address. The State/Country tail
+    ("Maharashtra, India") is kept: it is not identifying and keeps the
+    sentence readable."""
     stripped = text.strip()
     if not stripped:
         return []
-    has_pin = bool(CITY_PIN_RE.search(text))
-    words = len(ADDRESS_WORD_RE.findall(text))
-    if not has_pin and (words < 2 or len(stripped) > 160 or not re.search(r"\d", text)):
-        return []  # an address line without a PIN must look strongly like one
-
-    # End of the address: the PIN code if present, else the end of the line.
-    if has_pin:
-        end = list(CITY_PIN_RE.finditer(text))[-1].end()
-    else:
+    pins = list(CITY_PIN_RE.finditer(text))
+    if not pins:
+        # An address line without a PIN must look strongly like one.
+        if len(ADDRESS_WORD_RE.findall(text)) < 2 or len(stripped) > 160 or not re.search(r"\d", text):
+            return []
+        start = _skip_orgs(text, len(text) - len(text.lstrip()), org_spans)
         end = len(text.rstrip(" ,;"))
+        return _span(text, start, end)
 
-    # Start: after any label ("Registered Office:") and after any company name.
-    start = len(text) - len(text.lstrip())
+    spans: list[Span] = []
+    prev_end = 0
+    cue_re = _CUE_PROSE if len(stripped) > 100 else _CUE
+    for pin in pins:
+        end = pin.end()
+        window_start = max(prev_end, end - 200)
+        cue = None
+        for cue in cue_re.finditer(text, window_start, end):
+            pass
+        if cue:
+            start = cue.end()
+        elif len(stripped) > 200:
+            start = window_start  # long prose without a cue: bounded window
+        else:
+            start = _skip_orgs(text, max(prev_end, len(text) - len(text.lstrip())), org_spans)
+        spans += _span(text, start, end)
+        prev_end = end
+    return spans
+
+
+def _skip_orgs(text: str, start: int, org_spans: list[Span]) -> int:
+    """Skip a company name written in front of the address on the same line."""
     for org in org_spans:
-        if org.end <= end and org.end > start and org.start <= start + 2:
+        if org.start <= start + 2 < org.end + 2 and org.end > start:
             start = org.end
-    # Prose ("... located at <address>"): the address starts after the last
-    # location cue before the end.
-    cue_re = r"\b(?:located at|situated at|office at|address(?:ed)? at|address\s*:|registered office\s*:|corporate office\s*:)\s*"
-    if len(stripped) > 100:
-        cue_re += r"|\bat\s+(?=\S*\d)"
-    window_start = max(start, end - 200)
-    cue = None
-    for cue in re.finditer(cue_re, text[window_start:end], re.IGNORECASE):
-        pass
-    if cue:
-        start = window_start + cue.end()
-    elif len(stripped) > 200:
-        start = window_start
-    while start < end and text[start] in " ,;:-–":
+    return start
+
+
+def _span(text: str, start: int, end: int) -> list[Span]:
+    while start < end and text[start] in " ,;:-–\t":
         start += 1
     value = text[start:end]
-    if len(value) < 6 or not ADDRESS_WORD_RE.search(value) and not has_pin:
+    if len(value) < 6:
         return []
     return [Span(start, end, "ADDRESS", value)]
 

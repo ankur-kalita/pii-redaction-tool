@@ -18,7 +18,7 @@ from .pseudonymizer import Pseudonymizer
 # specific type wins (an email beats the person name inside it).
 PRIORITY = [
     "EMAIL", "URL", "CIN", "GSTIN", "PAN", "AADHAAR", "CREDIT_CARD", "SSN", "IP_ADDRESS",
-    "PHONE", "REGISTRATION_ID", "DATE_OF_BIRTH", "ADDRESS", "ORGANIZATION", "PERSON",
+    "PHONE", "REGISTRATION_ID", "DATE_OF_BIRTH", "ADDRESS", "ORGANIZATION", "LOCATION", "PERSON",
 ]
 
 
