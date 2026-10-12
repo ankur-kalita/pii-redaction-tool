@@ -95,6 +95,8 @@ def apply_replacements(paragraph: Paragraph, replacements: list[Replacement]) ->
             continue
         first, last = touched[0], touched[-1]
         prefix = (first.element.text or "")[: max(0, rep.start - first.start)]
+        if first is not last and _replace_word_aligned(paragraph.text, rep, touched):
+            continue
         if first is last:
             suffix = (first.element.text or "")[rep.end - first.start :]
             _set_text(first.element, prefix + rep.new_text + suffix)
@@ -106,6 +108,31 @@ def apply_replacements(paragraph: Paragraph, replacements: list[Replacement]) ->
     # Text changed, so offsets are stale: rebuild from the (mutated) XML.
     rebuilt = _build_paragraph(paragraph.part, paragraph.index, _paragraph_element(paragraph))
     paragraph.text, paragraph.segments = rebuilt.text, rebuilt.segments
+
+
+def _replace_word_aligned(text: str, rep: Replacement, touched: list[Segment]) -> bool:
+    """Keep per-word formatting when a span crosses runs ("Rashi **Patil**" ->
+    "Jatin **Nanda**"): if the fake has the same words-and-spaces shape as the
+    original, each fake piece goes into the run its original piece started in.
+    Returns False when the shapes differ (caller falls back to first-run)."""
+    old_pieces = re.split(r"(\s+)", text[rep.start : rep.end])
+    new_pieces = re.split(r"(\s+)", rep.new_text)
+    if len(old_pieces) != len(new_pieces):
+        return False
+    out = {id(s): [] for s in touched}
+    pos = rep.start
+    for old, new in zip(old_pieces, new_pieces):
+        owner = next((s for s in touched if s.start <= pos < s.end), None)
+        if owner is None:
+            return False  # piece starts in a tab/break separator
+        out[id(owner)].append(new)
+        pos += len(old)
+    for i, seg in enumerate(touched):
+        original = seg.element.text or ""
+        keep_before = original[: max(0, rep.start - seg.start)] if i == 0 else ""
+        keep_after = original[rep.end - seg.start :] if i == len(touched) - 1 else ""
+        _set_text(seg.element, keep_before + "".join(out[id(seg)]) + keep_after)
+    return True
 
 
 def _paragraph_element(paragraph: Paragraph) -> etree._Element:

@@ -39,6 +39,24 @@ def test_replacement_across_split_runs_keeps_formatting(tmp_path):
     assert runs[0].bold is not True  # replacement lives in the first touched run
 
 
+def test_word_formatting_is_kept_when_word_counts_match(tmp_path):
+    d = docx.Document()
+    p = d.add_paragraph()
+    p.add_run("Client Rashi ")
+    p.add_run("Patil").bold = True
+    p.add_run(" joined.")
+    path = tmp_path / "fmt.docx"
+    d.save(path)
+    doc = DocxDocument(str(path))
+    para = doc.paragraphs[0]
+    s = para.text.index("Rashi")
+    apply_replacements(para, [Replacement(s, s + len("Rashi Patil"), "Jatin Nanda")])
+    out = tmp_path / "fmt_out.docx"
+    doc.save(str(out))
+    runs = docx.Document(out).paragraphs[0].runs
+    assert [(r.text, bool(r.bold)) for r in runs] == [("Client Jatin ", False), ("Nanda", True), (" joined.", False)]
+
+
 def test_multiple_replacements_in_one_paragraph(tmp_path):
     doc = DocxDocument(str(_make_doc(tmp_path)))
     para = next(p for p in doc.paragraphs if p.text.startswith("Email"))
