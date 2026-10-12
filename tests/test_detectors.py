@@ -79,3 +79,8 @@ def test_addresses_in_prose_and_lines():
     spans = [s.text for s in find_addresses(text)]
     assert spans == ["11/3, Village Birdewadi, Chakan Taluka - Khed, Pune – 410 501", "201, Tower 2, Baner, Pune – 411 045"]
     assert find_addresses("CORPORATE IDENTITY NUMBER: U28129PN1979PLC141032") == []
+
+
+def test_address_label_is_kept():
+    text = "Office: 14, MG Road, Koramangala, Bengaluru – 560 034, Karnataka, India"
+    assert [s.text for s in find_addresses(text)] == ["14, MG Road, Koramangala, Bengaluru – 560 034"]

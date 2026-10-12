@@ -170,7 +170,7 @@ MAJOR_PLACES = {
 }
 
 _CUE = re.compile(
-    r"\b(?:located at|situated at|office at|address(?:ed)? at|address\s*:|registered office\s*:|"
+    r"\b(?:located at|situated at|office at|address(?:ed)? at|address\s*:|(?:registered |corporate )?office\s*:|"
     r"corporate office\s*:)\s*",
     re.IGNORECASE,
 )
