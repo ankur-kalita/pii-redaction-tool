@@ -11,7 +11,7 @@ import spacy
 from .catalogue import Catalogue, CatalogueDetector, discover, owned_url
 from .detectors.addresses import address_line, continues_address, find_addresses
 from .detectors.base import Span
-from .detectors.lexicon import KEEP_DOMAINS
+from .detectors.lexicon import KEEP_DOMAINS, role_mailbox
 from .detectors.organizations import find_orgs
 from .detectors.registry import STRUCTURED_DETECTORS
 from .docx_io import DocxDocument, Replacement, apply_replacements
@@ -63,8 +63,11 @@ def resolve_overlaps(spans: list[Span]) -> list[Span]:
 
 
 def is_allowed(span: Span) -> bool:
-    """Policy allow-list: regulators' websites/emails are public, not PII."""
-    return span.label in ("URL", "EMAIL") and bool(KEEP_DOMAINS.search(span.text.replace(" ", "")))
+    """Policy: public-sector websites and role mailboxes there are not PII; a
+    person's address is, whatever the domain."""
+    if span.label not in ("URL", "EMAIL") or not KEEP_DOMAINS.search(span.text.replace(" ", "")):
+        return False
+    return span.label == "URL" or role_mailbox(span.text)
 
 
 class Redactor:
@@ -84,13 +87,15 @@ class Redactor:
             entity_spans = matcher.detect(text) + find_orgs(text, cat.lower_words)
             spans += entity_spans
             spans += find_addresses(text, [s for s in entity_spans if s.label == "ORGANIZATION"])
-            spans = [s for s in spans if s.label != "URL" or owned_url(s.text, cat)]
+            spans = [
+                s for s in spans if s.label != "URL" or owned_url(s.text, cat, text[max(0, s.start - 80) : s.start])
+            ]
             spans = [s for s in resolve_overlaps(spans) if not is_allowed(s)]
             per_paragraph.append(spans)
         # an address split over lines: the street line is recognised from the postal code below it
         for i in range(1, len(texts)):
             prev = per_paragraph[i - 1]
-            if continues_address(texts[i - 1], texts[i]) and not any(s.label == "ADDRESS" for s in prev):
+            if continues_address(texts[i - 1], texts[i]):  # the whole line beats a partial street match
                 orgs = [s for s in prev if s.label == "ORGANIZATION"]
                 per_paragraph[i - 1] = resolve_overlaps(prev + address_line(texts[i - 1], orgs))
         return cat, per_paragraph
@@ -120,6 +125,7 @@ class Redactor:
                 apply_replacements(para, reps)
 
         doc.rewrite_hyperlinks(lambda target: _fake_link(target, fakes, cat))
+        doc.rewrite_field_links(lambda target: _fake_link(target, fakes, cat))
         result.images_replaced = replace_images(doc)
         doc.save(output_path)
         result.mapping = fakes.mapping()

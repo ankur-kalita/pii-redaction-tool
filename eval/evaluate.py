@@ -23,6 +23,7 @@ import argparse
 import json
 import re
 import sys
+import zipfile
 from collections import Counter, defaultdict
 
 sys.path.insert(0, ".")
@@ -114,7 +115,9 @@ def main(input_path: str, redacted_path: str, gold_path: str, results_path: str,
             tok_total += 1
 
     # leakage over the whole redacted document
-    out_text = "\n".join(p.text for p in DocxDocument(redacted_path).paragraphs)
+    # every part of the file, not just paragraph text: field codes, links, metadata
+    with zipfile.ZipFile(redacted_path) as z:
+        out_text = "\n".join(z.read(n).decode("utf-8", "ignore") for n in z.namelist() if n.endswith((".xml", ".rels")))
     detected_values = {sp[3] for spans in pred_by_uid.values() for sp in spans if sp[2] != "ADDRESS" and len(sp[3]) > 3}
     leaked_detected = sorted(v for v in detected_values if re.search(r"(?<!\w)" + re.escape(v) + r"(?!\w)", out_text))
     gold_values = {g[3] for spans in gold.values() for g in spans}

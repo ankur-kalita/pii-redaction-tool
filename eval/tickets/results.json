@@ -1,6 +1,6 @@
 {
- "table": "| PII type | Gold | Predicted | Precision | Recall | F1 |\n|---|---|---|---|---|---|\n| **All PII (redaction view)** | 635 | 622 | 100.0% | 96.7% | 98.3% |\n| ADDRESS | 33 | 30 | 100.0% | 90.9% | 95.2% |\n| CREDIT_CARD | 11 | 11 | 100.0% | 100.0% | 100.0% |\n| DATE_OF_BIRTH | 10 | 10 | 100.0% | 100.0% | 100.0% |\n| EMAIL | 120 | 120 | 100.0% | 100.0% | 100.0% |\n| IP_ADDRESS | 25 | 25 | 100.0% | 100.0% | 100.0% |\n| ORGANIZATION | 120 | 111 | 99.1% | 85.0% | 91.5% |\n| PERSON | 275 | 273 | 98.9% | 98.2% | 98.5% |\n| PHONE | 37 | 37 | 100.0% | 100.0% | 100.0% |\n| SSN | 4 | 4 | 100.0% | 100.0% | 100.0% |",
- "token_accuracy": "99.31% (5914/5955 tokens)",
+ "table": "| PII type | Gold | Predicted | Precision | Recall | F1 |\n|---|---|---|---|---|---|\n| **All PII (redaction view)** | 635 | 622 | 100.0% | 96.7% | 98.3% |\n| ADDRESS | 33 | 31 | 100.0% | 93.9% | 96.9% |\n| CREDIT_CARD | 11 | 11 | 100.0% | 100.0% | 100.0% |\n| DATE_OF_BIRTH | 10 | 10 | 100.0% | 100.0% | 100.0% |\n| EMAIL | 120 | 120 | 100.0% | 100.0% | 100.0% |\n| IP_ADDRESS | 25 | 25 | 100.0% | 100.0% | 100.0% |\n| ORGANIZATION | 120 | 111 | 99.1% | 85.0% | 91.5% |\n| PERSON | 275 | 273 | 98.9% | 98.2% | 98.5% |\n| PHONE | 37 | 37 | 100.0% | 100.0% | 100.0% |\n| SSN | 4 | 4 | 100.0% | 100.0% | 100.0% |",
+ "token_accuracy": "99.38% (5918/5955 tokens)",
  "paragraphs": 636,
  "gold_entities": 635,
  "false_negatives": [
@@ -137,5 +137,5 @@
   "Vargas-Johnson",
   "Waters-Roth"
  ],
- "detected_values_checked": 565
+ "detected_values_checked": 564
 }

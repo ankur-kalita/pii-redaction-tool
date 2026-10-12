@@ -231,9 +231,19 @@ def _reuses_brand(alias: str, org: str) -> bool:
     return any(w.lower().startswith(b) for w in alias.split() for b in brands)
 
 
-def owned_url(url: str, cat: Catalogue) -> bool:
-    """A website is masked when its owner is: the domain contains a masked
-    company or person name, or is used for email in the document."""
+PERSONAL_SITE_RE = re.compile(
+    r"\b(?:my|his|her|their)\s+(?:own\s+|personal\s+|professional\s+)?"
+    r"(?:website|web\s*site|webpage|web\s*page|blog|site|portfolio|homepage)\b[^.]{0,40}$",
+    re.IGNORECASE,
+)
+
+
+def owned_url(url: str, cat: Catalogue, before: str = "") -> bool:
+    """A website is masked when its owner is: the text calls it someone's
+    ("my website at ..."), its domain contains a masked company or person
+    name, or the domain is used for email in the document."""
+    if PERSONAL_SITE_RE.search(before):
+        return True
     host = re.sub(r"(?i)^(?:https?://)?(?:www\.)?", "", url).split("/")[0].replace(" ", "").lower()
     if any(host == d or host.endswith("." + d) or d.endswith("." + host) for d in cat.email_domains):
         return True
@@ -295,7 +305,11 @@ class CatalogueDetector:
     def _people(self, text: str) -> list[Span]:
         spans = []
         for m in CAP_WORDS_RE.finditer(text):
-            toks = [(t.group(0), m.start() + t.start()) for t in re.finditer(r"[A-Za-z'\-]+\.?", m.group(0))]
+            # "Natalia's" is matched as "Natalia"; the possessive stays outside the span
+            toks = [
+                (re.sub(r"'s$", "", t.group(0)), m.start() + t.start())
+                for t in re.finditer(r"[A-Za-z'\-]+\.?", m.group(0))
+            ]
             i = 0
             while i < len(toks):
                 j = i

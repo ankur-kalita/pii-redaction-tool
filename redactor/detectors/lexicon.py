@@ -99,6 +99,16 @@ KEEP_DOMAINS = re.compile(
     re.IGNORECASE,
 )
 
+# Mailbox names that describe a role, not a person.
+ROLE_WORDS = set(
+    """
+    accounts admin billing care careers complaints compliance connect contact customercare
+    customerservice desk enquiries enquiry finance grievance grievances hello help helpdesk info
+    investor investors ipo legal mail media noreply office privacy reply sales secretarial
+    security service services support team
+    """.split()
+)
+
 # Big cities and states identify no one; rare localities do.
 MAJOR_PLACES = set(
     """
@@ -126,3 +136,9 @@ def english_word(word: str, lower_words: set[str]) -> bool:
         return all(english_word(part, lower_words) for part in word.split("-") if part)
     stems = {word} | {word[: -len(e)] for e in WORD_ENDINGS if word.endswith(e) and len(word) - len(e) >= 3}
     return any(stem in lower_words or any(stem + e in lower_words for e in WORD_ENDINGS) for stem in stems)
+
+
+def role_mailbox(email: str) -> bool:
+    """An address that names a role, not a person: "info@", "investor.grievance@"."""
+    words = re.findall(r"[a-z]+", email.split("@")[0].lower())
+    return bool(words) and all(w in ROLE_WORDS or len(w) <= 2 for w in words)

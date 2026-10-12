@@ -60,3 +60,26 @@ def test_website_is_masked_only_when_its_owner_is():
     assert owned_url("https://www.hdfcbank.com/contact", cat)
     assert not owned_url("https://www.ijert.org/", cat)
     assert not owned_url("https://github.com/zxing/zxing", cat)
+
+
+def test_personal_email_is_masked_even_on_a_public_domain():
+    from redactor.detectors.base import Span
+    from redactor.pipeline import is_allowed
+
+    assert not is_allowed(Span(0, 1, "EMAIL", "joe.moore@agency.gov"))
+    assert is_allowed(Span(0, 1, "EMAIL", "info@agency.gov"))
+    assert is_allowed(Span(0, 1, "URL", "https://www.sebi.gov.in"))
+
+
+def test_possessive_names_are_matched():
+    cat = Catalogue(standalone_ok={"romanova"})
+    cat.add_person("Natalia Romanova")
+    spans = [s.text for s in CatalogueDetector(cat).detect("Natalia Romanova's project and Romanova's team")]
+    assert spans == ["Natalia Romanova", "Romanova"]
+
+
+def test_website_introduced_as_someones_is_masked():
+    cat = Catalogue()
+    assert owned_url("https://rajeshweber.edu", cat, "You can also visit my personal website at ")
+    assert owned_url("blog.amber_sasaki.org", cat, "updates are posted on her blog, ")
+    assert not owned_url("https://www.ijert.org/", cat, "Published by : ")

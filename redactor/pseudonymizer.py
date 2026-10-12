@@ -19,7 +19,7 @@ from datetime import datetime, timedelta
 from faker.providers.address.en_IN import Provider as AddressProvider
 from faker.providers.person.en_IN import Provider as PersonProvider
 
-from .detectors.lexicon import GENERIC_ORG_WORDS, KEEP_DOMAINS
+from .detectors.lexicon import GENERIC_ORG_WORDS, KEEP_DOMAINS, ROLE_WORDS
 from .detectors.organizations import distinctive_tokens
 from .detectors.patterns import digits, luhn_valid, verhoeff_check_digit
 
@@ -30,15 +30,6 @@ STREET_SUFFIXES = ["Road", "Marg", "Nagar", "Lane", "Street", "Chowk", "Colony"]
 # Order matters: fake brand names are drawn from this list.
 SYLLABLES = "ka ro vel tan mi sor da len vi qua ra zen lo nex ta bri cor ven sa lu".split()
 PUBLIC_EMAIL_DOMAINS = {"gmail.com", "yahoo.com", "outlook.com", "hotmail.com", "rediffmail.com", "icloud.com"}
-# Mailbox names that describe a role, not a person.
-ROLE_WORDS = set(
-    """
-    accounts admin billing care careers complaints compliance connect contact customercare
-    customerservice desk enquiries enquiry finance grievance grievances hello help helpdesk info
-    investor investors ipo legal mail media noreply office privacy reply sales secretarial
-    security service services support team
-    """.split()
-)
 STATE_CODES = ["MH", "KA", "TN", "GJ", "DL", "UP", "WB", "TG", "RJ", "HR", "KL", "MP"]
 
 

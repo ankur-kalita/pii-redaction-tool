@@ -201,6 +201,16 @@ class DocxDocument:
                 if changed:
                     self._entries[name] = etree.tostring(root, xml_declaration=True, encoding="UTF-8", standalone=True)
 
+    def rewrite_field_links(self, fn) -> None:
+        """Link targets stored as Word field codes: HYPERLINK "mailto:...". They
+        are not visible text but travel with the file."""
+        for root in self._trees.values():
+            for el in root.iter(W + "instrText"):
+                if el.text and "HYPERLINK" in el.text:
+                    el.text = re.sub(
+                        r'(HYPERLINK\s+")([^"]+)(")', lambda m: m.group(1) + fn(m.group(2)) + m.group(3), el.text
+                    )
+
     def save(self, path: str) -> None:
         for name, root in self._trees.items():
             self._entries[name] = etree.tostring(root, xml_declaration=True, encoding="UTF-8", standalone=True)

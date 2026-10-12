@@ -23,6 +23,14 @@ US_STATES = (
 US_ZIP_RE = re.compile(rf"\b[A-Z][A-Za-z.'\- ]*,?\s+(?:{US_STATES})\s+\d{{5}}(?:-\d{{4}})?\b")
 UK_POSTCODE_RE = re.compile(r"\b(?:[A-Z]{1,2}\d[A-Z\d]?|GIR)\s?\d[ABD-HJLNP-UW-Z]{2}\b")
 
+# A street line without a postal code: number, up to three words, a street word.
+STREET_RE = re.compile(
+    r"\b\d{1,6}[A-Za-z]?\s+(?:(?:[A-Z][a-z]+|\d+(?:st|nd|rd|th))\s+){1,3}"
+    r"(?:Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Boulevard|Blvd|Court|Ct|Way|Place|Pl|Terrace|"
+    r"Parkway|Pkwy|Circle|Highway|Square|Trail|Crescent|Plaza|Close)\b\.?"
+    r"(?:,?\s+(?:Apt|Apartment|Suite|Unit)\.?\s*\d+)?"
+)
+
 # Where an address starts in prose: "Registered Office at", "Office:", "address on file:".
 CUE_RE = re.compile(
     r"\b(?:located at|situated at|office at|address(?:ed)? at|address(?:\s+[a-z]+){0,3}\s*:|"
@@ -34,6 +42,16 @@ LEFTOVER_SUFFIX_RE = re.compile(r"\s*(?:Private\s+Limited|Pvt\.?\s+Ltd\.?|Limite
 
 
 def find_addresses(text: str, org_spans: list[Span] = ()) -> list[Span]:
+    """Addresses ending in a postal code, plus street addresses written without
+    one ("I live at 211 West Oak Street")."""
+    spans = _postal_addresses(text, org_spans)
+    for m in STREET_RE.finditer(text):
+        if not any(m.start() < s.end and s.start < m.end() for s in spans):
+            spans.append(Span(m.start(), m.end(), "ADDRESS", m.group(0)))
+    return sorted(spans, key=lambda s: s.start)
+
+
+def _postal_addresses(text: str, org_spans: list[Span]) -> list[Span]:
     """Every postal code ends one address. It starts at a cue ("Office at"),
     after a company name on the same line, or at the start of the line. The
     state and country after the code are kept."""

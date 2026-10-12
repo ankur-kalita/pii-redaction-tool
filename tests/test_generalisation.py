@@ -101,3 +101,33 @@ def test_companies_without_legal_suffix():
     assert found("Supplier: Murphy and Sons") == ["Murphy and Sons"]
     assert found("the Promoter Group") == []
     assert found("Tax on Professions, Trades, Callings and Employment Act, 1975") == []  # law title
+
+
+@pytest.mark.parametrize(
+    "text, expected",
+    [
+        ("you can reach me at (92) 98804-7482 or by email", ["(92) 98804-7482"]),
+        ("contact me by phone at 0127 708 552.", ["0127 708 552"]),
+        ("call 011-7745-5325 today", ["011-7745-5325"]),
+        ("contact the registrar for 4,50,00,000 shares in 2025", []),
+    ],
+)
+def test_phone_after_a_phone_word(text, expected):
+    from redactor.detectors.patterns import PHONE_CONTEXT
+
+    assert [s.text for s in PHONE_CONTEXT.detect(text)] == expected
+
+
+def test_street_address_without_postal_code():
+    assert [s.text for s in find_addresses("I live at 211 West Oak Street and work nearby.")] == ["211 West Oak Street"]
+    assert [s.text for s in find_addresses("My office is at 7131 North 67th Avenue, Apt 4.")] == [
+        "7131 North 67th Avenue, Apt 4"
+    ]
+    assert find_addresses("We sold 211 Equity Shares on the Street.") == []
+
+
+def test_bare_domains_are_websites():
+    from redactor.detectors.patterns import BARE_DOMAIN
+
+    text = "see bsuzuki.edu and blog.amber_sasaki.org/contact, mail me at a.b@yahoo.com, read issuedDocs.json"
+    assert [s.text for s in BARE_DOMAIN.detect(text)] == ["bsuzuki.edu", "blog.amber_sasaki.org/contact"]

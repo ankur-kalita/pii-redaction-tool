@@ -1,6 +1,9 @@
 """Score the detector on a token-labelled PII dataset (CSV).
 
-Usage: python eval/pii_dataset/evaluate_csv.py doc/pii_dataset.csv eval/pii_dataset/results.json
+Usage: python eval/pii_dataset/evaluate_csv.py doc/pii_dataset.csv RESULTS.json [all|dev|test]
+
+The rows are split at random (fixed seed) into a dev half, used to find
+errors, and a test half, scored once at the end.
 
 Each row is its own document: `tokens`, `trailing_whitespace` and BIO
 `labels` give the gold spans. Dataset labels map to ours; USERNAME has no
@@ -12,6 +15,7 @@ person and has no company or place labels, so precision is also reported
 import ast
 import csv
 import json
+import random
 import sys
 from collections import Counter
 
@@ -48,10 +52,19 @@ def gold_spans(row: dict) -> list[tuple[int, int, str]]:
     return out
 
 
-def main(csv_path: str, results_path: str) -> None:
+def split(rows: list[dict], part: str) -> list[dict]:
+    if part == "all":
+        return rows
+    order = list(range(len(rows)))
+    random.Random(42).shuffle(order)
+    half = order[: len(rows) // 2] if part == "dev" else order[len(rows) // 2 :]
+    return [rows[i] for i in sorted(half)]
+
+
+def main(csv_path: str, results_path: str, part: str = "all") -> None:
     csv.field_size_limit(sys.maxsize)
     with open(csv_path, newline="") as f:
-        rows = list(csv.DictReader(f))
+        rows = split(list(csv.DictReader(f)), part)
     redactor = Redactor()
     counts = {label: Counter() for label in [*LABELS.values(), "(all)", "(in scope)"]}
     errors = {"fn": [], "fp": []}
@@ -113,4 +126,4 @@ def main(csv_path: str, results_path: str) -> None:
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2], *sys.argv[3:4])

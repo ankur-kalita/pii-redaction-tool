@@ -83,8 +83,16 @@ EMAIL = RegexDetector("EMAIL", r"\b[\w.+-]+@[\w-]+(?:\.[\w-]+)+\b")
 # Websites: "www.x.com", "https://x.in", and the document's broken "www.x. com".
 URL = RegexDetector(
     "URL",
-    r"\b(?:https?://|www\.)[\w-]+(?:\.[a-z]{2,}(?![\w@])|\.\s(?:com|in|org|net)\b)+(?:/[\w./?=&%-]*[\w/])?",
+    r"\b(?:https?://(?:www\.)?|www\.)(?:[\w-]+\.)*[\w-]+(?:\.[a-z]{2,}(?![\w@])|\.\s(?:com|in|org|net)\b)+"
+    r"(?:/[\w./?=&%-]*[\w/])?",
     re.IGNORECASE,
+)
+
+# Websites written without "www"/"http": "bsuzuki.edu", "blog.amber_sasaki.org/contact".
+BARE_DOMAIN = RegexDetector(
+    "URL",
+    r"(?<![@\w.\-/])(?:[a-z0-9][\w-]*\.)+(?:com|net|org|edu|io|biz|info|co|in|uk|us|me|dev)"
+    r"(?:/[\w./?=&%-]*[\w/])?(?![\w@-])",
 )
 
 # Phone numbers. A digit run is only accepted with a phone signal, so share
@@ -108,6 +116,17 @@ PHONE_LABELLED = RegexDetector(
     "PHONE",
     r"\b(?:tel\.?|telephone|phone|mobile|cell|fax|whatsapp|(?:callback|contact|phone|mobile)\s+(?:number|no\.?))"
     r"\s*[:\-]?\s*(?P<p>\d[\d\s-]{8,14}\d)\b",
+    re.IGNORECASE,
+    validator=_valid_phone,
+    group="p",
+)
+
+# Any phone-shaped number shortly after a phone word: "reach me at (92) 98804-7482",
+# "by phone at 0127 708 552".
+PHONE_CONTEXT = RegexDetector(
+    "PHONE",
+    r"\b(?:phone|call|reach|contact|tel|telephone|mobile|cell|whatsapp|dial|fax)\b[^.\n@]{0,40}?"
+    r"(?P<p>(?:\+\d{1,3}[\s.-]?)?\(?\d{2,5}\)?[\s.-]?\d{2,5}(?:[\s.-]\d{2,5}){0,3})(?![\w-])",
     re.IGNORECASE,
     validator=_valid_phone,
     group="p",

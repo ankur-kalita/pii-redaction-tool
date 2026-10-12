@@ -11,6 +11,7 @@ because they have no fixed shape.
 
 from .patterns import (
     AADHAAR,
+    BARE_DOMAIN,
     CIN,
     CREDIT_CARD,
     DOB,
@@ -19,6 +20,7 @@ from .patterns import (
     IP_ADDRESS,
     PAN,
     PHONE,
+    PHONE_CONTEXT,
     PHONE_LABELLED,
     REG_NUMBER,
     SEBI_REG,
@@ -29,8 +31,10 @@ from .patterns import (
 STRUCTURED_DETECTORS = [
     EMAIL,
     URL,
+    BARE_DOMAIN,
     PHONE,
     PHONE_LABELLED,
+    PHONE_CONTEXT,
     PAN,
     AADHAAR,
     SSN,
