@@ -33,7 +33,7 @@ The redacted prospectus is in `output/`. The evaluation report is [EVALUATION.md
      - names revealed by email addresses (`sachin.gawade@…` next to "Sachin Gawade");
      - addresses anchored on a postal code (Indian PIN, US ZIP, UK postcode).
    - *Matching* finds every occurrence of each catalogued entity, in any casing and in partial forms ("Rajesh Hegde" for "Rajesh Kushal Hegde").
-4. **Precision comes from evidence in the document itself, not word lists:**
+4. **Discovery is checked against evidence in the document itself, not word lists,** so one wrong guess is not replaced everywhere:
    - **A real name never appears in lower case.** "Working Days" is rejected because "working" appears in lower case. Related forms count as evidence too: "Integrated" is a common word because the document uses "integration".
    - **An acronym used in capitals inside sentences is never part of a name** ("OMB has issued…").
    - **A phrase spelled out by an acronym next to it is a term, not a person or company** (the glossary row "PMAY" | "Pradhan Mantri Awas Yojana").
@@ -83,7 +83,10 @@ The redacted prospectus is in `output/`. The evaluation report is [EVALUATION.md
 ## Trade-offs, false positives and false negatives
 
 - **Not read yet:** image alt text, charts, embedded objects and content controls (none hold PII in the prospectus, but another file could).
-- **Precision over recall for ambiguous single words.** A company word that is also an English word ("Broad" in Broad Family Trust) is replaced only inside the full name, never on its own.
+- **Recall first, with one exception.** When in doubt the tool masks: unknown words in email addresses, every image, every occurrence of a name found once. The exception is a company word that is also an ordinary word ("Broad" in Broad Family Trust):
+  - it is replaced inside the full name, but never on its own;
+  - because fakes are consistent, masking "broad" would also rewrite "a broad range of products" everywhere in the document;
+  - the ALL-CAPS brand rule ("CARE") narrows this gap without that cost.
 - **Consistency amplifies mistakes.** "Find once, replace everywhere" also spreads a wrong discovery. That's why discovery needs evidence from the document (the lower-case, acronym and glossary rules).
 - **False positives:**
   - spaCy calls some product names people ("Spring Boot", "Protocol Labs"), which is most of the IJERT errors. Filtering them would need a word-frequency list.
