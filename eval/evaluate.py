@@ -1,6 +1,8 @@
 """Score the redactor against the hand-labelled ground truth.
 
-Usage: python eval/evaluate.py INPUT.docx REDACTED.docx
+Usage: python eval/evaluate.py INPUT.docx REDACTED.docx [SAMPLE GOLD RESULTS]
+(defaults: eval/sample.jsonl eval/ground_truth.jsonl eval/results.json; the
+held-out set is eval/sample_holdout.jsonl eval/ground_truth_holdout.jsonl)
 
 * Detection is run on the whole document (the catalogue needs the full text),
   then predictions are compared with gold labels on the sampled paragraphs.
@@ -58,10 +60,11 @@ def prf(tp_p: int, n_pred: int, tp_g: int, n_gold: int) -> tuple[float, float, f
     return p, r, f
 
 
-def main(input_path: str, redacted_path: str) -> None:
-    with open("eval/sample.jsonl") as f:
+def main(input_path: str, redacted_path: str, sample_path: str = "eval/sample.jsonl",
+         gold_path: str = "eval/ground_truth.jsonl", results_path: str = "eval/results.json") -> None:
+    with open(sample_path) as f:
         sample = [json.loads(line) for line in f]
-    gold = load_gold(sample, "eval/ground_truth.jsonl")
+    gold = load_gold(sample, gold_path)
 
     doc = DocxDocument(input_path)
     redactor = Redactor()
@@ -128,7 +131,7 @@ def main(input_path: str, redacted_path: str) -> None:
         "leaked_gold_values": leaked_gold,
         "detected_values_checked": len(detected_values),
     }
-    with open("eval/results.json", "w") as f:
+    with open(results_path, "w") as f:
         json.dump(report, f, indent=1, ensure_ascii=False)
     print(report["table"])
     print("Token accuracy:", report["token_accuracy"])
@@ -138,4 +141,4 @@ def main(input_path: str, redacted_path: str) -> None:
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(*sys.argv[1:6])

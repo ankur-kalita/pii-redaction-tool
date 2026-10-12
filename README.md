@@ -31,6 +31,9 @@ The redacted file is in `output/`. The evaluation report is in [EVALUATION.md](E
    - A data-driven filter keeps this precise: **a real name never appears in lower case anywhere in the document, while ordinary words do**. That rejects "Working Days" or "Refund Bank" as names.
    - Addresses are anchored on "City – PIN code". In prose, an address starts after "located at" / "Office at".
    - Rare place names learned from those addresses ("our plant at Chakan") are also masked.
+   - **A brand that is also an English word** ("CARE", the industry-report provider) is matched only in ALL CAPS, and only because the document writes it in ALL CAPS inside a company name. "care" and "Care" are never touched.
+   - **Defined-term nicknames** (`… Private Limited (“CareEdge Research”)`) become aliases when they reuse the company's distinctive word.
+   - **An address split over lines** ("2401 Gen Thimmayya Road, Cantonment" / "Pune – 411 001") is recognised from the "City – PIN" line below the street line.
 4. **Consistent pseudonymization.** This is the core requirement:
 
    | Real | Fake |
@@ -41,6 +44,7 @@ The redacted file is in `output/`. The evaluation report is in [EVALUATION.md](E
    | KSH International Limited / cs.connect@kshinternational.com | LNK International Limited / cs.connect@lnkinternational.com |
    | +91 22 4009 4400 and +91 22 40094400 | the same fake number, each in its own format |
    | CIN U28129PN1979PLC141032 and "Registration number: 141032" | the CIN's registration part and the standalone number get the same fake |
+   | CARE Analytics … Limited / "CARE Report" / "CareEdge Research" | PNVK Ludada … Limited / "PNVK Report" / "PNVKEdge Research" |
 
    - Names are mapped **word by word**, so every variant of a name, and family relations, stay consistent.
    - Companies keep their generic words and legal suffix. Only the distinctive word changes, and the same fake word is reused in the company's emails and website.
@@ -57,15 +61,26 @@ The redacted file is in `output/`. The evaluation report is in [EVALUATION.md](E
 
 ## Results (details in [EVALUATION.md](EVALUATION.md))
 
-On 100 hand-labelled paragraphs (63 PII spans):
-- **precision 100%**, **recall 87.3%**, F1 93.2%;
-- token-level accuracy 98.9%;
-- 0 of the 231 detected real values remain anywhere in the output.
+Two rounds, each on 100 hand-labelled paragraphs:
+
+| | Precision | Recall | F1 | Token accuracy |
+|---|---|---|---|---|
+| Round 1: first version, first sample | 100% | 87.3% | 93.2% | 98.9% |
+| **Round 2: after fixing Round 1's misses, on a new held-out sample** | **94.7%** | **100%** | **97.3%** | **99.1%** |
+
+- The Round 1 misses were fixed with general rules (see below), then measured on paragraphs those fixes had never seen.
+- 0 of the 234 detected real values remain anywhere in the output.
 
 ## Trade-offs, false positives and false negatives
 
-- **Precision was favoured over recall for single words.** "CARE" (the industry-report provider) and "Broad" (Broad Family Trust) are English words, so they are only replaced as part of a full name. Masking "care" everywhere would corrupt the text. This causes the main false negatives: "CARE Report" and "CareEdge Research", where the brand is used without a legal suffix. Also missed: "State Bank of India" and one PIN-less address line. See the evaluation report for the fix for each.
-- **No false positives in the sample.** Before the conservative filters, NER produced many: "Supa Facility", "Working Days", "United States Dollars" and "Refund Bank" were all candidate names or companies.
+- **Precision was favoured over recall for single words.** "Broad" (Broad Family Trust) is an English word, so it is only replaced as part of the full name. Masking "broad" everywhere would corrupt the text.
+  - "CARE" had the same problem; it was the main miss in Round 1.
+  - It is now caught by a narrower signal, the ALL-CAPS form, instead of by loosening the filter. "care" and "Care" stay untouched.
+- **False positives:** none in Round 1, and 2 in the held-out round, both public text:
+  - "Deen Dayal" in a government scheme's name;
+  - SEBI's own office address.
+  - They were left unfixed so that the held-out sample stays honest. See EVALUATION.md for the fix for each.
+  - Before the conservative filters, NER produced many: "Supa Facility", "Working Days", "United States Dollars" and "Refund Bank" were all candidate names or companies.
 - **Addresses** are the weakest type. Lines with no PIN code are only accepted with at least 2 address words and a number.
 - **Formatting:** when a name or company name crosses formatting runs ("Rashi **Patil**"), each fake word keeps its real word's formatting ("Jatin **Nanda**"). A fake *address* has a different shape from the real one, so formatting applied to part of an address (e.g. one coloured locality) isn't carried over. The address itself is still fully replaced.
 - **Text inside images** isn't read (no OCR). Images are replaced whole instead, which gives full recall for images at the cost of losing harmless content such as logos' shapes.
