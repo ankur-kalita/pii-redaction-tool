@@ -6,3 +6,5 @@ __pycache__/
 doc/
 # Real -> fake mapping contains real PII
 *.mapping.json
+# Detections and mappings contain real PII
+private/
