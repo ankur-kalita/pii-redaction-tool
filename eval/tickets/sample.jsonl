@@ -1,0 +1,635 @@
+{"paragraph": "word/document.xml#1", "stratum": "all", "text": "Ticket TCK-100000 | Priority P1 | Opened December 09, 2025 | Product: billing portal v9.13.73"}
+{"paragraph": "word/document.xml#2", "stratum": "all", "text": "Customer: Tyler Adams (tyler.adams@gmail.com), Sharp, Wood and Chang"}
+{"paragraph": "word/document.xml#3", "stratum": "all", "text": "Tyler wants the SLA breach credit applied. Related order ORD-8430815, amount $882.72."}
+{"paragraph": "word/document.xml#4", "stratum": "all", "text": "Identity check passed: date of birth 06/24/1992 confirmed."}
+{"paragraph": "word/document.xml#5", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#6", "stratum": "all", "text": "Ticket TCK-100001 | Priority P1 | Opened April 03, 2026 | Product: mobile app v2.14.1"}
+{"paragraph": "word/document.xml#7", "stratum": "all", "text": "Customer: Jennifer Ingram (jennifer.ingram@gmail.com), Richardson-Wells"}
+{"paragraph": "word/document.xml#8", "stratum": "all", "text": "Jennifer lost access after the password policy change. Related order ORD-1354318, amount $721.72."}
+{"paragraph": "word/document.xml#9", "stratum": "all", "text": "Login attempts came from IP 48.196.27.100 at 06:25 UTC."}
+{"paragraph": "word/document.xml#10", "stratum": "all", "text": "Escalated to Brandon Browning (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#11", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#12", "stratum": "all", "text": "Ticket TCK-100002 | Priority P1 | Opened July 29, 2026 | Product: CRM sync v6.2.71"}
+{"paragraph": "word/document.xml#13", "stratum": "all", "text": "Customer: Marian Brooks (marian.brooks@outlook.com), Wells, Nicholson and Page"}
+{"paragraph": "word/document.xml#14", "stratum": "all", "text": "Marian wants the SLA breach credit applied. Related order ORD-8616569, amount $319.46."}
+{"paragraph": "word/document.xml#15", "stratum": "all", "text": "Shipping address on file: 11 Green Burgs, Leahhaven, N4W 0SL."}
+{"paragraph": "word/document.xml#16", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#17", "stratum": "all", "text": "Ticket TCK-100003 | Priority P3 | Opened April 25, 2026 | Product: SSO login v7.2.51"}
+{"paragraph": "word/document.xml#18", "stratum": "all", "text": "Customer: Erika Phillips (erika.phillips@yahoo.com), Vargas-Johnson"}
+{"paragraph": "word/document.xml#19", "stratum": "all", "text": "Erika wants the SLA breach credit applied. Related order ORD-6188185, amount $587.73."}
+{"paragraph": "word/document.xml#20", "stratum": "all", "text": "Customer pasted their SSN 442-65-2694 into the chat; please purge it."}
+{"paragraph": "word/document.xml#21", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#22", "stratum": "all", "text": "Ticket TCK-100004 | Priority P3 | Opened May 02, 2026 | Product: invoice export v7.18.61"}
+{"paragraph": "word/document.xml#23", "stratum": "all", "text": "Customer: Liam Griffiths (liam.griffiths@yahoo.com), Sharp-Jones"}
+{"paragraph": "word/document.xml#24", "stratum": "all", "text": "Liam wants the SLA breach credit applied. Related order ORD-8802211, amount $550.13."}
+{"paragraph": "word/document.xml#25", "stratum": "all", "text": "Shipping address on file: 265 Mellor Prairie, Readstad, L62 1NW."}
+{"paragraph": "word/document.xml#26", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#27", "stratum": "all", "text": "Ticket TCK-100005 | Priority P4 | Opened February 21, 2026 | Product: SSO login v3.15.29"}
+{"paragraph": "word/document.xml#28", "stratum": "all", "text": "Customer: Tejas Jhaveri (tejas.jhaveri@yahoo.com), Sibal, Gulati and Natt"}
+{"paragraph": "word/document.xml#29", "stratum": "all", "text": "Tejas lost access after the password policy change. Related order ORD-1720946, amount $144.90."}
+{"paragraph": "word/document.xml#30", "stratum": "all", "text": "Login attempts came from IP 185.116.30.251 at 21:30 UTC."}
+{"paragraph": "word/document.xml#31", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#32", "stratum": "all", "text": "Ticket TCK-100006 | Priority P4 | Opened January 17, 2026 | Product: invoice export v7.13.25"}
+{"paragraph": "word/document.xml#33", "stratum": "all", "text": "Customer: Ishaan Zacharia (ishaan.zacharia@yahoo.com), Loyal, Balasubramanian and Jaggi"}
+{"paragraph": "word/document.xml#34", "stratum": "all", "text": "Ishaan sees a duplicate charge. Related order ORD-5161129, amount $871.44."}
+{"paragraph": "word/document.xml#35", "stratum": "all", "text": "Callback number: +916700730048. Best time after 2 pm."}
+{"paragraph": "word/document.xml#36", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#37", "stratum": "all", "text": "Ticket TCK-100007 | Priority P3 | Opened August 31, 2026 | Product: billing portal v5.15.59"}
+{"paragraph": "word/document.xml#38", "stratum": "all", "text": "Customer: Fariq Sunder (fariq.sunder@hotmail.com), Barad Group"}
+{"paragraph": "word/document.xml#39", "stratum": "all", "text": "Fariq wants the SLA breach credit applied. Related order ORD-8212741, amount $805.73."}
+{"paragraph": "word/document.xml#40", "stratum": "all", "text": "Identity check passed: date of birth 03/08/1946 confirmed."}
+{"paragraph": "word/document.xml#41", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#42", "stratum": "all", "text": "Ticket TCK-100008 | Priority P1 | Opened March 10, 2026 | Product: SSO login v9.8.57"}
+{"paragraph": "word/document.xml#43", "stratum": "all", "text": "Customer: Stacie Hammond (stacie.hammond@yahoo.com), Johnson-Thomas"}
+{"paragraph": "word/document.xml#44", "stratum": "all", "text": "Stacie gets HTTP 502 on checkout. Related order ORD-7678186, amount $455.71."}
+{"paragraph": "word/document.xml#45", "stratum": "all", "text": "Refund to card 372667266237490 approved by agent #479."}
+{"paragraph": "word/document.xml#46", "stratum": "all", "text": "Escalated to Carl Chung (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#47", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#48", "stratum": "all", "text": "Ticket TCK-100009 | Priority P1 | Opened August 17, 2026 | Product: VPN client v8.18.69"}
+{"paragraph": "word/document.xml#49", "stratum": "all", "text": "Customer: Kimberly Cooper (kimberly.cooper@yahoo.com), Jackson, Dudley and Baker"}
+{"paragraph": "word/document.xml#50", "stratum": "all", "text": "Kimberly lost access after the password policy change. Related order ORD-0235427, amount $105.88."}
+{"paragraph": "word/document.xml#51", "stratum": "all", "text": "Identity check passed: date of birth 06/07/1953 confirmed."}
+{"paragraph": "word/document.xml#52", "stratum": "all", "text": "Escalated to Joe Parker (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#53", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#54", "stratum": "all", "text": "Ticket TCK-100010 | Priority P2 | Opened April 07, 2026 | Product: VPN client v6.18.73"}
+{"paragraph": "word/document.xml#55", "stratum": "all", "text": "Customer: Abha Shetty (abha.shetty@yahoo.com), Gade, Bhandari and Manne"}
+{"paragraph": "word/document.xml#56", "stratum": "all", "text": "Abha lost access after the password policy change. Related order ORD-5993671, amount $523.98."}
+{"paragraph": "word/document.xml#57", "stratum": "all", "text": "Login attempts came from IP 203.159.202.154 at 04:34 UTC."}
+{"paragraph": "word/document.xml#58", "stratum": "all", "text": "Escalated to Tara Gould (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#59", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#60", "stratum": "all", "text": "Ticket TCK-100011 | Priority P3 | Opened September 07, 2026 | Product: VPN client v7.5.17"}
+{"paragraph": "word/document.xml#61", "stratum": "all", "text": "Customer: Fitan Chokshi (fitan.chokshi@hotmail.com), Murthy, Mann and Kale"}
+{"paragraph": "word/document.xml#62", "stratum": "all", "text": "Fitan lost access after the password policy change. Related order ORD-8467819, amount $821.85."}
+{"paragraph": "word/document.xml#63", "stratum": "all", "text": "Callback number: +910788009896. Best time after 4 pm."}
+{"paragraph": "word/document.xml#64", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#65", "stratum": "all", "text": "Ticket TCK-100012 | Priority P4 | Opened January 29, 2026 | Product: VPN client v2.12.9"}
+{"paragraph": "word/document.xml#66", "stratum": "all", "text": "Customer: Ranveer Kar (ranveer.kar@gmail.com), Kala, Memon and Mangat"}
+{"paragraph": "word/document.xml#67", "stratum": "all", "text": "Ranveer cannot log in after the 2FA reset. Related order ORD-3300029, amount $873.54."}
+{"paragraph": "word/document.xml#68", "stratum": "all", "text": "Login attempts came from IP 202.254.164.36 at 00:01 UTC."}
+{"paragraph": "word/document.xml#69", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#70", "stratum": "all", "text": "Ticket TCK-100013 | Priority P1 | Opened March 11, 2026 | Product: SSO login v8.18.79"}
+{"paragraph": "word/document.xml#71", "stratum": "all", "text": "Customer: Amy Blanchard (amy.blanchard@hotmail.com), Powers, Carter and Taylor"}
+{"paragraph": "word/document.xml#72", "stratum": "all", "text": "Amy lost access after the password policy change. Related order ORD-5470089, amount $194.29."}
+{"paragraph": "word/document.xml#73", "stratum": "all", "text": "Shipping address on file: 914 Howell Wells, Donnaville, OH 72559."}
+{"paragraph": "word/document.xml#74", "stratum": "all", "text": "Escalated to Melissa Campbell (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#75", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#76", "stratum": "all", "text": "Ticket TCK-100014 | Priority P1 | Opened September 06, 2026 | Product: API gateway v7.1.25"}
+{"paragraph": "word/document.xml#77", "stratum": "all", "text": "Customer: Carl Lawson (carl.lawson@yahoo.co.uk), Hughes-Graham"}
+{"paragraph": "word/document.xml#78", "stratum": "all", "text": "Carl asks why the PDF invoice shows the wrong VAT. Related order ORD-3914569, amount $197.15."}
+{"paragraph": "word/document.xml#79", "stratum": "all", "text": "Login attempts came from IP 196.0.201.222 at 01:28 UTC."}
+{"paragraph": "word/document.xml#80", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#81", "stratum": "all", "text": "Ticket TCK-100015 | Priority P2 | Opened December 17, 2025 | Product: CRM sync v9.6.66"}
+{"paragraph": "word/document.xml#82", "stratum": "all", "text": "Customer: Alexandra Simpson (alexandra.simpson@yahoo.com), Watson-Williams"}
+{"paragraph": "word/document.xml#83", "stratum": "all", "text": "Alexandra gets HTTP 502 on checkout. Related order ORD-0343426, amount $184.94."}
+{"paragraph": "word/document.xml#84", "stratum": "all", "text": "Identity check passed: date of birth 11/26/1974 confirmed."}
+{"paragraph": "word/document.xml#85", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#86", "stratum": "all", "text": "Ticket TCK-100016 | Priority P4 | Opened October 13, 2025 | Product: mobile app v3.11.22"}
+{"paragraph": "word/document.xml#87", "stratum": "all", "text": "Customer: Timothy Gandhi (timothy.gandhi@yahoo.com), Natt Inc"}
+{"paragraph": "word/document.xml#88", "stratum": "all", "text": "Timothy sees a duplicate charge. Related order ORD-1319675, amount $495.73."}
+{"paragraph": "word/document.xml#89", "stratum": "all", "text": "Refund to card 6011 8236 3680 3149 approved by agent #281."}
+{"paragraph": "word/document.xml#90", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#91", "stratum": "all", "text": "Ticket TCK-100017 | Priority P3 | Opened March 02, 2026 | Product: invoice export v2.6.29"}
+{"paragraph": "word/document.xml#92", "stratum": "all", "text": "Customer: Kayleigh Walker (kayleigh.walker@hotmail.com), Lambert, Hobbs and Smith"}
+{"paragraph": "word/document.xml#93", "stratum": "all", "text": "Kayleigh cannot log in after the 2FA reset. Related order ORD-8845818, amount $115.68."}
+{"paragraph": "word/document.xml#94", "stratum": "all", "text": "Login attempts came from IP 91.180.54.12 at 13:34 UTC."}
+{"paragraph": "word/document.xml#95", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#96", "stratum": "all", "text": "Ticket TCK-100018 | Priority P3 | Opened May 28, 2026 | Product: API gateway v9.6.14"}
+{"paragraph": "word/document.xml#97", "stratum": "all", "text": "Customer: Jackie Miller (jackie.miller@hotmail.com), Hoffman-Rodriguez"}
+{"paragraph": "word/document.xml#98", "stratum": "all", "text": "Jackie wants the SLA breach credit applied. Related order ORD-2629981, amount $753.45."}
+{"paragraph": "word/document.xml#99", "stratum": "all", "text": "Shipping address on file: Unit 2201 Box 6001, DPO AP 70602."}
+{"paragraph": "word/document.xml#100", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#101", "stratum": "all", "text": "Ticket TCK-100019 | Priority P3 | Opened September 20, 2026 | Product: CRM sync v9.4.12"}
+{"paragraph": "word/document.xml#102", "stratum": "all", "text": "Customer: Udarsh Balakrishnan (udarsh.balakrishnan@yahoo.com), Dey-Ganguly"}
+{"paragraph": "word/document.xml#103", "stratum": "all", "text": "Udarsh lost access after the password policy change. Related order ORD-9442743, amount $290.22."}
+{"paragraph": "word/document.xml#104", "stratum": "all", "text": "Refund to card 5182 8867 3564 1152 approved by agent #161."}
+{"paragraph": "word/document.xml#105", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#106", "stratum": "all", "text": "Ticket TCK-100020 | Priority P3 | Opened October 31, 2025 | Product: API gateway v2.9.40"}
+{"paragraph": "word/document.xml#107", "stratum": "all", "text": "Customer: Joseph Hall (joseph.hall@hotmail.com), Keller, Rodriguez and Ferguson"}
+{"paragraph": "word/document.xml#108", "stratum": "all", "text": "Joseph gets HTTP 502 on checkout. Related order ORD-5260511, amount $287.42."}
+{"paragraph": "word/document.xml#109", "stratum": "all", "text": "Callback number: 8503911770. Best time after 4 pm."}
+{"paragraph": "word/document.xml#110", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#111", "stratum": "all", "text": "Ticket TCK-100021 | Priority P1 | Opened February 06, 2026 | Product: billing portal v1.9.15"}
+{"paragraph": "word/document.xml#112", "stratum": "all", "text": "Customer: Gerard Baker (gerard.baker@yahoo.com), Slater-Jones"}
+{"paragraph": "word/document.xml#113", "stratum": "all", "text": "Gerard cannot log in after the 2FA reset. Related order ORD-0961529, amount $722.81."}
+{"paragraph": "word/document.xml#114", "stratum": "all", "text": "Shipping address on file: 9 Warren Spring, McDonaldborough, W9 0TU."}
+{"paragraph": "word/document.xml#115", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#116", "stratum": "all", "text": "Ticket TCK-100022 | Priority P1 | Opened June 16, 2026 | Product: SSO login v6.19.27"}
+{"paragraph": "word/document.xml#117", "stratum": "all", "text": "Customer: Rachel Smith (rachel.smith@gmail.com), Parker Inc"}
+{"paragraph": "word/document.xml#118", "stratum": "all", "text": "Rachel wants the SLA breach credit applied. Related order ORD-7651160, amount $493.64."}
+{"paragraph": "word/document.xml#119", "stratum": "all", "text": "Refund to card 4279182749579878 approved by agent #981."}
+{"paragraph": "word/document.xml#120", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#121", "stratum": "all", "text": "Ticket TCK-100023 | Priority P1 | Opened July 03, 2026 | Product: CRM sync v7.0.36"}
+{"paragraph": "word/document.xml#122", "stratum": "all", "text": "Customer: Adam Newton (adam.newton@yahoo.co.uk), Thomas, Hart and Simpson"}
+{"paragraph": "word/document.xml#123", "stratum": "all", "text": "Adam asks why the PDF invoice shows the wrong VAT. Related order ORD-5978022, amount $358.47."}
+{"paragraph": "word/document.xml#124", "stratum": "all", "text": "Login attempts came from IP 208.151.4.207 at 03:19 UTC."}
+{"paragraph": "word/document.xml#125", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#126", "stratum": "all", "text": "Ticket TCK-100024 | Priority P3 | Opened June 18, 2026 | Product: billing portal v9.1.92"}
+{"paragraph": "word/document.xml#127", "stratum": "all", "text": "Customer: Oscar Mallick (oscar.mallick@gmail.com), Gaba-Ganesan"}
+{"paragraph": "word/document.xml#128", "stratum": "all", "text": "Oscar cannot log in after the 2FA reset. Related order ORD-0340075, amount $186.89."}
+{"paragraph": "word/document.xml#129", "stratum": "all", "text": "Callback number: +910982667740. Best time after 1 pm."}
+{"paragraph": "word/document.xml#130", "stratum": "all", "text": "Escalated to John Shelton (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#131", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#132", "stratum": "all", "text": "Ticket TCK-100025 | Priority P2 | Opened June 09, 2026 | Product: mobile app v7.12.48"}
+{"paragraph": "word/document.xml#133", "stratum": "all", "text": "Customer: Cassandra Johnson (cassandra.johnson@gmail.com), Smith PLC"}
+{"paragraph": "word/document.xml#134", "stratum": "all", "text": "Cassandra gets HTTP 502 on checkout. Related order ORD-9699364, amount $815.63."}
+{"paragraph": "word/document.xml#135", "stratum": "all", "text": "Login attempts came from IP 197.38.33.167 at 04:11 UTC."}
+{"paragraph": "word/document.xml#136", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#137", "stratum": "all", "text": "Ticket TCK-100026 | Priority P2 | Opened January 06, 2026 | Product: VPN client v1.8.69"}
+{"paragraph": "word/document.xml#138", "stratum": "all", "text": "Customer: Kayla Marshall (kayla.marshall@hotmail.com), Martinez-Ellis"}
+{"paragraph": "word/document.xml#139", "stratum": "all", "text": "Kayla reports the export times out after 30 seconds. Related order ORD-2477715, amount $447.43."}
+{"paragraph": "word/document.xml#140", "stratum": "all", "text": "Refund to card 5542207513238522 approved by agent #707."}
+{"paragraph": "word/document.xml#141", "stratum": "all", "text": "Escalated to Jessica Reyes (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#142", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#143", "stratum": "all", "text": "Ticket TCK-100027 | Priority P3 | Opened March 27, 2026 | Product: CRM sync v9.10.7"}
+{"paragraph": "word/document.xml#144", "stratum": "all", "text": "Customer: Eesha Lad (eesha.lad@yahoo.com), Badal-Nayar"}
+{"paragraph": "word/document.xml#145", "stratum": "all", "text": "Eesha asks why the PDF invoice shows the wrong VAT. Related order ORD-4449700, amount $880.11."}
+{"paragraph": "word/document.xml#146", "stratum": "all", "text": "Login attempts came from IP 207.169.7.126 at 07:30 UTC."}
+{"paragraph": "word/document.xml#147", "stratum": "all", "text": "Escalated to Robert Morales (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#148", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#149", "stratum": "all", "text": "Ticket TCK-100028 | Priority P2 | Opened October 24, 2025 | Product: API gateway v5.10.25"}
+{"paragraph": "word/document.xml#150", "stratum": "all", "text": "Customer: Samuel Carter (samuel.carter@yahoo.co.uk), Bennett, Brown and James"}
+{"paragraph": "word/document.xml#151", "stratum": "all", "text": "Samuel sees a duplicate charge. Related order ORD-6038642, amount $387.68."}
+{"paragraph": "word/document.xml#152", "stratum": "all", "text": "Login attempts came from IP 6.102.10.245 at 17:51 UTC."}
+{"paragraph": "word/document.xml#153", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#154", "stratum": "all", "text": "Ticket TCK-100029 | Priority P2 | Opened October 04, 2026 | Product: SSO login v1.11.66"}
+{"paragraph": "word/document.xml#155", "stratum": "all", "text": "Customer: Gwendolyn Orr (gwendolyn.orr@gmail.com), Taylor, Brock and Leach"}
+{"paragraph": "word/document.xml#156", "stratum": "all", "text": "Gwendolyn asks why the PDF invoice shows the wrong VAT. Related order ORD-6887688, amount $438.14."}
+{"paragraph": "word/document.xml#157", "stratum": "all", "text": "Login attempts came from IP 68.142.245.158 at 02:19 UTC."}
+{"paragraph": "word/document.xml#158", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#159", "stratum": "all", "text": "Ticket TCK-100030 | Priority P1 | Opened May 16, 2026 | Product: API gateway v4.18.39"}
+{"paragraph": "word/document.xml#160", "stratum": "all", "text": "Customer: Anthony Lawson (anthony.lawson@yahoo.com), Santiago Inc"}
+{"paragraph": "word/document.xml#161", "stratum": "all", "text": "Anthony wants the SLA breach credit applied. Related order ORD-1690330, amount $65.60."}
+{"paragraph": "word/document.xml#162", "stratum": "all", "text": "Shipping address on file: 48419 Phillip Court, East Samantha, MA 05700."}
+{"paragraph": "word/document.xml#163", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#164", "stratum": "all", "text": "Ticket TCK-100031 | Priority P2 | Opened February 06, 2026 | Product: CRM sync v7.10.70"}
+{"paragraph": "word/document.xml#165", "stratum": "all", "text": "Customer: Aayush Goswami (aayush.goswami@yahoo.com), Agrawal, Deshmukh and Kibe"}
+{"paragraph": "word/document.xml#166", "stratum": "all", "text": "Aayush sees a duplicate charge. Related order ORD-1435068, amount $337.15."}
+{"paragraph": "word/document.xml#167", "stratum": "all", "text": "Login attempts came from IP 189.205.5.101 at 21:50 UTC."}
+{"paragraph": "word/document.xml#168", "stratum": "all", "text": "Escalated to Thomas Wilson (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#169", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#170", "stratum": "all", "text": "Ticket TCK-100032 | Priority P3 | Opened February 13, 2026 | Product: billing portal v7.6.95"}
+{"paragraph": "word/document.xml#171", "stratum": "all", "text": "Customer: Andrew Brown (andrew.brown@hotmail.com), Mcintosh-Parks"}
+{"paragraph": "word/document.xml#172", "stratum": "all", "text": "Andrew asks why the PDF invoice shows the wrong VAT. Related order ORD-4791217, amount $29.87."}
+{"paragraph": "word/document.xml#173", "stratum": "all", "text": "Login attempts came from IP 68.121.156.129 at 13:22 UTC."}
+{"paragraph": "word/document.xml#174", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#175", "stratum": "all", "text": "Ticket TCK-100033 | Priority P3 | Opened April 10, 2026 | Product: API gateway v3.5.3"}
+{"paragraph": "word/document.xml#176", "stratum": "all", "text": "Customer: Avi Rattan (avi.rattan@gmail.com), Rajagopal PLC"}
+{"paragraph": "word/document.xml#177", "stratum": "all", "text": "Avi cannot log in after the 2FA reset. Related order ORD-3013575, amount $547.95."}
+{"paragraph": "word/document.xml#178", "stratum": "all", "text": "Refund to card 4798407481903073 approved by agent #165."}
+{"paragraph": "word/document.xml#179", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#180", "stratum": "all", "text": "Ticket TCK-100034 | Priority P2 | Opened January 25, 2026 | Product: VPN client v6.15.13"}
+{"paragraph": "word/document.xml#181", "stratum": "all", "text": "Customer: Balhaar Deo (balhaar.deo@yahoo.com), Mody Group"}
+{"paragraph": "word/document.xml#182", "stratum": "all", "text": "Balhaar lost access after the password policy change. Related order ORD-4163351, amount $877.19."}
+{"paragraph": "word/document.xml#183", "stratum": "all", "text": "Shipping address on file: 43, Karpe Street, Karimnagar 979090."}
+{"paragraph": "word/document.xml#184", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#185", "stratum": "all", "text": "Ticket TCK-100035 | Priority P1 | Opened March 21, 2026 | Product: API gateway v9.7.45"}
+{"paragraph": "word/document.xml#186", "stratum": "all", "text": "Customer: Amy Rios (amy.rios@yahoo.com), Mendoza-Mercer"}
+{"paragraph": "word/document.xml#187", "stratum": "all", "text": "Amy asks why the PDF invoice shows the wrong VAT. Related order ORD-8367626, amount $854.68."}
+{"paragraph": "word/document.xml#188", "stratum": "all", "text": "Customer pasted their SSN 680-14-5527 into the chat; please purge it."}
+{"paragraph": "word/document.xml#189", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#190", "stratum": "all", "text": "Ticket TCK-100036 | Priority P3 | Opened March 02, 2026 | Product: mobile app v4.5.41"}
+{"paragraph": "word/document.xml#191", "stratum": "all", "text": "Customer: Andrea Soto (andrea.soto@hotmail.com), Kane-Adams"}
+{"paragraph": "word/document.xml#192", "stratum": "all", "text": "Andrea reports the export times out after 30 seconds. Related order ORD-8301581, amount $538.81."}
+{"paragraph": "word/document.xml#193", "stratum": "all", "text": "Callback number: +1-659-640-1192. Best time after 4 pm."}
+{"paragraph": "word/document.xml#194", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#195", "stratum": "all", "text": "Ticket TCK-100037 | Priority P2 | Opened January 20, 2026 | Product: invoice export v6.11.52"}
+{"paragraph": "word/document.xml#196", "stratum": "all", "text": "Customer: John Long (john.long@hotmail.com), Lee, Dixon and Lang"}
+{"paragraph": "word/document.xml#197", "stratum": "all", "text": "John lost access after the password policy change. Related order ORD-7767968, amount $842.85."}
+{"paragraph": "word/document.xml#198", "stratum": "all", "text": "Shipping address on file: 66747 Davis Lights, Deborahmouth, WY 09717."}
+{"paragraph": "word/document.xml#199", "stratum": "all", "text": "Escalated to Levi Cline (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#200", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#201", "stratum": "all", "text": "Ticket TCK-100038 | Priority P1 | Opened August 27, 2026 | Product: mobile app v5.14.33"}
+{"paragraph": "word/document.xml#202", "stratum": "all", "text": "Customer: Conor Lambert (conor.lambert@hotmail.com), Robinson-Wood"}
+{"paragraph": "word/document.xml#203", "stratum": "all", "text": "Conor gets HTTP 502 on checkout. Related order ORD-5519259, amount $578.90."}
+{"paragraph": "word/document.xml#204", "stratum": "all", "text": "Callback number: 0113 496 0141. Best time after 3 pm."}
+{"paragraph": "word/document.xml#205", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#206", "stratum": "all", "text": "Ticket TCK-100039 | Priority P4 | Opened March 31, 2026 | Product: CRM sync v7.12.2"}
+{"paragraph": "word/document.xml#207", "stratum": "all", "text": "Customer: Katherine Gibson (katherine.gibson@gmail.com), Williams, Cooper and Caldwell"}
+{"paragraph": "word/document.xml#208", "stratum": "all", "text": "Katherine wants the SLA breach credit applied. Related order ORD-9636638, amount $753.52."}
+{"paragraph": "word/document.xml#209", "stratum": "all", "text": "Login attempts came from IP 142.223.164.129 at 10:06 UTC."}
+{"paragraph": "word/document.xml#210", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#211", "stratum": "all", "text": "Ticket TCK-100040 | Priority P4 | Opened March 19, 2026 | Product: mobile app v6.1.51"}
+{"paragraph": "word/document.xml#212", "stratum": "all", "text": "Customer: Ekalinga Mukhopadhyay (ekalinga.mukhopadhyay@hotmail.com), Lanka, Vasa and Buch"}
+{"paragraph": "word/document.xml#213", "stratum": "all", "text": "Ekalinga asks why the PDF invoice shows the wrong VAT. Related order ORD-3521759, amount $197.11."}
+{"paragraph": "word/document.xml#214", "stratum": "all", "text": "Callback number: +916002928366. Best time after 3 pm."}
+{"paragraph": "word/document.xml#215", "stratum": "all", "text": "Escalated to Jose Gardner (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#216", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#217", "stratum": "all", "text": "Ticket TCK-100041 | Priority P3 | Opened April 12, 2026 | Product: VPN client v1.7.81"}
+{"paragraph": "word/document.xml#218", "stratum": "all", "text": "Customer: Rosemary Knight (rosemary.knight@hotmail.com), Rogers LLC"}
+{"paragraph": "word/document.xml#219", "stratum": "all", "text": "Rosemary cannot log in after the 2FA reset. Related order ORD-8102014, amount $696.44."}
+{"paragraph": "word/document.xml#220", "stratum": "all", "text": "Callback number: +44(0)1134960404. Best time after 2 pm."}
+{"paragraph": "word/document.xml#221", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#222", "stratum": "all", "text": "Ticket TCK-100042 | Priority P1 | Opened November 30, 2025 | Product: API gateway v4.17.98"}
+{"paragraph": "word/document.xml#223", "stratum": "all", "text": "Customer: Eesha Raman (eesha.raman@hotmail.com), Patel Group"}
+{"paragraph": "word/document.xml#224", "stratum": "all", "text": "Eesha cannot log in after the 2FA reset. Related order ORD-6198079, amount $117.29."}
+{"paragraph": "word/document.xml#225", "stratum": "all", "text": "Callback number: +911161637648. Best time after 2 pm."}
+{"paragraph": "word/document.xml#226", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#227", "stratum": "all", "text": "Ticket TCK-100043 | Priority P3 | Opened March 28, 2026 | Product: VPN client v7.16.87"}
+{"paragraph": "word/document.xml#228", "stratum": "all", "text": "Customer: Ojas Mangal (ojas.mangal@hotmail.com), Dhawan, Ganesan and Rout"}
+{"paragraph": "word/document.xml#229", "stratum": "all", "text": "Ojas wants the SLA breach credit applied. Related order ORD-2865173, amount $592.27."}
+{"paragraph": "word/document.xml#230", "stratum": "all", "text": "Callback number: 04279713193. Best time after 3 pm."}
+{"paragraph": "word/document.xml#231", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#232", "stratum": "all", "text": "Ticket TCK-100044 | Priority P2 | Opened May 24, 2026 | Product: SSO login v6.10.44"}
+{"paragraph": "word/document.xml#233", "stratum": "all", "text": "Customer: Bryan Jones (bryan.jones@gmail.com), Martinez, Mitchell and Curtis"}
+{"paragraph": "word/document.xml#234", "stratum": "all", "text": "Bryan sees a duplicate charge. Related order ORD-8613863, amount $641.71."}
+{"paragraph": "word/document.xml#235", "stratum": "all", "text": "Callback number: +1-754-411-4748. Best time after 3 pm."}
+{"paragraph": "word/document.xml#236", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#237", "stratum": "all", "text": "Ticket TCK-100045 | Priority P4 | Opened January 21, 2026 | Product: invoice export v6.8.96"}
+{"paragraph": "word/document.xml#238", "stratum": "all", "text": "Customer: Jane Miller (jane.miller@hotmail.co.uk), Rogers, Finch and Jones"}
+{"paragraph": "word/document.xml#239", "stratum": "all", "text": "Jane reports the export times out after 30 seconds. Related order ORD-0365309, amount $223.57."}
+{"paragraph": "word/document.xml#240", "stratum": "all", "text": "Callback number: +44161 4960200. Best time after 4 pm."}
+{"paragraph": "word/document.xml#241", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#242", "stratum": "all", "text": "Ticket TCK-100046 | Priority P3 | Opened November 24, 2025 | Product: SSO login v2.16.66"}
+{"paragraph": "word/document.xml#243", "stratum": "all", "text": "Customer: Allan Fisher (allan.fisher@yahoo.co.uk), Bennett-Chamberlain"}
+{"paragraph": "word/document.xml#244", "stratum": "all", "text": "Allan wants the SLA breach credit applied. Related order ORD-1083041, amount $352.72."}
+{"paragraph": "word/document.xml#245", "stratum": "all", "text": "Callback number: 0116 4960846. Best time after 3 pm."}
+{"paragraph": "word/document.xml#246", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#247", "stratum": "all", "text": "Ticket TCK-100047 | Priority P3 | Opened March 22, 2026 | Product: invoice export v9.16.49"}
+{"paragraph": "word/document.xml#248", "stratum": "all", "text": "Customer: Falan Shere (falan.shere@hotmail.com), Mittal, Minhas and Pai"}
+{"paragraph": "word/document.xml#249", "stratum": "all", "text": "Falan asks why the PDF invoice shows the wrong VAT. Related order ORD-2925067, amount $128.87."}
+{"paragraph": "word/document.xml#250", "stratum": "all", "text": "Refund to card 4776 0253 1139 6973 approved by agent #314."}
+{"paragraph": "word/document.xml#251", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#252", "stratum": "all", "text": "Ticket TCK-100048 | Priority P4 | Opened January 15, 2026 | Product: billing portal v9.10.46"}
+{"paragraph": "word/document.xml#253", "stratum": "all", "text": "Customer: Luke Agate (luke.agate@yahoo.com), Uppal LLC"}
+{"paragraph": "word/document.xml#254", "stratum": "all", "text": "Luke asks why the PDF invoice shows the wrong VAT. Related order ORD-4541304, amount $421.78."}
+{"paragraph": "word/document.xml#255", "stratum": "all", "text": "Login attempts came from IP 154.199.152.178 at 17:12 UTC."}
+{"paragraph": "word/document.xml#256", "stratum": "all", "text": "Escalated to Carol Conway (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#257", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#258", "stratum": "all", "text": "Ticket TCK-100049 | Priority P1 | Opened January 11, 2026 | Product: invoice export v1.8.38"}
+{"paragraph": "word/document.xml#259", "stratum": "all", "text": "Customer: Angela Mcdonald (angela.mcdonald@yahoo.com), Roberson, Little and Miller"}
+{"paragraph": "word/document.xml#260", "stratum": "all", "text": "Angela lost access after the password policy change. Related order ORD-9612378, amount $203.27."}
+{"paragraph": "word/document.xml#261", "stratum": "all", "text": "Callback number: (680)596-3762. Best time after 5 pm."}
+{"paragraph": "word/document.xml#262", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#263", "stratum": "all", "text": "Ticket TCK-100050 | Priority P1 | Opened October 11, 2026 | Product: invoice export v3.4.52"}
+{"paragraph": "word/document.xml#264", "stratum": "all", "text": "Customer: Marcus Smith (marcus.smith@hotmail.co.uk), Humphreys Group"}
+{"paragraph": "word/document.xml#265", "stratum": "all", "text": "Marcus asks why the PDF invoice shows the wrong VAT. Related order ORD-3130159, amount $657.72."}
+{"paragraph": "word/document.xml#266", "stratum": "all", "text": "Refund to card 4259 4045 9099 0820 approved by agent #626."}
+{"paragraph": "word/document.xml#267", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#268", "stratum": "all", "text": "Ticket TCK-100051 | Priority P2 | Opened May 05, 2026 | Product: mobile app v3.16.5"}
+{"paragraph": "word/document.xml#269", "stratum": "all", "text": "Customer: Arthur Hughes (arthur.hughes@gmail.com), Walton, Kelly and Khan"}
+{"paragraph": "word/document.xml#270", "stratum": "all", "text": "Arthur reports the export times out after 30 seconds. Related order ORD-6824903, amount $27.17."}
+{"paragraph": "word/document.xml#271", "stratum": "all", "text": "Callback number: +44(0)191 4960150. Best time after 5 pm."}
+{"paragraph": "word/document.xml#272", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#273", "stratum": "all", "text": "Ticket TCK-100052 | Priority P2 | Opened June 23, 2026 | Product: API gateway v4.2.54"}
+{"paragraph": "word/document.xml#274", "stratum": "all", "text": "Customer: Christopher Buckley (christopher.buckley@hotmail.com), Rodriguez, Lindsey and Parker"}
+{"paragraph": "word/document.xml#275", "stratum": "all", "text": "Christopher asks why the PDF invoice shows the wrong VAT. Related order ORD-0471235, amount $463.35."}
+{"paragraph": "word/document.xml#276", "stratum": "all", "text": "Identity check passed: date of birth 08/25/1978 confirmed."}
+{"paragraph": "word/document.xml#277", "stratum": "all", "text": "Escalated to Theodore David (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#278", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#279", "stratum": "all", "text": "Ticket TCK-100053 | Priority P4 | Opened May 03, 2026 | Product: CRM sync v7.14.46"}
+{"paragraph": "word/document.xml#280", "stratum": "all", "text": "Customer: Rebecca Diaz (rebecca.diaz@gmail.com), Nichols-Hernandez"}
+{"paragraph": "word/document.xml#281", "stratum": "all", "text": "Rebecca asks why the PDF invoice shows the wrong VAT. Related order ORD-2659408, amount $234.49."}
+{"paragraph": "word/document.xml#282", "stratum": "all", "text": "Login attempts came from IP 167.108.190.64 at 14:59 UTC."}
+{"paragraph": "word/document.xml#283", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#284", "stratum": "all", "text": "Ticket TCK-100054 | Priority P2 | Opened February 23, 2026 | Product: VPN client v2.11.91"}
+{"paragraph": "word/document.xml#285", "stratum": "all", "text": "Customer: Lauren Walker (lauren.walker@gmail.com), Myers PLC"}
+{"paragraph": "word/document.xml#286", "stratum": "all", "text": "Lauren asks why the PDF invoice shows the wrong VAT. Related order ORD-3540890, amount $657.98."}
+{"paragraph": "word/document.xml#287", "stratum": "all", "text": "Callback number: 8014477351. Best time after 2 pm."}
+{"paragraph": "word/document.xml#288", "stratum": "all", "text": "Escalated to Allison Guerrero (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#289", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#290", "stratum": "all", "text": "Ticket TCK-100055 | Priority P2 | Opened April 02, 2026 | Product: CRM sync v5.9.94"}
+{"paragraph": "word/document.xml#291", "stratum": "all", "text": "Customer: Stephen Jones (stephen.jones@hotmail.co.uk), Brown-Brown"}
+{"paragraph": "word/document.xml#292", "stratum": "all", "text": "Stephen sees a duplicate charge. Related order ORD-9175517, amount $427.11."}
+{"paragraph": "word/document.xml#293", "stratum": "all", "text": "Shipping address on file: Flat 85n, Talbot Vista, East Paulastad, M0D 1LX."}
+{"paragraph": "word/document.xml#294", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#295", "stratum": "all", "text": "Ticket TCK-100056 | Priority P1 | Opened May 28, 2026 | Product: invoice export v3.17.28"}
+{"paragraph": "word/document.xml#296", "stratum": "all", "text": "Customer: Jennifer Yang (jennifer.yang@hotmail.com), Brown-Harris"}
+{"paragraph": "word/document.xml#297", "stratum": "all", "text": "Jennifer sees a duplicate charge. Related order ORD-2314374, amount $486.58."}
+{"paragraph": "word/document.xml#298", "stratum": "all", "text": "Login attempts came from IP 200.206.254.157 at 18:03 UTC."}
+{"paragraph": "word/document.xml#299", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#300", "stratum": "all", "text": "Ticket TCK-100057 | Priority P4 | Opened March 23, 2026 | Product: SSO login v6.17.67"}
+{"paragraph": "word/document.xml#301", "stratum": "all", "text": "Customer: Robert Rice (robert.rice@gmail.com), Morris-Nelson"}
+{"paragraph": "word/document.xml#302", "stratum": "all", "text": "Robert lost access after the password policy change. Related order ORD-1322511, amount $563.22."}
+{"paragraph": "word/document.xml#303", "stratum": "all", "text": "Identity check passed: date of birth 12/17/1968 confirmed."}
+{"paragraph": "word/document.xml#304", "stratum": "all", "text": "Escalated to Brittney Daniels (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#305", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#306", "stratum": "all", "text": "Ticket TCK-100058 | Priority P1 | Opened March 24, 2026 | Product: SSO login v8.19.61"}
+{"paragraph": "word/document.xml#307", "stratum": "all", "text": "Customer: Alexis Watson (alexis.watson@gmail.com), Miranda PLC"}
+{"paragraph": "word/document.xml#308", "stratum": "all", "text": "Alexis wants the SLA breach credit applied. Related order ORD-7590653, amount $42.29."}
+{"paragraph": "word/document.xml#309", "stratum": "all", "text": "Customer pasted their SSN 230-34-6395 into the chat; please purge it."}
+{"paragraph": "word/document.xml#310", "stratum": "all", "text": "Escalated to Daniel Holt (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#311", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#312", "stratum": "all", "text": "Ticket TCK-100059 | Priority P3 | Opened February 07, 2026 | Product: VPN client v1.2.96"}
+{"paragraph": "word/document.xml#313", "stratum": "all", "text": "Customer: Travis Lynch (travis.lynch@gmail.com), Barker, Long and Davis"}
+{"paragraph": "word/document.xml#314", "stratum": "all", "text": "Travis wants the SLA breach credit applied. Related order ORD-8971906, amount $553.25."}
+{"paragraph": "word/document.xml#315", "stratum": "all", "text": "Login attempts came from IP 90.9.108.202 at 10:45 UTC."}
+{"paragraph": "word/document.xml#316", "stratum": "all", "text": "Escalated to Dustin Savage (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#317", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#318", "stratum": "all", "text": "Ticket TCK-100060 | Priority P2 | Opened April 07, 2026 | Product: SSO login v4.16.40"}
+{"paragraph": "word/document.xml#319", "stratum": "all", "text": "Customer: Samantha Kennedy (samantha.kennedy@gmail.com), King, Smith and Wu"}
+{"paragraph": "word/document.xml#320", "stratum": "all", "text": "Samantha reports the export times out after 30 seconds. Related order ORD-7862948, amount $62.72."}
+{"paragraph": "word/document.xml#321", "stratum": "all", "text": "Callback number: (258)337-5616. Best time after 2 pm."}
+{"paragraph": "word/document.xml#322", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#323", "stratum": "all", "text": "Ticket TCK-100061 | Priority P4 | Opened June 24, 2026 | Product: SSO login v9.0.63"}
+{"paragraph": "word/document.xml#324", "stratum": "all", "text": "Customer: Brijesh Parmar (brijesh.parmar@hotmail.com), Dutta-Jayaraman"}
+{"paragraph": "word/document.xml#325", "stratum": "all", "text": "Brijesh gets HTTP 502 on checkout. Related order ORD-9907818, amount $413.14."}
+{"paragraph": "word/document.xml#326", "stratum": "all", "text": "Shipping address on file: H.No. 00, Chaudry Street, Tiruchirappalli-705879."}
+{"paragraph": "word/document.xml#327", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#328", "stratum": "all", "text": "Ticket TCK-100062 | Priority P3 | Opened July 25, 2026 | Product: mobile app v7.18.3"}
+{"paragraph": "word/document.xml#329", "stratum": "all", "text": "Customer: William Williamson (william.williamson@yahoo.com), Joseph, Duncan and Ellis"}
+{"paragraph": "word/document.xml#330", "stratum": "all", "text": "William sees a duplicate charge. Related order ORD-8746793, amount $636.76."}
+{"paragraph": "word/document.xml#331", "stratum": "all", "text": "Callback number: 426-426-7286. Best time after 5 pm."}
+{"paragraph": "word/document.xml#332", "stratum": "all", "text": "Escalated to Shane Nunez (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#333", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#334", "stratum": "all", "text": "Ticket TCK-100063 | Priority P2 | Opened April 26, 2026 | Product: SSO login v7.3.13"}
+{"paragraph": "word/document.xml#335", "stratum": "all", "text": "Customer: Sai Dutta (sai.dutta@hotmail.com), Baria, Sodhi and Viswanathan"}
+{"paragraph": "word/document.xml#336", "stratum": "all", "text": "Sai lost access after the password policy change. Related order ORD-9305658, amount $445.61."}
+{"paragraph": "word/document.xml#337", "stratum": "all", "text": "Refund to card 2295 7466 8311 0538 approved by agent #368."}
+{"paragraph": "word/document.xml#338", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#339", "stratum": "all", "text": "Ticket TCK-100064 | Priority P1 | Opened April 24, 2026 | Product: mobile app v3.1.27"}
+{"paragraph": "word/document.xml#340", "stratum": "all", "text": "Customer: Radha Vaidya (radha.vaidya@hotmail.com), Aurora-Dua"}
+{"paragraph": "word/document.xml#341", "stratum": "all", "text": "Radha asks why the PDF invoice shows the wrong VAT. Related order ORD-6278681, amount $882.90."}
+{"paragraph": "word/document.xml#342", "stratum": "all", "text": "Identity check passed: date of birth 01/05/2003 confirmed."}
+{"paragraph": "word/document.xml#343", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#344", "stratum": "all", "text": "Ticket TCK-100065 | Priority P3 | Opened August 19, 2026 | Product: CRM sync v8.16.80"}
+{"paragraph": "word/document.xml#345", "stratum": "all", "text": "Customer: Pranav Deo (pranav.deo@gmail.com), Sarraf, Johal and Murty"}
+{"paragraph": "word/document.xml#346", "stratum": "all", "text": "Pranav cannot log in after the 2FA reset. Related order ORD-0596825, amount $899.34."}
+{"paragraph": "word/document.xml#347", "stratum": "all", "text": "Login attempts came from IP 129.158.215.86 at 15:03 UTC."}
+{"paragraph": "word/document.xml#348", "stratum": "all", "text": "Escalated to Rachel Walton (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#349", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#350", "stratum": "all", "text": "Ticket TCK-100066 | Priority P3 | Opened June 22, 2026 | Product: API gateway v1.15.33"}
+{"paragraph": "word/document.xml#351", "stratum": "all", "text": "Customer: Angela Miller (angela.miller@hotmail.com), Morris, Lindsey and Smith"}
+{"paragraph": "word/document.xml#352", "stratum": "all", "text": "Angela cannot log in after the 2FA reset. Related order ORD-0122521, amount $737.79."}
+{"paragraph": "word/document.xml#353", "stratum": "all", "text": "Callback number: 430-948-1670. Best time after 5 pm."}
+{"paragraph": "word/document.xml#354", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#355", "stratum": "all", "text": "Ticket TCK-100067 | Priority P3 | Opened September 16, 2026 | Product: billing portal v9.12.59"}
+{"paragraph": "word/document.xml#356", "stratum": "all", "text": "Customer: Rachel Hammond (rachel.hammond@hotmail.co.uk), Kelly, Kerr and Watts"}
+{"paragraph": "word/document.xml#357", "stratum": "all", "text": "Rachel cannot log in after the 2FA reset. Related order ORD-0892934, amount $268.14."}
+{"paragraph": "word/document.xml#358", "stratum": "all", "text": "Callback number: (0113) 4960682. Best time after 4 pm."}
+{"paragraph": "word/document.xml#359", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#360", "stratum": "all", "text": "Ticket TCK-100068 | Priority P2 | Opened December 24, 2025 | Product: billing portal v9.6.64"}
+{"paragraph": "word/document.xml#361", "stratum": "all", "text": "Customer: Mohammed Deep (mohammed.deep@gmail.com), Chaudhry PLC"}
+{"paragraph": "word/document.xml#362", "stratum": "all", "text": "Mohammed lost access after the password policy change. Related order ORD-2878513, amount $365.61."}
+{"paragraph": "word/document.xml#363", "stratum": "all", "text": "Callback number: +915075552763. Best time after 2 pm."}
+{"paragraph": "word/document.xml#364", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#365", "stratum": "all", "text": "Ticket TCK-100069 | Priority P2 | Opened March 23, 2026 | Product: invoice export v8.4.87"}
+{"paragraph": "word/document.xml#366", "stratum": "all", "text": "Customer: Carolyn Mitchell (carolyn.mitchell@hotmail.com), Brock, Sullivan and Roberts"}
+{"paragraph": "word/document.xml#367", "stratum": "all", "text": "Carolyn lost access after the password policy change. Related order ORD-2185926, amount $350.32."}
+{"paragraph": "word/document.xml#368", "stratum": "all", "text": "Shipping address on file: 1129 Olson Hollow Apt. 565, South Charles, MN 80643."}
+{"paragraph": "word/document.xml#369", "stratum": "all", "text": "Escalated to Kimberly Peters (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#370", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#371", "stratum": "all", "text": "Ticket TCK-100070 | Priority P4 | Opened January 14, 2026 | Product: CRM sync v6.16.45"}
+{"paragraph": "word/document.xml#372", "stratum": "all", "text": "Customer: Isabel George (isabel.george@hotmail.com), Moon, Wilson and Richards"}
+{"paragraph": "word/document.xml#373", "stratum": "all", "text": "Isabel cannot log in after the 2FA reset. Related order ORD-8355369, amount $780.97."}
+{"paragraph": "word/document.xml#374", "stratum": "all", "text": "Shipping address on file: 0202 Amber Loaf Suite 412, Taylorhaven, MA 01929."}
+{"paragraph": "word/document.xml#375", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#376", "stratum": "all", "text": "Ticket TCK-100071 | Priority P3 | Opened May 30, 2026 | Product: API gateway v3.9.95"}
+{"paragraph": "word/document.xml#377", "stratum": "all", "text": "Customer: Karen Reese (karen.reese@gmail.com), Perez, Stewart and Meyers"}
+{"paragraph": "word/document.xml#378", "stratum": "all", "text": "Karen wants the SLA breach credit applied. Related order ORD-4106367, amount $30.13."}
+{"paragraph": "word/document.xml#379", "stratum": "all", "text": "Callback number: 548.223.1236. Best time after 2 pm."}
+{"paragraph": "word/document.xml#380", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#381", "stratum": "all", "text": "Ticket TCK-100072 | Priority P2 | Opened March 20, 2026 | Product: API gateway v9.15.14"}
+{"paragraph": "word/document.xml#382", "stratum": "all", "text": "Customer: George Brown (george.brown@hotmail.com), Sanchez Inc"}
+{"paragraph": "word/document.xml#383", "stratum": "all", "text": "George cannot log in after the 2FA reset. Related order ORD-7909835, amount $150.10."}
+{"paragraph": "word/document.xml#384", "stratum": "all", "text": "Login attempts came from IP 192.229.27.19 at 09:09 UTC."}
+{"paragraph": "word/document.xml#385", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#386", "stratum": "all", "text": "Ticket TCK-100073 | Priority P2 | Opened August 16, 2026 | Product: SSO login v1.14.75"}
+{"paragraph": "word/document.xml#387", "stratum": "all", "text": "Customer: Jason Floyd (jason.floyd@yahoo.com), Garcia-Woods"}
+{"paragraph": "word/document.xml#388", "stratum": "all", "text": "Jason cannot log in after the 2FA reset. Related order ORD-4957493, amount $118.39."}
+{"paragraph": "word/document.xml#389", "stratum": "all", "text": "Identity check passed: date of birth 08/30/1990 confirmed."}
+{"paragraph": "word/document.xml#390", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#391", "stratum": "all", "text": "Ticket TCK-100074 | Priority P4 | Opened July 22, 2026 | Product: CRM sync v5.8.57"}
+{"paragraph": "word/document.xml#392", "stratum": "all", "text": "Customer: Geoffrey Rees (geoffrey.rees@yahoo.com), Shepherd Ltd"}
+{"paragraph": "word/document.xml#393", "stratum": "all", "text": "Geoffrey asks why the PDF invoice shows the wrong VAT. Related order ORD-7361486, amount $656.62."}
+{"paragraph": "word/document.xml#394", "stratum": "all", "text": "Shipping address on file: 06 Brady Pines, Carolshire, IM7V 6ER."}
+{"paragraph": "word/document.xml#395", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#396", "stratum": "all", "text": "Ticket TCK-100075 | Priority P1 | Opened August 05, 2026 | Product: billing portal v4.9.91"}
+{"paragraph": "word/document.xml#397", "stratum": "all", "text": "Customer: Karen Phillips (karen.phillips@hotmail.com), Parker-Lin"}
+{"paragraph": "word/document.xml#398", "stratum": "all", "text": "Karen lost access after the password policy change. Related order ORD-9192571, amount $433.38."}
+{"paragraph": "word/document.xml#399", "stratum": "all", "text": "Customer pasted their SSN 520-77-9228 into the chat; please purge it."}
+{"paragraph": "word/document.xml#400", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#401", "stratum": "all", "text": "Ticket TCK-100076 | Priority P2 | Opened May 13, 2026 | Product: API gateway v6.20.68"}
+{"paragraph": "word/document.xml#402", "stratum": "all", "text": "Customer: Robert Lewis (robert.lewis@hotmail.com), Hester, Cox and Chambers"}
+{"paragraph": "word/document.xml#403", "stratum": "all", "text": "Robert reports the export times out after 30 seconds. Related order ORD-6461948, amount $232.88."}
+{"paragraph": "word/document.xml#404", "stratum": "all", "text": "Shipping address on file: 1152 Anthony Wells, Coxtown, NM 15595."}
+{"paragraph": "word/document.xml#405", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#406", "stratum": "all", "text": "Ticket TCK-100077 | Priority P2 | Opened June 09, 2026 | Product: billing portal v9.9.4"}
+{"paragraph": "word/document.xml#407", "stratum": "all", "text": "Customer: Megan Lee (megan.lee@hotmail.com), Reeves, Wolf and Cook"}
+{"paragraph": "word/document.xml#408", "stratum": "all", "text": "Megan asks why the PDF invoice shows the wrong VAT. Related order ORD-7585879, amount $656.35."}
+{"paragraph": "word/document.xml#409", "stratum": "all", "text": "Callback number: (225)366-6597. Best time after 4 pm."}
+{"paragraph": "word/document.xml#410", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#411", "stratum": "all", "text": "Ticket TCK-100078 | Priority P1 | Opened November 25, 2025 | Product: API gateway v5.1.76"}
+{"paragraph": "word/document.xml#412", "stratum": "all", "text": "Customer: Amelia King (amelia.king@hotmail.co.uk), Murphy and Sons"}
+{"paragraph": "word/document.xml#413", "stratum": "all", "text": "Amelia wants the SLA breach credit applied. Related order ORD-8336529, amount $365.81."}
+{"paragraph": "word/document.xml#414", "stratum": "all", "text": "Callback number: 028 9018775. Best time after 4 pm."}
+{"paragraph": "word/document.xml#415", "stratum": "all", "text": "Escalated to Charles Williamson (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#416", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#417", "stratum": "all", "text": "Ticket TCK-100079 | Priority P3 | Opened December 15, 2025 | Product: invoice export v7.16.28"}
+{"paragraph": "word/document.xml#418", "stratum": "all", "text": "Customer: Guneet Kala (guneet.kala@yahoo.com), Chaudhary-Sarkar"}
+{"paragraph": "word/document.xml#419", "stratum": "all", "text": "Guneet cannot log in after the 2FA reset. Related order ORD-5874904, amount $451.77."}
+{"paragraph": "word/document.xml#420", "stratum": "all", "text": "Shipping address on file: H.No. 135, Thaker Marg, Thoothukudi 706235."}
+{"paragraph": "word/document.xml#421", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#422", "stratum": "all", "text": "Ticket TCK-100080 | Priority P4 | Opened March 02, 2026 | Product: mobile app v1.3.30"}
+{"paragraph": "word/document.xml#423", "stratum": "all", "text": "Customer: Brandon Frazier (brandon.frazier@hotmail.com), Lewis, Gonzalez and Powers"}
+{"paragraph": "word/document.xml#424", "stratum": "all", "text": "Brandon gets HTTP 502 on checkout. Related order ORD-9808010, amount $199.72."}
+{"paragraph": "word/document.xml#425", "stratum": "all", "text": "Login attempts came from IP 206.62.77.68 at 15:52 UTC."}
+{"paragraph": "word/document.xml#426", "stratum": "all", "text": "Escalated to Julie Rodriguez (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#427", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#428", "stratum": "all", "text": "Ticket TCK-100081 | Priority P1 | Opened August 24, 2026 | Product: VPN client v2.6.50"}
+{"paragraph": "word/document.xml#429", "stratum": "all", "text": "Customer: Amy Benson (amy.benson@hotmail.com), Kelley-Davis"}
+{"paragraph": "word/document.xml#430", "stratum": "all", "text": "Amy cannot log in after the 2FA reset. Related order ORD-9149416, amount $488.86."}
+{"paragraph": "word/document.xml#431", "stratum": "all", "text": "Callback number: (596)884-8137. Best time after 5 pm."}
+{"paragraph": "word/document.xml#432", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#433", "stratum": "all", "text": "Ticket TCK-100082 | Priority P3 | Opened January 01, 2026 | Product: VPN client v2.2.97"}
+{"paragraph": "word/document.xml#434", "stratum": "all", "text": "Customer: Lorraine Chapman (lorraine.chapman@yahoo.com), Smith-Carey"}
+{"paragraph": "word/document.xml#435", "stratum": "all", "text": "Lorraine sees a duplicate charge. Related order ORD-5388773, amount $694.29."}
+{"paragraph": "word/document.xml#436", "stratum": "all", "text": "Shipping address on file: Studio 65, Godfrey Ports, New Jeffreymouth, LD0N 5AP."}
+{"paragraph": "word/document.xml#437", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#438", "stratum": "all", "text": "Ticket TCK-100083 | Priority P4 | Opened December 09, 2025 | Product: mobile app v3.3.11"}
+{"paragraph": "word/document.xml#439", "stratum": "all", "text": "Customer: Bryan Webb (bryan.webb@hotmail.com), Reed Group"}
+{"paragraph": "word/document.xml#440", "stratum": "all", "text": "Bryan sees a duplicate charge. Related order ORD-9302204, amount $262.29."}
+{"paragraph": "word/document.xml#441", "stratum": "all", "text": "Shipping address on file: 89634 Brad Stream, South Oscarville, SD 61558."}
+{"paragraph": "word/document.xml#442", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#443", "stratum": "all", "text": "Ticket TCK-100084 | Priority P2 | Opened August 07, 2026 | Product: VPN client v1.14.54"}
+{"paragraph": "word/document.xml#444", "stratum": "all", "text": "Customer: Sai Mani (sai.mani@yahoo.com), Kala and Sons"}
+{"paragraph": "word/document.xml#445", "stratum": "all", "text": "Sai cannot log in after the 2FA reset. Related order ORD-7106560, amount $472.73."}
+{"paragraph": "word/document.xml#446", "stratum": "all", "text": "Callback number: 7423790608. Best time after 4 pm."}
+{"paragraph": "word/document.xml#447", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#448", "stratum": "all", "text": "Ticket TCK-100085 | Priority P4 | Opened November 07, 2025 | Product: CRM sync v2.8.91"}
+{"paragraph": "word/document.xml#449", "stratum": "all", "text": "Customer: Steven Soto (steven.soto@hotmail.com), Lopez Group"}
+{"paragraph": "word/document.xml#450", "stratum": "all", "text": "Steven wants the SLA breach credit applied. Related order ORD-3043467, amount $556.41."}
+{"paragraph": "word/document.xml#451", "stratum": "all", "text": "Shipping address on file: 22498 Perry Centers Apt. 597, Ryanbury, DC 87883."}
+{"paragraph": "word/document.xml#452", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#453", "stratum": "all", "text": "Ticket TCK-100086 | Priority P3 | Opened July 07, 2026 | Product: mobile app v7.3.88"}
+{"paragraph": "word/document.xml#454", "stratum": "all", "text": "Customer: Sally Lyons (sally.lyons@yahoo.com), Harris Ltd"}
+{"paragraph": "word/document.xml#455", "stratum": "all", "text": "Sally gets HTTP 502 on checkout. Related order ORD-2376415, amount $393.19."}
+{"paragraph": "word/document.xml#456", "stratum": "all", "text": "Shipping address on file: Unit 9164 Box 6188, DPO AA 05535."}
+{"paragraph": "word/document.xml#457", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#458", "stratum": "all", "text": "Ticket TCK-100087 | Priority P3 | Opened August 18, 2026 | Product: billing portal v9.5.67"}
+{"paragraph": "word/document.xml#459", "stratum": "all", "text": "Customer: Leslie Phillips (leslie.phillips@yahoo.com), Gould, Anderson and House"}
+{"paragraph": "word/document.xml#460", "stratum": "all", "text": "Leslie reports the export times out after 30 seconds. Related order ORD-9703745, amount $279.14."}
+{"paragraph": "word/document.xml#461", "stratum": "all", "text": "Shipping address on file: 10231 Whitney Springs, Combsstad, NE 70756."}
+{"paragraph": "word/document.xml#462", "stratum": "all", "text": "Escalated to Marcus Brown (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#463", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#464", "stratum": "all", "text": "Ticket TCK-100088 | Priority P2 | Opened August 04, 2026 | Product: CRM sync v8.5.45"}
+{"paragraph": "word/document.xml#465", "stratum": "all", "text": "Customer: Clifford Richards (clifford.richards@hotmail.co.uk), Gill PLC"}
+{"paragraph": "word/document.xml#466", "stratum": "all", "text": "Clifford lost access after the password policy change. Related order ORD-4372158, amount $549.49."}
+{"paragraph": "word/document.xml#467", "stratum": "all", "text": "Refund to card 377017924482531 approved by agent #720."}
+{"paragraph": "word/document.xml#468", "stratum": "all", "text": "Escalated to Kayla Wallace (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#469", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#470", "stratum": "all", "text": "Ticket TCK-100089 | Priority P3 | Opened August 16, 2026 | Product: CRM sync v2.10.51"}
+{"paragraph": "word/document.xml#471", "stratum": "all", "text": "Customer: Damyanti Kari (damyanti.kari@hotmail.com), Bora-Chanda"}
+{"paragraph": "word/document.xml#472", "stratum": "all", "text": "Damyanti asks why the PDF invoice shows the wrong VAT. Related order ORD-5664582, amount $454.88."}
+{"paragraph": "word/document.xml#473", "stratum": "all", "text": "Shipping address on file: H.No. 30, Mitter Ganj, Faridabad-080138."}
+{"paragraph": "word/document.xml#474", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#475", "stratum": "all", "text": "Ticket TCK-100090 | Priority P4 | Opened September 29, 2026 | Product: API gateway v6.18.48"}
+{"paragraph": "word/document.xml#476", "stratum": "all", "text": "Customer: Nicole Munoz (nicole.munoz@hotmail.com), Young-Mccoy"}
+{"paragraph": "word/document.xml#477", "stratum": "all", "text": "Nicole sees a duplicate charge. Related order ORD-7224017, amount $34.55."}
+{"paragraph": "word/document.xml#478", "stratum": "all", "text": "Shipping address on file: 4539 Mills Road Suite 041, Suzanneview, VI 92590."}
+{"paragraph": "word/document.xml#479", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#480", "stratum": "all", "text": "Ticket TCK-100091 | Priority P4 | Opened April 13, 2026 | Product: SSO login v1.19.2"}
+{"paragraph": "word/document.xml#481", "stratum": "all", "text": "Customer: Kayleigh Lee (kayleigh.lee@yahoo.co.uk), Owen, Bailey and Grant"}
+{"paragraph": "word/document.xml#482", "stratum": "all", "text": "Kayleigh lost access after the password policy change. Related order ORD-6042627, amount $746.47."}
+{"paragraph": "word/document.xml#483", "stratum": "all", "text": "Shipping address on file: 644 Luke Glens, West Lydia, LS20 4EH."}
+{"paragraph": "word/document.xml#484", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#485", "stratum": "all", "text": "Ticket TCK-100092 | Priority P4 | Opened March 06, 2026 | Product: mobile app v7.9.90"}
+{"paragraph": "word/document.xml#486", "stratum": "all", "text": "Customer: Candace Bates (candace.bates@hotmail.com), Singh, King and Kim"}
+{"paragraph": "word/document.xml#487", "stratum": "all", "text": "Candace sees a duplicate charge. Related order ORD-5550883, amount $22.36."}
+{"paragraph": "word/document.xml#488", "stratum": "all", "text": "Callback number: 9925144536. Best time after 1 pm."}
+{"paragraph": "word/document.xml#489", "stratum": "all", "text": "Escalated to Dominique Reed (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#490", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#491", "stratum": "all", "text": "Ticket TCK-100093 | Priority P1 | Opened October 04, 2026 | Product: CRM sync v9.16.81"}
+{"paragraph": "word/document.xml#492", "stratum": "all", "text": "Customer: Orinder Purohit (orinder.purohit@gmail.com), Loyal-Bhardwaj"}
+{"paragraph": "word/document.xml#493", "stratum": "all", "text": "Orinder wants the SLA breach credit applied. Related order ORD-7652631, amount $75.47."}
+{"paragraph": "word/document.xml#494", "stratum": "all", "text": "Callback number: +914032385934. Best time after 4 pm."}
+{"paragraph": "word/document.xml#495", "stratum": "all", "text": "Escalated to Denise Meyers (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#496", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#497", "stratum": "all", "text": "Ticket TCK-100094 | Priority P4 | Opened October 13, 2025 | Product: VPN client v3.14.71"}
+{"paragraph": "word/document.xml#498", "stratum": "all", "text": "Customer: Rebecca Cohen (rebecca.cohen@gmail.com), Allen, Brown and Russell"}
+{"paragraph": "word/document.xml#499", "stratum": "all", "text": "Rebecca asks why the PDF invoice shows the wrong VAT. Related order ORD-1205047, amount $44.46."}
+{"paragraph": "word/document.xml#500", "stratum": "all", "text": "Shipping address on file: 96924 Soto Fords Suite 440, Solisfurt, KS 88860."}
+{"paragraph": "word/document.xml#501", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#502", "stratum": "all", "text": "Ticket TCK-100095 | Priority P4 | Opened May 21, 2026 | Product: mobile app v3.8.81"}
+{"paragraph": "word/document.xml#503", "stratum": "all", "text": "Customer: Dennis Baker (dennis.baker@yahoo.com), Taylor-Lowery"}
+{"paragraph": "word/document.xml#504", "stratum": "all", "text": "Dennis wants the SLA breach credit applied. Related order ORD-0856707, amount $188.87."}
+{"paragraph": "word/document.xml#505", "stratum": "all", "text": "Shipping address on file: 5131 Huffman Gardens Suite 585, East Melissatown, MI 76398."}
+{"paragraph": "word/document.xml#506", "stratum": "all", "text": "Escalated to Scott Thompson (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#507", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#508", "stratum": "all", "text": "Ticket TCK-100096 | Priority P1 | Opened June 05, 2026 | Product: mobile app v2.4.55"}
+{"paragraph": "word/document.xml#509", "stratum": "all", "text": "Customer: Jack Nash (jack.nash@gmail.com), Jackson, Giles and Hill"}
+{"paragraph": "word/document.xml#510", "stratum": "all", "text": "Jack gets HTTP 502 on checkout. Related order ORD-2465071, amount $296.69."}
+{"paragraph": "word/document.xml#511", "stratum": "all", "text": "Shipping address on file: Flat 04, Gary Key, North Leslieview, W5 4TB."}
+{"paragraph": "word/document.xml#512", "stratum": "all", "text": "Escalated to Michelle Turner (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#513", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#514", "stratum": "all", "text": "Ticket TCK-100097 | Priority P2 | Opened September 21, 2026 | Product: SSO login v7.2.46"}
+{"paragraph": "word/document.xml#515", "stratum": "all", "text": "Customer: Jennifer Johnson (jennifer.johnson@hotmail.com), Hicks Ltd"}
+{"paragraph": "word/document.xml#516", "stratum": "all", "text": "Jennifer reports the export times out after 30 seconds. Related order ORD-1728998, amount $96.11."}
+{"paragraph": "word/document.xml#517", "stratum": "all", "text": "Shipping address on file: 135 Daniel Stravenue Suite 748, West Jasminemouth, IN 69645."}
+{"paragraph": "word/document.xml#518", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#519", "stratum": "all", "text": "Ticket TCK-100098 | Priority P3 | Opened May 01, 2026 | Product: mobile app v2.9.68"}
+{"paragraph": "word/document.xml#520", "stratum": "all", "text": "Customer: Yoshita Prashad (yoshita.prashad@gmail.com), Krishnan Group"}
+{"paragraph": "word/document.xml#521", "stratum": "all", "text": "Yoshita wants the SLA breach credit applied. Related order ORD-3261891, amount $133.79."}
+{"paragraph": "word/document.xml#522", "stratum": "all", "text": "Callback number: +912786644482. Best time after 2 pm."}
+{"paragraph": "word/document.xml#523", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#524", "stratum": "all", "text": "Ticket TCK-100099 | Priority P2 | Opened September 20, 2026 | Product: API gateway v5.3.49"}
+{"paragraph": "word/document.xml#525", "stratum": "all", "text": "Customer: Zachary Moore (zachary.moore@gmail.com), Waters-Roth"}
+{"paragraph": "word/document.xml#526", "stratum": "all", "text": "Zachary sees a duplicate charge. Related order ORD-2511027, amount $622.92."}
+{"paragraph": "word/document.xml#527", "stratum": "all", "text": "Shipping address on file: 8025 Michael Streets, Christinabury, PW 02816."}
+{"paragraph": "word/document.xml#528", "stratum": "all", "text": "Escalated to Michael Baker (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#529", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#530", "stratum": "all", "text": "Ticket TCK-100100 | Priority P2 | Opened December 31, 2025 | Product: API gateway v5.17.6"}
+{"paragraph": "word/document.xml#531", "stratum": "all", "text": "Customer: Daniel Cameron (daniel.cameron@hotmail.com), Rodriguez-Richardson"}
+{"paragraph": "word/document.xml#532", "stratum": "all", "text": "Daniel wants the SLA breach credit applied. Related order ORD-1083553, amount $373.38."}
+{"paragraph": "word/document.xml#533", "stratum": "all", "text": "Login attempts came from IP 6.66.123.94 at 15:40 UTC."}
+{"paragraph": "word/document.xml#534", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#535", "stratum": "all", "text": "Ticket TCK-100101 | Priority P4 | Opened February 05, 2026 | Product: invoice export v2.6.39"}
+{"paragraph": "word/document.xml#536", "stratum": "all", "text": "Customer: Paula Mata (paula.mata@yahoo.com), Mcgee Ltd"}
+{"paragraph": "word/document.xml#537", "stratum": "all", "text": "Paula cannot log in after the 2FA reset. Related order ORD-7621605, amount $284.96."}
+{"paragraph": "word/document.xml#538", "stratum": "all", "text": "Identity check passed: date of birth 02/18/1974 confirmed."}
+{"paragraph": "word/document.xml#539", "stratum": "all", "text": "Escalated to Mackenzie Flores (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#540", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#541", "stratum": "all", "text": "Ticket TCK-100102 | Priority P1 | Opened September 29, 2026 | Product: mobile app v7.2.25"}
+{"paragraph": "word/document.xml#542", "stratum": "all", "text": "Customer: Elizabeth Ross (elizabeth.ross@yahoo.com), Marshall, White and Frye"}
+{"paragraph": "word/document.xml#543", "stratum": "all", "text": "Elizabeth asks why the PDF invoice shows the wrong VAT. Related order ORD-0794498, amount $227.79."}
+{"paragraph": "word/document.xml#544", "stratum": "all", "text": "Callback number: 944-549-4831. Best time after 3 pm."}
+{"paragraph": "word/document.xml#545", "stratum": "all", "text": "Escalated to Michelle Castaneda (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#546", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#547", "stratum": "all", "text": "Ticket TCK-100103 | Priority P4 | Opened May 09, 2026 | Product: CRM sync v6.17.95"}
+{"paragraph": "word/document.xml#548", "stratum": "all", "text": "Customer: Tamara Gibson (tamara.gibson@yahoo.com), Lopez-Strickland"}
+{"paragraph": "word/document.xml#549", "stratum": "all", "text": "Tamara wants the SLA breach credit applied. Related order ORD-8370365, amount $244.15."}
+{"paragraph": "word/document.xml#550", "stratum": "all", "text": "Shipping address on file: 23826 Alexander Junctions Suite 523, Angelashire, TX 06107."}
+{"paragraph": "word/document.xml#551", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#552", "stratum": "all", "text": "Ticket TCK-100104 | Priority P1 | Opened January 08, 2026 | Product: CRM sync v6.11.25"}
+{"paragraph": "word/document.xml#553", "stratum": "all", "text": "Customer: Bryan Ryan (bryan.ryan@outlook.com), Riley Ltd"}
+{"paragraph": "word/document.xml#554", "stratum": "all", "text": "Bryan wants the SLA breach credit applied. Related order ORD-7196606, amount $280.81."}
+{"paragraph": "word/document.xml#555", "stratum": "all", "text": "Login attempts came from IP 145.161.136.180 at 11:51 UTC."}
+{"paragraph": "word/document.xml#556", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#557", "stratum": "all", "text": "Ticket TCK-100105 | Priority P1 | Opened July 08, 2026 | Product: CRM sync v1.15.18"}
+{"paragraph": "word/document.xml#558", "stratum": "all", "text": "Customer: Donald Cobb (donald.cobb@hotmail.com), Young, Campbell and Calhoun"}
+{"paragraph": "word/document.xml#559", "stratum": "all", "text": "Donald lost access after the password policy change. Related order ORD-7813479, amount $695.70."}
+{"paragraph": "word/document.xml#560", "stratum": "all", "text": "Shipping address on file: PSC 7969, Box 5596, APO AA 66731."}
+{"paragraph": "word/document.xml#561", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#562", "stratum": "all", "text": "Ticket TCK-100106 | Priority P2 | Opened December 31, 2025 | Product: SSO login v4.20.26"}
+{"paragraph": "word/document.xml#563", "stratum": "all", "text": "Customer: Sherry Cabrera (sherry.cabrera@yahoo.com), Nelson, Thompson and Foster"}
+{"paragraph": "word/document.xml#564", "stratum": "all", "text": "Sherry sees a duplicate charge. Related order ORD-1976991, amount $238.68."}
+{"paragraph": "word/document.xml#565", "stratum": "all", "text": "Refund to card 4780 6063 6066 8604 approved by agent #857."}
+{"paragraph": "word/document.xml#566", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#567", "stratum": "all", "text": "Ticket TCK-100107 | Priority P2 | Opened September 29, 2026 | Product: invoice export v4.19.38"}
+{"paragraph": "word/document.xml#568", "stratum": "all", "text": "Customer: Jeremy Beck (jeremy.beck@yahoo.com), Torres-Clark"}
+{"paragraph": "word/document.xml#569", "stratum": "all", "text": "Jeremy gets HTTP 502 on checkout. Related order ORD-6606184, amount $335.65."}
+{"paragraph": "word/document.xml#570", "stratum": "all", "text": "Callback number: +1-395-269-5806. Best time after 4 pm."}
+{"paragraph": "word/document.xml#571", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#572", "stratum": "all", "text": "Ticket TCK-100108 | Priority P3 | Opened January 15, 2026 | Product: invoice export v4.19.69"}
+{"paragraph": "word/document.xml#573", "stratum": "all", "text": "Customer: Sandra Thompson (sandra.thompson@hotmail.com), Salazar-Morrison"}
+{"paragraph": "word/document.xml#574", "stratum": "all", "text": "Sandra asks why the PDF invoice shows the wrong VAT. Related order ORD-6306637, amount $631.83."}
+{"paragraph": "word/document.xml#575", "stratum": "all", "text": "Identity check passed: date of birth 12/25/1954 confirmed."}
+{"paragraph": "word/document.xml#576", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#577", "stratum": "all", "text": "Ticket TCK-100109 | Priority P3 | Opened January 06, 2026 | Product: API gateway v2.6.94"}
+{"paragraph": "word/document.xml#578", "stratum": "all", "text": "Customer: Jacob Sanders (jacob.sanders@hotmail.com), Collier and Sons"}
+{"paragraph": "word/document.xml#579", "stratum": "all", "text": "Jacob sees a duplicate charge. Related order ORD-4006015, amount $211.20."}
+{"paragraph": "word/document.xml#580", "stratum": "all", "text": "Shipping address on file: 38511 Deanna Freeway, Macdonaldside, VT 83084."}
+{"paragraph": "word/document.xml#581", "stratum": "all", "text": "Escalated to Crystal Gonzalez (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#582", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#583", "stratum": "all", "text": "Ticket TCK-100110 | Priority P4 | Opened August 03, 2026 | Product: invoice export v8.1.35"}
+{"paragraph": "word/document.xml#584", "stratum": "all", "text": "Customer: Lisa Nelson (lisa.nelson@yahoo.com), Dunn-Griffin"}
+{"paragraph": "word/document.xml#585", "stratum": "all", "text": "Lisa lost access after the password policy change. Related order ORD-6815797, amount $757.47."}
+{"paragraph": "word/document.xml#586", "stratum": "all", "text": "Login attempts came from IP 203.38.166.191 at 20:02 UTC."}
+{"paragraph": "word/document.xml#587", "stratum": "all", "text": "Escalated to Mary Perry (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#588", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#589", "stratum": "all", "text": "Ticket TCK-100111 | Priority P4 | Opened July 03, 2026 | Product: API gateway v9.13.95"}
+{"paragraph": "word/document.xml#590", "stratum": "all", "text": "Customer: John Yu (john.yu@gmail.com), Rodriguez-Brown"}
+{"paragraph": "word/document.xml#591", "stratum": "all", "text": "John sees a duplicate charge. Related order ORD-1129219, amount $448.21."}
+{"paragraph": "word/document.xml#592", "stratum": "all", "text": "Callback number: 509-286-9781. Best time after 3 pm."}
+{"paragraph": "word/document.xml#593", "stratum": "all", "text": "Escalated to Stephen Faulkner (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#594", "stratum": "all", "text": "Status: Pending customer."}
+{"paragraph": "word/document.xml#595", "stratum": "all", "text": "Ticket TCK-100112 | Priority P3 | Opened May 19, 2026 | Product: billing portal v5.19.86"}
+{"paragraph": "word/document.xml#596", "stratum": "all", "text": "Customer: Cory Smith (cory.smith@hotmail.com), Young Inc"}
+{"paragraph": "word/document.xml#597", "stratum": "all", "text": "Cory sees a duplicate charge. Related order ORD-9682495, amount $33.96."}
+{"paragraph": "word/document.xml#598", "stratum": "all", "text": "Callback number: 654.669.2767. Best time after 2 pm."}
+{"paragraph": "word/document.xml#599", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#600", "stratum": "all", "text": "Ticket TCK-100113 | Priority P1 | Opened September 28, 2026 | Product: invoice export v9.4.34"}
+{"paragraph": "word/document.xml#601", "stratum": "all", "text": "Customer: Louis Daly (louis.daly@hotmail.com), Baker-Hunt"}
+{"paragraph": "word/document.xml#602", "stratum": "all", "text": "Louis lost access after the password policy change. Related order ORD-7714240, amount $292.60."}
+{"paragraph": "word/document.xml#603", "stratum": "all", "text": "Callback number: 0118 4960400. Best time after 4 pm."}
+{"paragraph": "word/document.xml#604", "stratum": "all", "text": "Status: Escalated."}
+{"paragraph": "word/document.xml#605", "stratum": "all", "text": "Ticket TCK-100114 | Priority P1 | Opened May 09, 2026 | Product: CRM sync v9.0.8"}
+{"paragraph": "word/document.xml#606", "stratum": "all", "text": "Customer: Tracey Nicholson (tracey.nicholson@gmail.com), Rose, Page and Richardson"}
+{"paragraph": "word/document.xml#607", "stratum": "all", "text": "Tracey cannot log in after the 2FA reset. Related order ORD-9371696, amount $36.15."}
+{"paragraph": "word/document.xml#608", "stratum": "all", "text": "Login attempts came from IP 112.115.70.68 at 20:08 UTC."}
+{"paragraph": "word/document.xml#609", "stratum": "all", "text": "Escalated to Juan Daniels (Tier 2). See KB article 4471 and RFC 7231."}
+{"paragraph": "word/document.xml#610", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#611", "stratum": "all", "text": "Ticket TCK-100115 | Priority P4 | Opened September 15, 2026 | Product: invoice export v1.6.96"}
+{"paragraph": "word/document.xml#612", "stratum": "all", "text": "Customer: Samuel Lee (samuel.lee@yahoo.com), Salinas and Sons"}
+{"paragraph": "word/document.xml#613", "stratum": "all", "text": "Samuel lost access after the password policy change. Related order ORD-1815776, amount $628.29."}
+{"paragraph": "word/document.xml#614", "stratum": "all", "text": "Shipping address on file: 052 Gerald Divide Apt. 527, North Connie, WA 26839."}
+{"paragraph": "word/document.xml#615", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#616", "stratum": "all", "text": "Ticket TCK-100116 | Priority P2 | Opened February 09, 2026 | Product: VPN client v5.16.64"}
+{"paragraph": "word/document.xml#617", "stratum": "all", "text": "Customer: Tyler Evans (tyler.evans@yahoo.com), Parks Inc"}
+{"paragraph": "word/document.xml#618", "stratum": "all", "text": "Tyler reports the export times out after 30 seconds. Related order ORD-0551627, amount $479.98."}
+{"paragraph": "word/document.xml#619", "stratum": "all", "text": "Shipping address on file: 985 Cynthia Forks Suite 365, New Nathanmouth, WY 50025."}
+{"paragraph": "word/document.xml#620", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#621", "stratum": "all", "text": "Ticket TCK-100117 | Priority P1 | Opened September 02, 2026 | Product: mobile app v7.7.45"}
+{"paragraph": "word/document.xml#622", "stratum": "all", "text": "Customer: Dawn Patel (dawn.patel@gmail.com), Jones Ltd"}
+{"paragraph": "word/document.xml#623", "stratum": "all", "text": "Dawn cannot log in after the 2FA reset. Related order ORD-1302167, amount $102.10."}
+{"paragraph": "word/document.xml#624", "stratum": "all", "text": "Callback number: (0114) 4960703. Best time after 2 pm."}
+{"paragraph": "word/document.xml#625", "stratum": "all", "text": "Status: Resolved."}
+{"paragraph": "word/document.xml#626", "stratum": "all", "text": "Ticket TCK-100118 | Priority P1 | Opened June 27, 2026 | Product: CRM sync v4.0.0"}
+{"paragraph": "word/document.xml#627", "stratum": "all", "text": "Customer: Michael Knight (michael.knight@yahoo.com), Hendricks, Sullivan and Parks"}
+{"paragraph": "word/document.xml#628", "stratum": "all", "text": "Michael sees a duplicate charge. Related order ORD-5123954, amount $190.59."}
+{"paragraph": "word/document.xml#629", "stratum": "all", "text": "Callback number: 001-717-873-0068. Best time after 4 pm."}
+{"paragraph": "word/document.xml#630", "stratum": "all", "text": "Status: Closed."}
+{"paragraph": "word/document.xml#631", "stratum": "all", "text": "Ticket TCK-100119 | Priority P3 | Opened September 16, 2026 | Product: billing portal v4.1.10"}
+{"paragraph": "word/document.xml#632", "stratum": "all", "text": "Customer: Shannon Evans (shannon.evans@yahoo.co.uk), Phillips PLC"}
+{"paragraph": "word/document.xml#633", "stratum": "all", "text": "Shannon gets HTTP 502 on checkout. Related order ORD-5657405, amount $448.66."}
+{"paragraph": "word/document.xml#634", "stratum": "all", "text": "Callback number: (0117) 496 0945. Best time after 1 pm."}
+{"paragraph": "word/document.xml#635", "stratum": "all", "text": "Status: Closed."}

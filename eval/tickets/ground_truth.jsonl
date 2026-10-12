@@ -1,0 +1,635 @@
+{"paragraph": "word/document.xml#2", "label": "PERSON", "text": "Tyler Adams"}
+{"paragraph": "word/document.xml#2", "label": "EMAIL", "text": "tyler.adams@gmail.com"}
+{"paragraph": "word/document.xml#2", "label": "ORGANIZATION", "text": "Sharp, Wood and Chang"}
+{"paragraph": "word/document.xml#3", "label": "PERSON", "text": "Tyler"}
+{"paragraph": "word/document.xml#4", "label": "DATE_OF_BIRTH", "text": "06/24/1992"}
+{"paragraph": "word/document.xml#7", "label": "PERSON", "text": "Jennifer Ingram"}
+{"paragraph": "word/document.xml#7", "label": "EMAIL", "text": "jennifer.ingram@gmail.com"}
+{"paragraph": "word/document.xml#7", "label": "ORGANIZATION", "text": "Richardson-Wells"}
+{"paragraph": "word/document.xml#8", "label": "PERSON", "text": "Jennifer"}
+{"paragraph": "word/document.xml#9", "label": "IP_ADDRESS", "text": "48.196.27.100"}
+{"paragraph": "word/document.xml#10", "label": "PERSON", "text": "Brandon Browning"}
+{"paragraph": "word/document.xml#13", "label": "PERSON", "text": "Marian Brooks"}
+{"paragraph": "word/document.xml#13", "label": "EMAIL", "text": "marian.brooks@outlook.com"}
+{"paragraph": "word/document.xml#13", "label": "ORGANIZATION", "text": "Wells, Nicholson and Page"}
+{"paragraph": "word/document.xml#14", "label": "PERSON", "text": "Marian"}
+{"paragraph": "word/document.xml#15", "label": "ADDRESS", "text": "11 Green Burgs, Leahhaven, N4W 0SL"}
+{"paragraph": "word/document.xml#18", "label": "PERSON", "text": "Erika Phillips"}
+{"paragraph": "word/document.xml#18", "label": "EMAIL", "text": "erika.phillips@yahoo.com"}
+{"paragraph": "word/document.xml#18", "label": "ORGANIZATION", "text": "Vargas-Johnson"}
+{"paragraph": "word/document.xml#19", "label": "PERSON", "text": "Erika"}
+{"paragraph": "word/document.xml#20", "label": "SSN", "text": "442-65-2694"}
+{"paragraph": "word/document.xml#23", "label": "PERSON", "text": "Liam Griffiths"}
+{"paragraph": "word/document.xml#23", "label": "EMAIL", "text": "liam.griffiths@yahoo.com"}
+{"paragraph": "word/document.xml#23", "label": "ORGANIZATION", "text": "Sharp-Jones"}
+{"paragraph": "word/document.xml#24", "label": "PERSON", "text": "Liam"}
+{"paragraph": "word/document.xml#25", "label": "ADDRESS", "text": "265 Mellor Prairie, Readstad, L62 1NW"}
+{"paragraph": "word/document.xml#28", "label": "PERSON", "text": "Tejas Jhaveri"}
+{"paragraph": "word/document.xml#28", "label": "EMAIL", "text": "tejas.jhaveri@yahoo.com"}
+{"paragraph": "word/document.xml#28", "label": "ORGANIZATION", "text": "Sibal, Gulati and Natt"}
+{"paragraph": "word/document.xml#29", "label": "PERSON", "text": "Tejas"}
+{"paragraph": "word/document.xml#30", "label": "IP_ADDRESS", "text": "185.116.30.251"}
+{"paragraph": "word/document.xml#33", "label": "PERSON", "text": "Ishaan Zacharia"}
+{"paragraph": "word/document.xml#33", "label": "EMAIL", "text": "ishaan.zacharia@yahoo.com"}
+{"paragraph": "word/document.xml#33", "label": "ORGANIZATION", "text": "Loyal, Balasubramanian and Jaggi"}
+{"paragraph": "word/document.xml#34", "label": "PERSON", "text": "Ishaan"}
+{"paragraph": "word/document.xml#35", "label": "PHONE", "text": "+916700730048"}
+{"paragraph": "word/document.xml#38", "label": "PERSON", "text": "Fariq Sunder"}
+{"paragraph": "word/document.xml#38", "label": "EMAIL", "text": "fariq.sunder@hotmail.com"}
+{"paragraph": "word/document.xml#38", "label": "ORGANIZATION", "text": "Barad Group"}
+{"paragraph": "word/document.xml#39", "label": "PERSON", "text": "Fariq"}
+{"paragraph": "word/document.xml#40", "label": "DATE_OF_BIRTH", "text": "03/08/1946"}
+{"paragraph": "word/document.xml#43", "label": "PERSON", "text": "Stacie Hammond"}
+{"paragraph": "word/document.xml#43", "label": "EMAIL", "text": "stacie.hammond@yahoo.com"}
+{"paragraph": "word/document.xml#43", "label": "ORGANIZATION", "text": "Johnson-Thomas"}
+{"paragraph": "word/document.xml#44", "label": "PERSON", "text": "Stacie"}
+{"paragraph": "word/document.xml#45", "label": "CREDIT_CARD", "text": "372667266237490"}
+{"paragraph": "word/document.xml#46", "label": "PERSON", "text": "Carl Chung"}
+{"paragraph": "word/document.xml#49", "label": "PERSON", "text": "Kimberly Cooper"}
+{"paragraph": "word/document.xml#49", "label": "EMAIL", "text": "kimberly.cooper@yahoo.com"}
+{"paragraph": "word/document.xml#49", "label": "ORGANIZATION", "text": "Jackson, Dudley and Baker"}
+{"paragraph": "word/document.xml#50", "label": "PERSON", "text": "Kimberly"}
+{"paragraph": "word/document.xml#51", "label": "DATE_OF_BIRTH", "text": "06/07/1953"}
+{"paragraph": "word/document.xml#52", "label": "PERSON", "text": "Joe Parker"}
+{"paragraph": "word/document.xml#55", "label": "PERSON", "text": "Abha Shetty"}
+{"paragraph": "word/document.xml#55", "label": "EMAIL", "text": "abha.shetty@yahoo.com"}
+{"paragraph": "word/document.xml#55", "label": "ORGANIZATION", "text": "Gade, Bhandari and Manne"}
+{"paragraph": "word/document.xml#56", "label": "PERSON", "text": "Abha"}
+{"paragraph": "word/document.xml#57", "label": "IP_ADDRESS", "text": "203.159.202.154"}
+{"paragraph": "word/document.xml#58", "label": "PERSON", "text": "Tara Gould"}
+{"paragraph": "word/document.xml#61", "label": "PERSON", "text": "Fitan Chokshi"}
+{"paragraph": "word/document.xml#61", "label": "EMAIL", "text": "fitan.chokshi@hotmail.com"}
+{"paragraph": "word/document.xml#61", "label": "ORGANIZATION", "text": "Murthy, Mann and Kale"}
+{"paragraph": "word/document.xml#62", "label": "PERSON", "text": "Fitan"}
+{"paragraph": "word/document.xml#63", "label": "PHONE", "text": "+910788009896"}
+{"paragraph": "word/document.xml#66", "label": "PERSON", "text": "Ranveer Kar"}
+{"paragraph": "word/document.xml#66", "label": "EMAIL", "text": "ranveer.kar@gmail.com"}
+{"paragraph": "word/document.xml#66", "label": "ORGANIZATION", "text": "Kala, Memon and Mangat"}
+{"paragraph": "word/document.xml#67", "label": "PERSON", "text": "Ranveer"}
+{"paragraph": "word/document.xml#68", "label": "IP_ADDRESS", "text": "202.254.164.36"}
+{"paragraph": "word/document.xml#71", "label": "PERSON", "text": "Amy Blanchard"}
+{"paragraph": "word/document.xml#71", "label": "EMAIL", "text": "amy.blanchard@hotmail.com"}
+{"paragraph": "word/document.xml#71", "label": "ORGANIZATION", "text": "Powers, Carter and Taylor"}
+{"paragraph": "word/document.xml#72", "label": "PERSON", "text": "Amy"}
+{"paragraph": "word/document.xml#73", "label": "ADDRESS", "text": "914 Howell Wells, Donnaville, OH 72559"}
+{"paragraph": "word/document.xml#74", "label": "PERSON", "text": "Melissa Campbell"}
+{"paragraph": "word/document.xml#77", "label": "PERSON", "text": "Carl Lawson"}
+{"paragraph": "word/document.xml#77", "label": "EMAIL", "text": "carl.lawson@yahoo.co.uk"}
+{"paragraph": "word/document.xml#77", "label": "ORGANIZATION", "text": "Hughes-Graham"}
+{"paragraph": "word/document.xml#78", "label": "PERSON", "text": "Carl"}
+{"paragraph": "word/document.xml#79", "label": "IP_ADDRESS", "text": "196.0.201.222"}
+{"paragraph": "word/document.xml#82", "label": "PERSON", "text": "Alexandra Simpson"}
+{"paragraph": "word/document.xml#82", "label": "EMAIL", "text": "alexandra.simpson@yahoo.com"}
+{"paragraph": "word/document.xml#82", "label": "ORGANIZATION", "text": "Watson-Williams"}
+{"paragraph": "word/document.xml#83", "label": "PERSON", "text": "Alexandra"}
+{"paragraph": "word/document.xml#84", "label": "DATE_OF_BIRTH", "text": "11/26/1974"}
+{"paragraph": "word/document.xml#87", "label": "PERSON", "text": "Timothy Gandhi"}
+{"paragraph": "word/document.xml#87", "label": "EMAIL", "text": "timothy.gandhi@yahoo.com"}
+{"paragraph": "word/document.xml#87", "label": "ORGANIZATION", "text": "Natt Inc"}
+{"paragraph": "word/document.xml#88", "label": "PERSON", "text": "Timothy"}
+{"paragraph": "word/document.xml#89", "label": "CREDIT_CARD", "text": "6011 8236 3680 3149"}
+{"paragraph": "word/document.xml#92", "label": "PERSON", "text": "Kayleigh Walker"}
+{"paragraph": "word/document.xml#92", "label": "EMAIL", "text": "kayleigh.walker@hotmail.com"}
+{"paragraph": "word/document.xml#92", "label": "ORGANIZATION", "text": "Lambert, Hobbs and Smith"}
+{"paragraph": "word/document.xml#93", "label": "PERSON", "text": "Kayleigh"}
+{"paragraph": "word/document.xml#94", "label": "IP_ADDRESS", "text": "91.180.54.12"}
+{"paragraph": "word/document.xml#97", "label": "PERSON", "text": "Jackie Miller"}
+{"paragraph": "word/document.xml#97", "label": "EMAIL", "text": "jackie.miller@hotmail.com"}
+{"paragraph": "word/document.xml#97", "label": "ORGANIZATION", "text": "Hoffman-Rodriguez"}
+{"paragraph": "word/document.xml#98", "label": "PERSON", "text": "Jackie"}
+{"paragraph": "word/document.xml#99", "label": "ADDRESS", "text": "Unit 2201 Box 6001, DPO AP 70602"}
+{"paragraph": "word/document.xml#102", "label": "PERSON", "text": "Udarsh Balakrishnan"}
+{"paragraph": "word/document.xml#102", "label": "EMAIL", "text": "udarsh.balakrishnan@yahoo.com"}
+{"paragraph": "word/document.xml#102", "label": "ORGANIZATION", "text": "Dey-Ganguly"}
+{"paragraph": "word/document.xml#103", "label": "PERSON", "text": "Udarsh"}
+{"paragraph": "word/document.xml#104", "label": "CREDIT_CARD", "text": "5182 8867 3564 1152"}
+{"paragraph": "word/document.xml#107", "label": "PERSON", "text": "Joseph Hall"}
+{"paragraph": "word/document.xml#107", "label": "EMAIL", "text": "joseph.hall@hotmail.com"}
+{"paragraph": "word/document.xml#107", "label": "ORGANIZATION", "text": "Keller, Rodriguez and Ferguson"}
+{"paragraph": "word/document.xml#108", "label": "PERSON", "text": "Joseph"}
+{"paragraph": "word/document.xml#109", "label": "PHONE", "text": "8503911770"}
+{"paragraph": "word/document.xml#112", "label": "PERSON", "text": "Gerard Baker"}
+{"paragraph": "word/document.xml#112", "label": "EMAIL", "text": "gerard.baker@yahoo.com"}
+{"paragraph": "word/document.xml#112", "label": "ORGANIZATION", "text": "Slater-Jones"}
+{"paragraph": "word/document.xml#113", "label": "PERSON", "text": "Gerard"}
+{"paragraph": "word/document.xml#114", "label": "ADDRESS", "text": "9 Warren Spring, McDonaldborough, W9 0TU"}
+{"paragraph": "word/document.xml#117", "label": "PERSON", "text": "Rachel Smith"}
+{"paragraph": "word/document.xml#117", "label": "EMAIL", "text": "rachel.smith@gmail.com"}
+{"paragraph": "word/document.xml#117", "label": "ORGANIZATION", "text": "Parker Inc"}
+{"paragraph": "word/document.xml#118", "label": "PERSON", "text": "Rachel"}
+{"paragraph": "word/document.xml#119", "label": "CREDIT_CARD", "text": "4279182749579878"}
+{"paragraph": "word/document.xml#122", "label": "PERSON", "text": "Adam Newton"}
+{"paragraph": "word/document.xml#122", "label": "EMAIL", "text": "adam.newton@yahoo.co.uk"}
+{"paragraph": "word/document.xml#122", "label": "ORGANIZATION", "text": "Thomas, Hart and Simpson"}
+{"paragraph": "word/document.xml#123", "label": "PERSON", "text": "Adam"}
+{"paragraph": "word/document.xml#124", "label": "IP_ADDRESS", "text": "208.151.4.207"}
+{"paragraph": "word/document.xml#127", "label": "PERSON", "text": "Oscar Mallick"}
+{"paragraph": "word/document.xml#127", "label": "EMAIL", "text": "oscar.mallick@gmail.com"}
+{"paragraph": "word/document.xml#127", "label": "ORGANIZATION", "text": "Gaba-Ganesan"}
+{"paragraph": "word/document.xml#128", "label": "PERSON", "text": "Oscar"}
+{"paragraph": "word/document.xml#129", "label": "PHONE", "text": "+910982667740"}
+{"paragraph": "word/document.xml#130", "label": "PERSON", "text": "John Shelton"}
+{"paragraph": "word/document.xml#133", "label": "PERSON", "text": "Cassandra Johnson"}
+{"paragraph": "word/document.xml#133", "label": "EMAIL", "text": "cassandra.johnson@gmail.com"}
+{"paragraph": "word/document.xml#133", "label": "ORGANIZATION", "text": "Smith PLC"}
+{"paragraph": "word/document.xml#134", "label": "PERSON", "text": "Cassandra"}
+{"paragraph": "word/document.xml#135", "label": "IP_ADDRESS", "text": "197.38.33.167"}
+{"paragraph": "word/document.xml#138", "label": "PERSON", "text": "Kayla Marshall"}
+{"paragraph": "word/document.xml#138", "label": "EMAIL", "text": "kayla.marshall@hotmail.com"}
+{"paragraph": "word/document.xml#138", "label": "ORGANIZATION", "text": "Martinez-Ellis"}
+{"paragraph": "word/document.xml#139", "label": "PERSON", "text": "Kayla"}
+{"paragraph": "word/document.xml#140", "label": "CREDIT_CARD", "text": "5542207513238522"}
+{"paragraph": "word/document.xml#141", "label": "PERSON", "text": "Jessica Reyes"}
+{"paragraph": "word/document.xml#144", "label": "PERSON", "text": "Eesha Lad"}
+{"paragraph": "word/document.xml#144", "label": "EMAIL", "text": "eesha.lad@yahoo.com"}
+{"paragraph": "word/document.xml#144", "label": "ORGANIZATION", "text": "Badal-Nayar"}
+{"paragraph": "word/document.xml#145", "label": "PERSON", "text": "Eesha"}
+{"paragraph": "word/document.xml#146", "label": "IP_ADDRESS", "text": "207.169.7.126"}
+{"paragraph": "word/document.xml#147", "label": "PERSON", "text": "Robert Morales"}
+{"paragraph": "word/document.xml#150", "label": "PERSON", "text": "Samuel Carter"}
+{"paragraph": "word/document.xml#150", "label": "EMAIL", "text": "samuel.carter@yahoo.co.uk"}
+{"paragraph": "word/document.xml#150", "label": "ORGANIZATION", "text": "Bennett, Brown and James"}
+{"paragraph": "word/document.xml#151", "label": "PERSON", "text": "Samuel"}
+{"paragraph": "word/document.xml#152", "label": "IP_ADDRESS", "text": "6.102.10.245"}
+{"paragraph": "word/document.xml#155", "label": "PERSON", "text": "Gwendolyn Orr"}
+{"paragraph": "word/document.xml#155", "label": "EMAIL", "text": "gwendolyn.orr@gmail.com"}
+{"paragraph": "word/document.xml#155", "label": "ORGANIZATION", "text": "Taylor, Brock and Leach"}
+{"paragraph": "word/document.xml#156", "label": "PERSON", "text": "Gwendolyn"}
+{"paragraph": "word/document.xml#157", "label": "IP_ADDRESS", "text": "68.142.245.158"}
+{"paragraph": "word/document.xml#160", "label": "PERSON", "text": "Anthony Lawson"}
+{"paragraph": "word/document.xml#160", "label": "EMAIL", "text": "anthony.lawson@yahoo.com"}
+{"paragraph": "word/document.xml#160", "label": "ORGANIZATION", "text": "Santiago Inc"}
+{"paragraph": "word/document.xml#161", "label": "PERSON", "text": "Anthony"}
+{"paragraph": "word/document.xml#162", "label": "ADDRESS", "text": "48419 Phillip Court, East Samantha, MA 05700"}
+{"paragraph": "word/document.xml#165", "label": "PERSON", "text": "Aayush Goswami"}
+{"paragraph": "word/document.xml#165", "label": "EMAIL", "text": "aayush.goswami@yahoo.com"}
+{"paragraph": "word/document.xml#165", "label": "ORGANIZATION", "text": "Agrawal, Deshmukh and Kibe"}
+{"paragraph": "word/document.xml#166", "label": "PERSON", "text": "Aayush"}
+{"paragraph": "word/document.xml#167", "label": "IP_ADDRESS", "text": "189.205.5.101"}
+{"paragraph": "word/document.xml#168", "label": "PERSON", "text": "Thomas Wilson"}
+{"paragraph": "word/document.xml#171", "label": "PERSON", "text": "Andrew Brown"}
+{"paragraph": "word/document.xml#171", "label": "EMAIL", "text": "andrew.brown@hotmail.com"}
+{"paragraph": "word/document.xml#171", "label": "ORGANIZATION", "text": "Mcintosh-Parks"}
+{"paragraph": "word/document.xml#172", "label": "PERSON", "text": "Andrew"}
+{"paragraph": "word/document.xml#173", "label": "IP_ADDRESS", "text": "68.121.156.129"}
+{"paragraph": "word/document.xml#176", "label": "PERSON", "text": "Avi Rattan"}
+{"paragraph": "word/document.xml#176", "label": "EMAIL", "text": "avi.rattan@gmail.com"}
+{"paragraph": "word/document.xml#176", "label": "ORGANIZATION", "text": "Rajagopal PLC"}
+{"paragraph": "word/document.xml#177", "label": "PERSON", "text": "Avi"}
+{"paragraph": "word/document.xml#178", "label": "CREDIT_CARD", "text": "4798407481903073"}
+{"paragraph": "word/document.xml#181", "label": "PERSON", "text": "Balhaar Deo"}
+{"paragraph": "word/document.xml#181", "label": "EMAIL", "text": "balhaar.deo@yahoo.com"}
+{"paragraph": "word/document.xml#181", "label": "ORGANIZATION", "text": "Mody Group"}
+{"paragraph": "word/document.xml#182", "label": "PERSON", "text": "Balhaar"}
+{"paragraph": "word/document.xml#183", "label": "ADDRESS", "text": "43, Karpe Street, Karimnagar 979090"}
+{"paragraph": "word/document.xml#186", "label": "PERSON", "text": "Amy Rios"}
+{"paragraph": "word/document.xml#186", "label": "EMAIL", "text": "amy.rios@yahoo.com"}
+{"paragraph": "word/document.xml#186", "label": "ORGANIZATION", "text": "Mendoza-Mercer"}
+{"paragraph": "word/document.xml#187", "label": "PERSON", "text": "Amy"}
+{"paragraph": "word/document.xml#188", "label": "SSN", "text": "680-14-5527"}
+{"paragraph": "word/document.xml#191", "label": "PERSON", "text": "Andrea Soto"}
+{"paragraph": "word/document.xml#191", "label": "EMAIL", "text": "andrea.soto@hotmail.com"}
+{"paragraph": "word/document.xml#191", "label": "ORGANIZATION", "text": "Kane-Adams"}
+{"paragraph": "word/document.xml#192", "label": "PERSON", "text": "Andrea"}
+{"paragraph": "word/document.xml#193", "label": "PHONE", "text": "+1-659-640-1192"}
+{"paragraph": "word/document.xml#196", "label": "PERSON", "text": "John Long"}
+{"paragraph": "word/document.xml#196", "label": "EMAIL", "text": "john.long@hotmail.com"}
+{"paragraph": "word/document.xml#196", "label": "ORGANIZATION", "text": "Lee, Dixon and Lang"}
+{"paragraph": "word/document.xml#197", "label": "PERSON", "text": "John"}
+{"paragraph": "word/document.xml#198", "label": "ADDRESS", "text": "66747 Davis Lights, Deborahmouth, WY 09717"}
+{"paragraph": "word/document.xml#199", "label": "PERSON", "text": "Levi Cline"}
+{"paragraph": "word/document.xml#202", "label": "PERSON", "text": "Conor Lambert"}
+{"paragraph": "word/document.xml#202", "label": "EMAIL", "text": "conor.lambert@hotmail.com"}
+{"paragraph": "word/document.xml#202", "label": "ORGANIZATION", "text": "Robinson-Wood"}
+{"paragraph": "word/document.xml#203", "label": "PERSON", "text": "Conor"}
+{"paragraph": "word/document.xml#204", "label": "PHONE", "text": "0113 496 0141"}
+{"paragraph": "word/document.xml#207", "label": "PERSON", "text": "Katherine Gibson"}
+{"paragraph": "word/document.xml#207", "label": "EMAIL", "text": "katherine.gibson@gmail.com"}
+{"paragraph": "word/document.xml#207", "label": "ORGANIZATION", "text": "Williams, Cooper and Caldwell"}
+{"paragraph": "word/document.xml#208", "label": "PERSON", "text": "Katherine"}
+{"paragraph": "word/document.xml#209", "label": "IP_ADDRESS", "text": "142.223.164.129"}
+{"paragraph": "word/document.xml#212", "label": "PERSON", "text": "Ekalinga Mukhopadhyay"}
+{"paragraph": "word/document.xml#212", "label": "EMAIL", "text": "ekalinga.mukhopadhyay@hotmail.com"}
+{"paragraph": "word/document.xml#212", "label": "ORGANIZATION", "text": "Lanka, Vasa and Buch"}
+{"paragraph": "word/document.xml#213", "label": "PERSON", "text": "Ekalinga"}
+{"paragraph": "word/document.xml#214", "label": "PHONE", "text": "+916002928366"}
+{"paragraph": "word/document.xml#215", "label": "PERSON", "text": "Jose Gardner"}
+{"paragraph": "word/document.xml#218", "label": "PERSON", "text": "Rosemary Knight"}
+{"paragraph": "word/document.xml#218", "label": "EMAIL", "text": "rosemary.knight@hotmail.com"}
+{"paragraph": "word/document.xml#218", "label": "ORGANIZATION", "text": "Rogers LLC"}
+{"paragraph": "word/document.xml#219", "label": "PERSON", "text": "Rosemary"}
+{"paragraph": "word/document.xml#220", "label": "PHONE", "text": "+44(0)1134960404"}
+{"paragraph": "word/document.xml#223", "label": "PERSON", "text": "Eesha Raman"}
+{"paragraph": "word/document.xml#223", "label": "EMAIL", "text": "eesha.raman@hotmail.com"}
+{"paragraph": "word/document.xml#223", "label": "ORGANIZATION", "text": "Patel Group"}
+{"paragraph": "word/document.xml#224", "label": "PERSON", "text": "Eesha"}
+{"paragraph": "word/document.xml#225", "label": "PHONE", "text": "+911161637648"}
+{"paragraph": "word/document.xml#228", "label": "PERSON", "text": "Ojas Mangal"}
+{"paragraph": "word/document.xml#228", "label": "EMAIL", "text": "ojas.mangal@hotmail.com"}
+{"paragraph": "word/document.xml#228", "label": "ORGANIZATION", "text": "Dhawan, Ganesan and Rout"}
+{"paragraph": "word/document.xml#229", "label": "PERSON", "text": "Ojas"}
+{"paragraph": "word/document.xml#230", "label": "PHONE", "text": "04279713193"}
+{"paragraph": "word/document.xml#233", "label": "PERSON", "text": "Bryan Jones"}
+{"paragraph": "word/document.xml#233", "label": "EMAIL", "text": "bryan.jones@gmail.com"}
+{"paragraph": "word/document.xml#233", "label": "ORGANIZATION", "text": "Martinez, Mitchell and Curtis"}
+{"paragraph": "word/document.xml#234", "label": "PERSON", "text": "Bryan"}
+{"paragraph": "word/document.xml#235", "label": "PHONE", "text": "+1-754-411-4748"}
+{"paragraph": "word/document.xml#238", "label": "PERSON", "text": "Jane Miller"}
+{"paragraph": "word/document.xml#238", "label": "EMAIL", "text": "jane.miller@hotmail.co.uk"}
+{"paragraph": "word/document.xml#238", "label": "ORGANIZATION", "text": "Rogers, Finch and Jones"}
+{"paragraph": "word/document.xml#239", "label": "PERSON", "text": "Jane"}
+{"paragraph": "word/document.xml#240", "label": "PHONE", "text": "+44161 4960200"}
+{"paragraph": "word/document.xml#243", "label": "PERSON", "text": "Allan Fisher"}
+{"paragraph": "word/document.xml#243", "label": "EMAIL", "text": "allan.fisher@yahoo.co.uk"}
+{"paragraph": "word/document.xml#243", "label": "ORGANIZATION", "text": "Bennett-Chamberlain"}
+{"paragraph": "word/document.xml#244", "label": "PERSON", "text": "Allan"}
+{"paragraph": "word/document.xml#245", "label": "PHONE", "text": "0116 4960846"}
+{"paragraph": "word/document.xml#248", "label": "PERSON", "text": "Falan Shere"}
+{"paragraph": "word/document.xml#248", "label": "EMAIL", "text": "falan.shere@hotmail.com"}
+{"paragraph": "word/document.xml#248", "label": "ORGANIZATION", "text": "Mittal, Minhas and Pai"}
+{"paragraph": "word/document.xml#249", "label": "PERSON", "text": "Falan"}
+{"paragraph": "word/document.xml#250", "label": "CREDIT_CARD", "text": "4776 0253 1139 6973"}
+{"paragraph": "word/document.xml#253", "label": "PERSON", "text": "Luke Agate"}
+{"paragraph": "word/document.xml#253", "label": "EMAIL", "text": "luke.agate@yahoo.com"}
+{"paragraph": "word/document.xml#253", "label": "ORGANIZATION", "text": "Uppal LLC"}
+{"paragraph": "word/document.xml#254", "label": "PERSON", "text": "Luke"}
+{"paragraph": "word/document.xml#255", "label": "IP_ADDRESS", "text": "154.199.152.178"}
+{"paragraph": "word/document.xml#256", "label": "PERSON", "text": "Carol Conway"}
+{"paragraph": "word/document.xml#259", "label": "PERSON", "text": "Angela Mcdonald"}
+{"paragraph": "word/document.xml#259", "label": "EMAIL", "text": "angela.mcdonald@yahoo.com"}
+{"paragraph": "word/document.xml#259", "label": "ORGANIZATION", "text": "Roberson, Little and Miller"}
+{"paragraph": "word/document.xml#260", "label": "PERSON", "text": "Angela"}
+{"paragraph": "word/document.xml#261", "label": "PHONE", "text": "(680)596-3762"}
+{"paragraph": "word/document.xml#264", "label": "PERSON", "text": "Marcus Smith"}
+{"paragraph": "word/document.xml#264", "label": "EMAIL", "text": "marcus.smith@hotmail.co.uk"}
+{"paragraph": "word/document.xml#264", "label": "ORGANIZATION", "text": "Humphreys Group"}
+{"paragraph": "word/document.xml#265", "label": "PERSON", "text": "Marcus"}
+{"paragraph": "word/document.xml#266", "label": "CREDIT_CARD", "text": "4259 4045 9099 0820"}
+{"paragraph": "word/document.xml#269", "label": "PERSON", "text": "Arthur Hughes"}
+{"paragraph": "word/document.xml#269", "label": "EMAIL", "text": "arthur.hughes@gmail.com"}
+{"paragraph": "word/document.xml#269", "label": "ORGANIZATION", "text": "Walton, Kelly and Khan"}
+{"paragraph": "word/document.xml#270", "label": "PERSON", "text": "Arthur"}
+{"paragraph": "word/document.xml#271", "label": "PHONE", "text": "+44(0)191 4960150"}
+{"paragraph": "word/document.xml#274", "label": "PERSON", "text": "Christopher Buckley"}
+{"paragraph": "word/document.xml#274", "label": "EMAIL", "text": "christopher.buckley@hotmail.com"}
+{"paragraph": "word/document.xml#274", "label": "ORGANIZATION", "text": "Rodriguez, Lindsey and Parker"}
+{"paragraph": "word/document.xml#275", "label": "PERSON", "text": "Christopher"}
+{"paragraph": "word/document.xml#276", "label": "DATE_OF_BIRTH", "text": "08/25/1978"}
+{"paragraph": "word/document.xml#277", "label": "PERSON", "text": "Theodore David"}
+{"paragraph": "word/document.xml#280", "label": "PERSON", "text": "Rebecca Diaz"}
+{"paragraph": "word/document.xml#280", "label": "EMAIL", "text": "rebecca.diaz@gmail.com"}
+{"paragraph": "word/document.xml#280", "label": "ORGANIZATION", "text": "Nichols-Hernandez"}
+{"paragraph": "word/document.xml#281", "label": "PERSON", "text": "Rebecca"}
+{"paragraph": "word/document.xml#282", "label": "IP_ADDRESS", "text": "167.108.190.64"}
+{"paragraph": "word/document.xml#285", "label": "PERSON", "text": "Lauren Walker"}
+{"paragraph": "word/document.xml#285", "label": "EMAIL", "text": "lauren.walker@gmail.com"}
+{"paragraph": "word/document.xml#285", "label": "ORGANIZATION", "text": "Myers PLC"}
+{"paragraph": "word/document.xml#286", "label": "PERSON", "text": "Lauren"}
+{"paragraph": "word/document.xml#287", "label": "PHONE", "text": "8014477351"}
+{"paragraph": "word/document.xml#288", "label": "PERSON", "text": "Allison Guerrero"}
+{"paragraph": "word/document.xml#291", "label": "PERSON", "text": "Stephen Jones"}
+{"paragraph": "word/document.xml#291", "label": "EMAIL", "text": "stephen.jones@hotmail.co.uk"}
+{"paragraph": "word/document.xml#291", "label": "ORGANIZATION", "text": "Brown-Brown"}
+{"paragraph": "word/document.xml#292", "label": "PERSON", "text": "Stephen"}
+{"paragraph": "word/document.xml#293", "label": "ADDRESS", "text": "Flat 85n, Talbot Vista, East Paulastad, M0D 1LX"}
+{"paragraph": "word/document.xml#296", "label": "PERSON", "text": "Jennifer Yang"}
+{"paragraph": "word/document.xml#296", "label": "EMAIL", "text": "jennifer.yang@hotmail.com"}
+{"paragraph": "word/document.xml#296", "label": "ORGANIZATION", "text": "Brown-Harris"}
+{"paragraph": "word/document.xml#297", "label": "PERSON", "text": "Jennifer"}
+{"paragraph": "word/document.xml#298", "label": "IP_ADDRESS", "text": "200.206.254.157"}
+{"paragraph": "word/document.xml#301", "label": "PERSON", "text": "Robert Rice"}
+{"paragraph": "word/document.xml#301", "label": "EMAIL", "text": "robert.rice@gmail.com"}
+{"paragraph": "word/document.xml#301", "label": "ORGANIZATION", "text": "Morris-Nelson"}
+{"paragraph": "word/document.xml#302", "label": "PERSON", "text": "Robert"}
+{"paragraph": "word/document.xml#303", "label": "DATE_OF_BIRTH", "text": "12/17/1968"}
+{"paragraph": "word/document.xml#304", "label": "PERSON", "text": "Brittney Daniels"}
+{"paragraph": "word/document.xml#307", "label": "PERSON", "text": "Alexis Watson"}
+{"paragraph": "word/document.xml#307", "label": "EMAIL", "text": "alexis.watson@gmail.com"}
+{"paragraph": "word/document.xml#307", "label": "ORGANIZATION", "text": "Miranda PLC"}
+{"paragraph": "word/document.xml#308", "label": "PERSON", "text": "Alexis"}
+{"paragraph": "word/document.xml#309", "label": "SSN", "text": "230-34-6395"}
+{"paragraph": "word/document.xml#310", "label": "PERSON", "text": "Daniel Holt"}
+{"paragraph": "word/document.xml#313", "label": "PERSON", "text": "Travis Lynch"}
+{"paragraph": "word/document.xml#313", "label": "EMAIL", "text": "travis.lynch@gmail.com"}
+{"paragraph": "word/document.xml#313", "label": "ORGANIZATION", "text": "Barker, Long and Davis"}
+{"paragraph": "word/document.xml#314", "label": "PERSON", "text": "Travis"}
+{"paragraph": "word/document.xml#315", "label": "IP_ADDRESS", "text": "90.9.108.202"}
+{"paragraph": "word/document.xml#316", "label": "PERSON", "text": "Dustin Savage"}
+{"paragraph": "word/document.xml#319", "label": "PERSON", "text": "Samantha Kennedy"}
+{"paragraph": "word/document.xml#319", "label": "EMAIL", "text": "samantha.kennedy@gmail.com"}
+{"paragraph": "word/document.xml#319", "label": "ORGANIZATION", "text": "King, Smith and Wu"}
+{"paragraph": "word/document.xml#320", "label": "PERSON", "text": "Samantha"}
+{"paragraph": "word/document.xml#321", "label": "PHONE", "text": "(258)337-5616"}
+{"paragraph": "word/document.xml#324", "label": "PERSON", "text": "Brijesh Parmar"}
+{"paragraph": "word/document.xml#324", "label": "EMAIL", "text": "brijesh.parmar@hotmail.com"}
+{"paragraph": "word/document.xml#324", "label": "ORGANIZATION", "text": "Dutta-Jayaraman"}
+{"paragraph": "word/document.xml#325", "label": "PERSON", "text": "Brijesh"}
+{"paragraph": "word/document.xml#326", "label": "ADDRESS", "text": "H.No. 00, Chaudry Street, Tiruchirappalli-705879"}
+{"paragraph": "word/document.xml#329", "label": "PERSON", "text": "William Williamson"}
+{"paragraph": "word/document.xml#329", "label": "EMAIL", "text": "william.williamson@yahoo.com"}
+{"paragraph": "word/document.xml#329", "label": "ORGANIZATION", "text": "Joseph, Duncan and Ellis"}
+{"paragraph": "word/document.xml#330", "label": "PERSON", "text": "William"}
+{"paragraph": "word/document.xml#331", "label": "PHONE", "text": "426-426-7286"}
+{"paragraph": "word/document.xml#332", "label": "PERSON", "text": "Shane Nunez"}
+{"paragraph": "word/document.xml#335", "label": "PERSON", "text": "Sai Dutta"}
+{"paragraph": "word/document.xml#335", "label": "EMAIL", "text": "sai.dutta@hotmail.com"}
+{"paragraph": "word/document.xml#335", "label": "ORGANIZATION", "text": "Baria, Sodhi and Viswanathan"}
+{"paragraph": "word/document.xml#336", "label": "PERSON", "text": "Sai"}
+{"paragraph": "word/document.xml#337", "label": "CREDIT_CARD", "text": "2295 7466 8311 0538"}
+{"paragraph": "word/document.xml#340", "label": "PERSON", "text": "Radha Vaidya"}
+{"paragraph": "word/document.xml#340", "label": "EMAIL", "text": "radha.vaidya@hotmail.com"}
+{"paragraph": "word/document.xml#340", "label": "ORGANIZATION", "text": "Aurora-Dua"}
+{"paragraph": "word/document.xml#341", "label": "PERSON", "text": "Radha"}
+{"paragraph": "word/document.xml#342", "label": "DATE_OF_BIRTH", "text": "01/05/2003"}
+{"paragraph": "word/document.xml#345", "label": "PERSON", "text": "Pranav Deo"}
+{"paragraph": "word/document.xml#345", "label": "EMAIL", "text": "pranav.deo@gmail.com"}
+{"paragraph": "word/document.xml#345", "label": "ORGANIZATION", "text": "Sarraf, Johal and Murty"}
+{"paragraph": "word/document.xml#346", "label": "PERSON", "text": "Pranav"}
+{"paragraph": "word/document.xml#347", "label": "IP_ADDRESS", "text": "129.158.215.86"}
+{"paragraph": "word/document.xml#348", "label": "PERSON", "text": "Rachel Walton"}
+{"paragraph": "word/document.xml#351", "label": "PERSON", "text": "Angela Miller"}
+{"paragraph": "word/document.xml#351", "label": "EMAIL", "text": "angela.miller@hotmail.com"}
+{"paragraph": "word/document.xml#351", "label": "ORGANIZATION", "text": "Morris, Lindsey and Smith"}
+{"paragraph": "word/document.xml#352", "label": "PERSON", "text": "Angela"}
+{"paragraph": "word/document.xml#353", "label": "PHONE", "text": "430-948-1670"}
+{"paragraph": "word/document.xml#356", "label": "PERSON", "text": "Rachel Hammond"}
+{"paragraph": "word/document.xml#356", "label": "EMAIL", "text": "rachel.hammond@hotmail.co.uk"}
+{"paragraph": "word/document.xml#356", "label": "ORGANIZATION", "text": "Kelly, Kerr and Watts"}
+{"paragraph": "word/document.xml#357", "label": "PERSON", "text": "Rachel"}
+{"paragraph": "word/document.xml#358", "label": "PHONE", "text": "(0113) 4960682"}
+{"paragraph": "word/document.xml#361", "label": "PERSON", "text": "Mohammed Deep"}
+{"paragraph": "word/document.xml#361", "label": "EMAIL", "text": "mohammed.deep@gmail.com"}
+{"paragraph": "word/document.xml#361", "label": "ORGANIZATION", "text": "Chaudhry PLC"}
+{"paragraph": "word/document.xml#362", "label": "PERSON", "text": "Mohammed"}
+{"paragraph": "word/document.xml#363", "label": "PHONE", "text": "+915075552763"}
+{"paragraph": "word/document.xml#366", "label": "PERSON", "text": "Carolyn Mitchell"}
+{"paragraph": "word/document.xml#366", "label": "EMAIL", "text": "carolyn.mitchell@hotmail.com"}
+{"paragraph": "word/document.xml#366", "label": "ORGANIZATION", "text": "Brock, Sullivan and Roberts"}
+{"paragraph": "word/document.xml#367", "label": "PERSON", "text": "Carolyn"}
+{"paragraph": "word/document.xml#368", "label": "ADDRESS", "text": "1129 Olson Hollow Apt. 565, South Charles, MN 80643"}
+{"paragraph": "word/document.xml#369", "label": "PERSON", "text": "Kimberly Peters"}
+{"paragraph": "word/document.xml#372", "label": "PERSON", "text": "Isabel George"}
+{"paragraph": "word/document.xml#372", "label": "EMAIL", "text": "isabel.george@hotmail.com"}
+{"paragraph": "word/document.xml#372", "label": "ORGANIZATION", "text": "Moon, Wilson and Richards"}
+{"paragraph": "word/document.xml#373", "label": "PERSON", "text": "Isabel"}
+{"paragraph": "word/document.xml#374", "label": "ADDRESS", "text": "0202 Amber Loaf Suite 412, Taylorhaven, MA 01929"}
+{"paragraph": "word/document.xml#377", "label": "PERSON", "text": "Karen Reese"}
+{"paragraph": "word/document.xml#377", "label": "EMAIL", "text": "karen.reese@gmail.com"}
+{"paragraph": "word/document.xml#377", "label": "ORGANIZATION", "text": "Perez, Stewart and Meyers"}
+{"paragraph": "word/document.xml#378", "label": "PERSON", "text": "Karen"}
+{"paragraph": "word/document.xml#379", "label": "PHONE", "text": "548.223.1236"}
+{"paragraph": "word/document.xml#382", "label": "PERSON", "text": "George Brown"}
+{"paragraph": "word/document.xml#382", "label": "EMAIL", "text": "george.brown@hotmail.com"}
+{"paragraph": "word/document.xml#382", "label": "ORGANIZATION", "text": "Sanchez Inc"}
+{"paragraph": "word/document.xml#383", "label": "PERSON", "text": "George"}
+{"paragraph": "word/document.xml#384", "label": "IP_ADDRESS", "text": "192.229.27.19"}
+{"paragraph": "word/document.xml#387", "label": "PERSON", "text": "Jason Floyd"}
+{"paragraph": "word/document.xml#387", "label": "EMAIL", "text": "jason.floyd@yahoo.com"}
+{"paragraph": "word/document.xml#387", "label": "ORGANIZATION", "text": "Garcia-Woods"}
+{"paragraph": "word/document.xml#388", "label": "PERSON", "text": "Jason"}
+{"paragraph": "word/document.xml#389", "label": "DATE_OF_BIRTH", "text": "08/30/1990"}
+{"paragraph": "word/document.xml#392", "label": "PERSON", "text": "Geoffrey Rees"}
+{"paragraph": "word/document.xml#392", "label": "EMAIL", "text": "geoffrey.rees@yahoo.com"}
+{"paragraph": "word/document.xml#392", "label": "ORGANIZATION", "text": "Shepherd Ltd"}
+{"paragraph": "word/document.xml#393", "label": "PERSON", "text": "Geoffrey"}
+{"paragraph": "word/document.xml#394", "label": "ADDRESS", "text": "06 Brady Pines, Carolshire, IM7V 6ER"}
+{"paragraph": "word/document.xml#397", "label": "PERSON", "text": "Karen Phillips"}
+{"paragraph": "word/document.xml#397", "label": "EMAIL", "text": "karen.phillips@hotmail.com"}
+{"paragraph": "word/document.xml#397", "label": "ORGANIZATION", "text": "Parker-Lin"}
+{"paragraph": "word/document.xml#398", "label": "PERSON", "text": "Karen"}
+{"paragraph": "word/document.xml#399", "label": "SSN", "text": "520-77-9228"}
+{"paragraph": "word/document.xml#402", "label": "PERSON", "text": "Robert Lewis"}
+{"paragraph": "word/document.xml#402", "label": "EMAIL", "text": "robert.lewis@hotmail.com"}
+{"paragraph": "word/document.xml#402", "label": "ORGANIZATION", "text": "Hester, Cox and Chambers"}
+{"paragraph": "word/document.xml#403", "label": "PERSON", "text": "Robert"}
+{"paragraph": "word/document.xml#404", "label": "ADDRESS", "text": "1152 Anthony Wells, Coxtown, NM 15595"}
+{"paragraph": "word/document.xml#407", "label": "PERSON", "text": "Megan Lee"}
+{"paragraph": "word/document.xml#407", "label": "EMAIL", "text": "megan.lee@hotmail.com"}
+{"paragraph": "word/document.xml#407", "label": "ORGANIZATION", "text": "Reeves, Wolf and Cook"}
+{"paragraph": "word/document.xml#408", "label": "PERSON", "text": "Megan"}
+{"paragraph": "word/document.xml#409", "label": "PHONE", "text": "(225)366-6597"}
+{"paragraph": "word/document.xml#412", "label": "PERSON", "text": "Amelia King"}
+{"paragraph": "word/document.xml#412", "label": "EMAIL", "text": "amelia.king@hotmail.co.uk"}
+{"paragraph": "word/document.xml#412", "label": "ORGANIZATION", "text": "Murphy and Sons"}
+{"paragraph": "word/document.xml#413", "label": "PERSON", "text": "Amelia"}
+{"paragraph": "word/document.xml#414", "label": "PHONE", "text": "028 9018775"}
+{"paragraph": "word/document.xml#415", "label": "PERSON", "text": "Charles Williamson"}
+{"paragraph": "word/document.xml#418", "label": "PERSON", "text": "Guneet Kala"}
+{"paragraph": "word/document.xml#418", "label": "EMAIL", "text": "guneet.kala@yahoo.com"}
+{"paragraph": "word/document.xml#418", "label": "ORGANIZATION", "text": "Chaudhary-Sarkar"}
+{"paragraph": "word/document.xml#419", "label": "PERSON", "text": "Guneet"}
+{"paragraph": "word/document.xml#420", "label": "ADDRESS", "text": "H.No. 135, Thaker Marg, Thoothukudi 706235"}
+{"paragraph": "word/document.xml#423", "label": "PERSON", "text": "Brandon Frazier"}
+{"paragraph": "word/document.xml#423", "label": "EMAIL", "text": "brandon.frazier@hotmail.com"}
+{"paragraph": "word/document.xml#423", "label": "ORGANIZATION", "text": "Lewis, Gonzalez and Powers"}
+{"paragraph": "word/document.xml#424", "label": "PERSON", "text": "Brandon"}
+{"paragraph": "word/document.xml#425", "label": "IP_ADDRESS", "text": "206.62.77.68"}
+{"paragraph": "word/document.xml#426", "label": "PERSON", "text": "Julie Rodriguez"}
+{"paragraph": "word/document.xml#429", "label": "PERSON", "text": "Amy Benson"}
+{"paragraph": "word/document.xml#429", "label": "EMAIL", "text": "amy.benson@hotmail.com"}
+{"paragraph": "word/document.xml#429", "label": "ORGANIZATION", "text": "Kelley-Davis"}
+{"paragraph": "word/document.xml#430", "label": "PERSON", "text": "Amy"}
+{"paragraph": "word/document.xml#431", "label": "PHONE", "text": "(596)884-8137"}
+{"paragraph": "word/document.xml#434", "label": "PERSON", "text": "Lorraine Chapman"}
+{"paragraph": "word/document.xml#434", "label": "EMAIL", "text": "lorraine.chapman@yahoo.com"}
+{"paragraph": "word/document.xml#434", "label": "ORGANIZATION", "text": "Smith-Carey"}
+{"paragraph": "word/document.xml#435", "label": "PERSON", "text": "Lorraine"}
+{"paragraph": "word/document.xml#436", "label": "ADDRESS", "text": "Studio 65, Godfrey Ports, New Jeffreymouth, LD0N 5AP"}
+{"paragraph": "word/document.xml#439", "label": "PERSON", "text": "Bryan Webb"}
+{"paragraph": "word/document.xml#439", "label": "EMAIL", "text": "bryan.webb@hotmail.com"}
+{"paragraph": "word/document.xml#439", "label": "ORGANIZATION", "text": "Reed Group"}
+{"paragraph": "word/document.xml#440", "label": "PERSON", "text": "Bryan"}
+{"paragraph": "word/document.xml#441", "label": "ADDRESS", "text": "89634 Brad Stream, South Oscarville, SD 61558"}
+{"paragraph": "word/document.xml#444", "label": "PERSON", "text": "Sai Mani"}
+{"paragraph": "word/document.xml#444", "label": "EMAIL", "text": "sai.mani@yahoo.com"}
+{"paragraph": "word/document.xml#444", "label": "ORGANIZATION", "text": "Kala and Sons"}
+{"paragraph": "word/document.xml#445", "label": "PERSON", "text": "Sai"}
+{"paragraph": "word/document.xml#446", "label": "PHONE", "text": "7423790608"}
+{"paragraph": "word/document.xml#449", "label": "PERSON", "text": "Steven Soto"}
+{"paragraph": "word/document.xml#449", "label": "EMAIL", "text": "steven.soto@hotmail.com"}
+{"paragraph": "word/document.xml#449", "label": "ORGANIZATION", "text": "Lopez Group"}
+{"paragraph": "word/document.xml#450", "label": "PERSON", "text": "Steven"}
+{"paragraph": "word/document.xml#451", "label": "ADDRESS", "text": "22498 Perry Centers Apt. 597, Ryanbury, DC 87883"}
+{"paragraph": "word/document.xml#454", "label": "PERSON", "text": "Sally Lyons"}
+{"paragraph": "word/document.xml#454", "label": "EMAIL", "text": "sally.lyons@yahoo.com"}
+{"paragraph": "word/document.xml#454", "label": "ORGANIZATION", "text": "Harris Ltd"}
+{"paragraph": "word/document.xml#455", "label": "PERSON", "text": "Sally"}
+{"paragraph": "word/document.xml#456", "label": "ADDRESS", "text": "Unit 9164 Box 6188, DPO AA 05535"}
+{"paragraph": "word/document.xml#459", "label": "PERSON", "text": "Leslie Phillips"}
+{"paragraph": "word/document.xml#459", "label": "EMAIL", "text": "leslie.phillips@yahoo.com"}
+{"paragraph": "word/document.xml#459", "label": "ORGANIZATION", "text": "Gould, Anderson and House"}
+{"paragraph": "word/document.xml#460", "label": "PERSON", "text": "Leslie"}
+{"paragraph": "word/document.xml#461", "label": "ADDRESS", "text": "10231 Whitney Springs, Combsstad, NE 70756"}
+{"paragraph": "word/document.xml#462", "label": "PERSON", "text": "Marcus Brown"}
+{"paragraph": "word/document.xml#465", "label": "PERSON", "text": "Clifford Richards"}
+{"paragraph": "word/document.xml#465", "label": "EMAIL", "text": "clifford.richards@hotmail.co.uk"}
+{"paragraph": "word/document.xml#465", "label": "ORGANIZATION", "text": "Gill PLC"}
+{"paragraph": "word/document.xml#466", "label": "PERSON", "text": "Clifford"}
+{"paragraph": "word/document.xml#467", "label": "CREDIT_CARD", "text": "377017924482531"}
+{"paragraph": "word/document.xml#468", "label": "PERSON", "text": "Kayla Wallace"}
+{"paragraph": "word/document.xml#471", "label": "PERSON", "text": "Damyanti Kari"}
+{"paragraph": "word/document.xml#471", "label": "EMAIL", "text": "damyanti.kari@hotmail.com"}
+{"paragraph": "word/document.xml#471", "label": "ORGANIZATION", "text": "Bora-Chanda"}
+{"paragraph": "word/document.xml#472", "label": "PERSON", "text": "Damyanti"}
+{"paragraph": "word/document.xml#473", "label": "ADDRESS", "text": "H.No. 30, Mitter Ganj, Faridabad-080138"}
+{"paragraph": "word/document.xml#476", "label": "PERSON", "text": "Nicole Munoz"}
+{"paragraph": "word/document.xml#476", "label": "EMAIL", "text": "nicole.munoz@hotmail.com"}
+{"paragraph": "word/document.xml#476", "label": "ORGANIZATION", "text": "Young-Mccoy"}
+{"paragraph": "word/document.xml#477", "label": "PERSON", "text": "Nicole"}
+{"paragraph": "word/document.xml#478", "label": "ADDRESS", "text": "4539 Mills Road Suite 041, Suzanneview, VI 92590"}
+{"paragraph": "word/document.xml#481", "label": "PERSON", "text": "Kayleigh Lee"}
+{"paragraph": "word/document.xml#481", "label": "EMAIL", "text": "kayleigh.lee@yahoo.co.uk"}
+{"paragraph": "word/document.xml#481", "label": "ORGANIZATION", "text": "Owen, Bailey and Grant"}
+{"paragraph": "word/document.xml#482", "label": "PERSON", "text": "Kayleigh"}
+{"paragraph": "word/document.xml#483", "label": "ADDRESS", "text": "644 Luke Glens, West Lydia, LS20 4EH"}
+{"paragraph": "word/document.xml#486", "label": "PERSON", "text": "Candace Bates"}
+{"paragraph": "word/document.xml#486", "label": "EMAIL", "text": "candace.bates@hotmail.com"}
+{"paragraph": "word/document.xml#486", "label": "ORGANIZATION", "text": "Singh, King and Kim"}
+{"paragraph": "word/document.xml#487", "label": "PERSON", "text": "Candace"}
+{"paragraph": "word/document.xml#488", "label": "PHONE", "text": "9925144536"}
+{"paragraph": "word/document.xml#489", "label": "PERSON", "text": "Dominique Reed"}
+{"paragraph": "word/document.xml#492", "label": "PERSON", "text": "Orinder Purohit"}
+{"paragraph": "word/document.xml#492", "label": "EMAIL", "text": "orinder.purohit@gmail.com"}
+{"paragraph": "word/document.xml#492", "label": "ORGANIZATION", "text": "Loyal-Bhardwaj"}
+{"paragraph": "word/document.xml#493", "label": "PERSON", "text": "Orinder"}
+{"paragraph": "word/document.xml#494", "label": "PHONE", "text": "+914032385934"}
+{"paragraph": "word/document.xml#495", "label": "PERSON", "text": "Denise Meyers"}
+{"paragraph": "word/document.xml#498", "label": "PERSON", "text": "Rebecca Cohen"}
+{"paragraph": "word/document.xml#498", "label": "EMAIL", "text": "rebecca.cohen@gmail.com"}
+{"paragraph": "word/document.xml#498", "label": "ORGANIZATION", "text": "Allen, Brown and Russell"}
+{"paragraph": "word/document.xml#499", "label": "PERSON", "text": "Rebecca"}
+{"paragraph": "word/document.xml#500", "label": "ADDRESS", "text": "96924 Soto Fords Suite 440, Solisfurt, KS 88860"}
+{"paragraph": "word/document.xml#503", "label": "PERSON", "text": "Dennis Baker"}
+{"paragraph": "word/document.xml#503", "label": "EMAIL", "text": "dennis.baker@yahoo.com"}
+{"paragraph": "word/document.xml#503", "label": "ORGANIZATION", "text": "Taylor-Lowery"}
+{"paragraph": "word/document.xml#504", "label": "PERSON", "text": "Dennis"}
+{"paragraph": "word/document.xml#505", "label": "ADDRESS", "text": "5131 Huffman Gardens Suite 585, East Melissatown, MI 76398"}
+{"paragraph": "word/document.xml#506", "label": "PERSON", "text": "Scott Thompson"}
+{"paragraph": "word/document.xml#509", "label": "PERSON", "text": "Jack Nash"}
+{"paragraph": "word/document.xml#509", "label": "EMAIL", "text": "jack.nash@gmail.com"}
+{"paragraph": "word/document.xml#509", "label": "ORGANIZATION", "text": "Jackson, Giles and Hill"}
+{"paragraph": "word/document.xml#510", "label": "PERSON", "text": "Jack"}
+{"paragraph": "word/document.xml#511", "label": "ADDRESS", "text": "Flat 04, Gary Key, North Leslieview, W5 4TB"}
+{"paragraph": "word/document.xml#512", "label": "PERSON", "text": "Michelle Turner"}
+{"paragraph": "word/document.xml#515", "label": "PERSON", "text": "Jennifer Johnson"}
+{"paragraph": "word/document.xml#515", "label": "EMAIL", "text": "jennifer.johnson@hotmail.com"}
+{"paragraph": "word/document.xml#515", "label": "ORGANIZATION", "text": "Hicks Ltd"}
+{"paragraph": "word/document.xml#516", "label": "PERSON", "text": "Jennifer"}
+{"paragraph": "word/document.xml#517", "label": "ADDRESS", "text": "135 Daniel Stravenue Suite 748, West Jasminemouth, IN 69645"}
+{"paragraph": "word/document.xml#520", "label": "PERSON", "text": "Yoshita Prashad"}
+{"paragraph": "word/document.xml#520", "label": "EMAIL", "text": "yoshita.prashad@gmail.com"}
+{"paragraph": "word/document.xml#520", "label": "ORGANIZATION", "text": "Krishnan Group"}
+{"paragraph": "word/document.xml#521", "label": "PERSON", "text": "Yoshita"}
+{"paragraph": "word/document.xml#522", "label": "PHONE", "text": "+912786644482"}
+{"paragraph": "word/document.xml#525", "label": "PERSON", "text": "Zachary Moore"}
+{"paragraph": "word/document.xml#525", "label": "EMAIL", "text": "zachary.moore@gmail.com"}
+{"paragraph": "word/document.xml#525", "label": "ORGANIZATION", "text": "Waters-Roth"}
+{"paragraph": "word/document.xml#526", "label": "PERSON", "text": "Zachary"}
+{"paragraph": "word/document.xml#527", "label": "ADDRESS", "text": "8025 Michael Streets, Christinabury, PW 02816"}
+{"paragraph": "word/document.xml#528", "label": "PERSON", "text": "Michael Baker"}
+{"paragraph": "word/document.xml#531", "label": "PERSON", "text": "Daniel Cameron"}
+{"paragraph": "word/document.xml#531", "label": "EMAIL", "text": "daniel.cameron@hotmail.com"}
+{"paragraph": "word/document.xml#531", "label": "ORGANIZATION", "text": "Rodriguez-Richardson"}
+{"paragraph": "word/document.xml#532", "label": "PERSON", "text": "Daniel"}
+{"paragraph": "word/document.xml#533", "label": "IP_ADDRESS", "text": "6.66.123.94"}
+{"paragraph": "word/document.xml#536", "label": "PERSON", "text": "Paula Mata"}
+{"paragraph": "word/document.xml#536", "label": "EMAIL", "text": "paula.mata@yahoo.com"}
+{"paragraph": "word/document.xml#536", "label": "ORGANIZATION", "text": "Mcgee Ltd"}
+{"paragraph": "word/document.xml#537", "label": "PERSON", "text": "Paula"}
+{"paragraph": "word/document.xml#538", "label": "DATE_OF_BIRTH", "text": "02/18/1974"}
+{"paragraph": "word/document.xml#539", "label": "PERSON", "text": "Mackenzie Flores"}
+{"paragraph": "word/document.xml#542", "label": "PERSON", "text": "Elizabeth Ross"}
+{"paragraph": "word/document.xml#542", "label": "EMAIL", "text": "elizabeth.ross@yahoo.com"}
+{"paragraph": "word/document.xml#542", "label": "ORGANIZATION", "text": "Marshall, White and Frye"}
+{"paragraph": "word/document.xml#543", "label": "PERSON", "text": "Elizabeth"}
+{"paragraph": "word/document.xml#544", "label": "PHONE", "text": "944-549-4831"}
+{"paragraph": "word/document.xml#545", "label": "PERSON", "text": "Michelle Castaneda"}
+{"paragraph": "word/document.xml#548", "label": "PERSON", "text": "Tamara Gibson"}
+{"paragraph": "word/document.xml#548", "label": "EMAIL", "text": "tamara.gibson@yahoo.com"}
+{"paragraph": "word/document.xml#548", "label": "ORGANIZATION", "text": "Lopez-Strickland"}
+{"paragraph": "word/document.xml#549", "label": "PERSON", "text": "Tamara"}
+{"paragraph": "word/document.xml#550", "label": "ADDRESS", "text": "23826 Alexander Junctions Suite 523, Angelashire, TX 06107"}
+{"paragraph": "word/document.xml#553", "label": "PERSON", "text": "Bryan Ryan"}
+{"paragraph": "word/document.xml#553", "label": "EMAIL", "text": "bryan.ryan@outlook.com"}
+{"paragraph": "word/document.xml#553", "label": "ORGANIZATION", "text": "Riley Ltd"}
+{"paragraph": "word/document.xml#554", "label": "PERSON", "text": "Bryan"}
+{"paragraph": "word/document.xml#555", "label": "IP_ADDRESS", "text": "145.161.136.180"}
+{"paragraph": "word/document.xml#558", "label": "PERSON", "text": "Donald Cobb"}
+{"paragraph": "word/document.xml#558", "label": "EMAIL", "text": "donald.cobb@hotmail.com"}
+{"paragraph": "word/document.xml#558", "label": "ORGANIZATION", "text": "Young, Campbell and Calhoun"}
+{"paragraph": "word/document.xml#559", "label": "PERSON", "text": "Donald"}
+{"paragraph": "word/document.xml#560", "label": "ADDRESS", "text": "PSC 7969, Box 5596, APO AA 66731"}
+{"paragraph": "word/document.xml#563", "label": "PERSON", "text": "Sherry Cabrera"}
+{"paragraph": "word/document.xml#563", "label": "EMAIL", "text": "sherry.cabrera@yahoo.com"}
+{"paragraph": "word/document.xml#563", "label": "ORGANIZATION", "text": "Nelson, Thompson and Foster"}
+{"paragraph": "word/document.xml#564", "label": "PERSON", "text": "Sherry"}
+{"paragraph": "word/document.xml#565", "label": "CREDIT_CARD", "text": "4780 6063 6066 8604"}
+{"paragraph": "word/document.xml#568", "label": "PERSON", "text": "Jeremy Beck"}
+{"paragraph": "word/document.xml#568", "label": "EMAIL", "text": "jeremy.beck@yahoo.com"}
+{"paragraph": "word/document.xml#568", "label": "ORGANIZATION", "text": "Torres-Clark"}
+{"paragraph": "word/document.xml#569", "label": "PERSON", "text": "Jeremy"}
+{"paragraph": "word/document.xml#570", "label": "PHONE", "text": "+1-395-269-5806"}
+{"paragraph": "word/document.xml#573", "label": "PERSON", "text": "Sandra Thompson"}
+{"paragraph": "word/document.xml#573", "label": "EMAIL", "text": "sandra.thompson@hotmail.com"}
+{"paragraph": "word/document.xml#573", "label": "ORGANIZATION", "text": "Salazar-Morrison"}
+{"paragraph": "word/document.xml#574", "label": "PERSON", "text": "Sandra"}
+{"paragraph": "word/document.xml#575", "label": "DATE_OF_BIRTH", "text": "12/25/1954"}
+{"paragraph": "word/document.xml#578", "label": "PERSON", "text": "Jacob Sanders"}
+{"paragraph": "word/document.xml#578", "label": "EMAIL", "text": "jacob.sanders@hotmail.com"}
+{"paragraph": "word/document.xml#578", "label": "ORGANIZATION", "text": "Collier and Sons"}
+{"paragraph": "word/document.xml#579", "label": "PERSON", "text": "Jacob"}
+{"paragraph": "word/document.xml#580", "label": "ADDRESS", "text": "38511 Deanna Freeway, Macdonaldside, VT 83084"}
+{"paragraph": "word/document.xml#581", "label": "PERSON", "text": "Crystal Gonzalez"}
+{"paragraph": "word/document.xml#584", "label": "PERSON", "text": "Lisa Nelson"}
+{"paragraph": "word/document.xml#584", "label": "EMAIL", "text": "lisa.nelson@yahoo.com"}
+{"paragraph": "word/document.xml#584", "label": "ORGANIZATION", "text": "Dunn-Griffin"}
+{"paragraph": "word/document.xml#585", "label": "PERSON", "text": "Lisa"}
+{"paragraph": "word/document.xml#586", "label": "IP_ADDRESS", "text": "203.38.166.191"}
+{"paragraph": "word/document.xml#587", "label": "PERSON", "text": "Mary Perry"}
+{"paragraph": "word/document.xml#590", "label": "PERSON", "text": "John Yu"}
+{"paragraph": "word/document.xml#590", "label": "EMAIL", "text": "john.yu@gmail.com"}
+{"paragraph": "word/document.xml#590", "label": "ORGANIZATION", "text": "Rodriguez-Brown"}
+{"paragraph": "word/document.xml#591", "label": "PERSON", "text": "John"}
+{"paragraph": "word/document.xml#592", "label": "PHONE", "text": "509-286-9781"}
+{"paragraph": "word/document.xml#593", "label": "PERSON", "text": "Stephen Faulkner"}
+{"paragraph": "word/document.xml#596", "label": "PERSON", "text": "Cory Smith"}
+{"paragraph": "word/document.xml#596", "label": "EMAIL", "text": "cory.smith@hotmail.com"}
+{"paragraph": "word/document.xml#596", "label": "ORGANIZATION", "text": "Young Inc"}
+{"paragraph": "word/document.xml#597", "label": "PERSON", "text": "Cory"}
+{"paragraph": "word/document.xml#598", "label": "PHONE", "text": "654.669.2767"}
+{"paragraph": "word/document.xml#601", "label": "PERSON", "text": "Louis Daly"}
+{"paragraph": "word/document.xml#601", "label": "EMAIL", "text": "louis.daly@hotmail.com"}
+{"paragraph": "word/document.xml#601", "label": "ORGANIZATION", "text": "Baker-Hunt"}
+{"paragraph": "word/document.xml#602", "label": "PERSON", "text": "Louis"}
+{"paragraph": "word/document.xml#603", "label": "PHONE", "text": "0118 4960400"}
+{"paragraph": "word/document.xml#606", "label": "PERSON", "text": "Tracey Nicholson"}
+{"paragraph": "word/document.xml#606", "label": "EMAIL", "text": "tracey.nicholson@gmail.com"}
+{"paragraph": "word/document.xml#606", "label": "ORGANIZATION", "text": "Rose, Page and Richardson"}
+{"paragraph": "word/document.xml#607", "label": "PERSON", "text": "Tracey"}
+{"paragraph": "word/document.xml#608", "label": "IP_ADDRESS", "text": "112.115.70.68"}
+{"paragraph": "word/document.xml#609", "label": "PERSON", "text": "Juan Daniels"}
+{"paragraph": "word/document.xml#612", "label": "PERSON", "text": "Samuel Lee"}
+{"paragraph": "word/document.xml#612", "label": "EMAIL", "text": "samuel.lee@yahoo.com"}
+{"paragraph": "word/document.xml#612", "label": "ORGANIZATION", "text": "Salinas and Sons"}
+{"paragraph": "word/document.xml#613", "label": "PERSON", "text": "Samuel"}
+{"paragraph": "word/document.xml#614", "label": "ADDRESS", "text": "052 Gerald Divide Apt. 527, North Connie, WA 26839"}
+{"paragraph": "word/document.xml#617", "label": "PERSON", "text": "Tyler Evans"}
+{"paragraph": "word/document.xml#617", "label": "EMAIL", "text": "tyler.evans@yahoo.com"}
+{"paragraph": "word/document.xml#617", "label": "ORGANIZATION", "text": "Parks Inc"}
+{"paragraph": "word/document.xml#618", "label": "PERSON", "text": "Tyler"}
+{"paragraph": "word/document.xml#619", "label": "ADDRESS", "text": "985 Cynthia Forks Suite 365, New Nathanmouth, WY 50025"}
+{"paragraph": "word/document.xml#622", "label": "PERSON", "text": "Dawn Patel"}
+{"paragraph": "word/document.xml#622", "label": "EMAIL", "text": "dawn.patel@gmail.com"}
+{"paragraph": "word/document.xml#622", "label": "ORGANIZATION", "text": "Jones Ltd"}
+{"paragraph": "word/document.xml#623", "label": "PERSON", "text": "Dawn"}
+{"paragraph": "word/document.xml#624", "label": "PHONE", "text": "(0114) 4960703"}
+{"paragraph": "word/document.xml#627", "label": "PERSON", "text": "Michael Knight"}
+{"paragraph": "word/document.xml#627", "label": "EMAIL", "text": "michael.knight@yahoo.com"}
+{"paragraph": "word/document.xml#627", "label": "ORGANIZATION", "text": "Hendricks, Sullivan and Parks"}
+{"paragraph": "word/document.xml#628", "label": "PERSON", "text": "Michael"}
+{"paragraph": "word/document.xml#629", "label": "PHONE", "text": "001-717-873-0068"}
+{"paragraph": "word/document.xml#632", "label": "PERSON", "text": "Shannon Evans"}
+{"paragraph": "word/document.xml#632", "label": "EMAIL", "text": "shannon.evans@yahoo.co.uk"}
+{"paragraph": "word/document.xml#632", "label": "ORGANIZATION", "text": "Phillips PLC"}
+{"paragraph": "word/document.xml#633", "label": "PERSON", "text": "Shannon"}
+{"paragraph": "word/document.xml#634", "label": "PHONE", "text": "(0117) 496 0945"}
