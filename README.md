@@ -67,6 +67,7 @@ On 100 hand-labelled paragraphs (63 PII spans):
 - **Precision was favoured over recall for single words.** "CARE" (the industry-report provider) and "Broad" (Broad Family Trust) are English words, so they are only replaced as part of a full name. Masking "care" everywhere would corrupt the text. This causes the main false negatives: "CARE Report" and "CareEdge Research", where the brand is used without a legal suffix. Also missed: "State Bank of India" and one PIN-less address line. See the evaluation report for the fix for each.
 - **No false positives in the sample.** Before the conservative filters, NER produced many: "Supa Facility", "Working Days", "United States Dollars" and "Refund Bank" were all candidate names or companies.
 - **Addresses** are the weakest type. Lines with no PIN code are only accepted with at least 2 address words and a number.
+- **Formatting:** when a name or company name crosses formatting runs ("Rashi **Patil**"), each fake word keeps its real word's formatting ("Jatin **Nanda**"). A fake *address* has a different shape from the real one, so formatting applied to part of an address (e.g. one coloured locality) isn't carried over. The address itself is still fully replaced.
 - **Text inside images** isn't read (no OCR). Images are replaced whole instead, which gives full recall for images at the cost of losing harmless content such as logos' shapes.
 - `en_core_web_lg` rather than a transformer NER model: much faster on CPU (the whole document in about 10 s). The rules compensate for its weaker accuracy.
 
