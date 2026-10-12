@@ -59,7 +59,7 @@ def find_orgs(text: str, lower_words: set[str] = frozenset()) -> list[Span]:
 
 def _org_span(text: str, start: int, end: int, rule: str, lower_words: set[str]) -> Span | None:
     skip = ORG_LEADING_JUNK | (GENERIC_ORG_WORDS | NON_NAME_WORDS if rule == "institution" else set())
-    while (word := re.match(r"\S+\s+", text[start:end])) and word.group(0).strip().lower().strip(",.:;()") in skip:
+    while (word := re.match(r"\S+\s+", text[start:end])) and _leading_noise(word.group(0), rule, skip, lower_words):
         start += word.end()
     if rule == "institution":
         while (tail := re.search(r"\s+(\S+)$", text[start:end])) and tail.group(1).lower() in TRAILING_NOISE:
@@ -83,6 +83,11 @@ def _org_span(text: str, start: int, end: int, rule: str, lower_words: set[str])
         ):
             return None  # law titles, lists of places
     return Span(start, end, "ORGANIZATION", value)
+
+
+def _leading_noise(word: str, rule: str, skip: set[str], lower_words: set[str]) -> bool:
+    word = word.strip().lower().strip(",.:;()")
+    return word in skip or (rule == "institution" and english_word(word, lower_words))
 
 
 def distinctive_tokens(org_name: str) -> list[str]:

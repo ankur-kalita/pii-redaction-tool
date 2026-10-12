@@ -86,7 +86,7 @@ def _parse_date(text: str) -> tuple[datetime, str] | None:
 
 
 class Pseudonymizer:
-    def __init__(self, secret: str = "evaratus-redaction", reserved: set[str] = frozenset()):
+    def __init__(self, secret: str, reserved: set[str] = frozenset()):
         self._key = secret.encode()
         self._maps: dict[str, dict[str, str]] = {}
         self._used: dict[str, set[str]] = {}

@@ -3,6 +3,7 @@ replace it with consistent fakes, replace images, write the new .docx."""
 
 from __future__ import annotations
 
+import secrets
 from dataclasses import dataclass, field
 
 import spacy
@@ -67,8 +68,8 @@ def is_allowed(span: Span) -> bool:
 
 
 class Redactor:
-    def __init__(self, secret: str = "evaratus-redaction", model: str = "en_core_web_lg"):
-        self.secret = secret
+    def __init__(self, secret: str | None = None, model: str = "en_core_web_lg"):
+        self.secret = secret or secrets.token_hex(16)  # no key given: fakes differ on every run
         self.nlp = spacy.load(model, disable=["lemmatizer"])
 
     def detect(self, texts: list[str]):

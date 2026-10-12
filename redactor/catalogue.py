@@ -109,7 +109,12 @@ def defined_terms(texts: list[str]) -> set[str]:
     for prev, text in zip(["", *texts[:-1]], texts, strict=True):
         if ACRONYM_RE.fullmatch(prev.strip()) and spells(text.strip(), prev.strip()):
             terms.add(text.strip().lower())
-        terms |= {m.group(1).lower() for m in EXPANSION_RE.finditer(text) if spells(m.group(1), m.group(2))}
+        for m in EXPANSION_RE.finditer(text):
+            words = m.group(1).split()
+            # the phrase may start with an ordinary word ("Our scheme Integrated ...")
+            terms |= {
+                " ".join(words[k:]).lower() for k in range(len(words) - 1) if spells(" ".join(words[k:]), m.group(2))
+            }
     return terms
 
 
