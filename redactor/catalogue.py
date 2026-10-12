@@ -27,6 +27,7 @@ from .detectors.entities import (
     plausible_person,
 )
 
+EMAIL_LOCAL_RE = re.compile(r"\b([A-Za-z][\w.]*)@[\w-]+\.")
 CAP_WORDS_RE = re.compile(r"[A-Z][A-Za-z'\-]*\.?(?:\s+[A-Z][A-Za-z'\-]*\.?)*")
 # A defined-term nickname right after a company name:
 # 'CARE Analytics and Advisory Private Limited (“CareEdge Research”)'.
@@ -44,6 +45,7 @@ class Catalogue:
     lower_words: set[str] = field(default_factory=set)  # words seen in lower case anywhere
     localities: set[str] = field(default_factory=set)  # rare place names (Chakan, Birdewadi)
     caps_brands: set[str] = field(default_factory=set)  # "CARE": matched only in ALL CAPS
+    acronyms: set[str] = field(default_factory=set)  # "omb", "nist": never part of a name
 
     def add_person(self, name: str) -> None:
         canonical = " ".join(t.strip(".").title() if len(t.strip(".")) > 1 else t for t in name.split())
@@ -78,6 +80,18 @@ def discover(paragraph_texts: list[str], nlp) -> Catalogue:
         for a in find_addresses(text, orgs):
             cat.place_tokens.update(t.lower() for t in re.findall(r"[A-Za-z]+", a.text))
 
+    # Acronyms: short ALL-CAPS words used inside ordinary sentences ("OMB has
+    # issued ...") and never written in title case. A capitals-only line such
+    # as "NARA NIST NPPI" is title-cased for NER below, which would otherwise
+    # read "Nara Nist" as a person and spread that fake person everywhere.
+    # Real names in capitals ("KUSHAL HEGDE") also appear as "Hegde".
+    caps_words, title_words = set(), set()
+    for text in paragraph_texts:
+        if not is_caps(text):
+            caps_words.update(re.findall(r"\b[A-Z]{3,6}\b", text))  # 2 letters are often initials ("DM Shetty")
+        title_words.update(re.findall(r"\b[A-Z][a-z]+\b", text))
+    cat.acronyms = {w.lower() for w in caps_words if w.title() not in title_words}
+
     def ner_text(t: str) -> str:
         letters = [c for c in t if c.isalpha()]
         caps = letters and sum(c.isupper() for c in letters) / len(letters) > 0.8
@@ -90,8 +104,21 @@ def discover(paragraph_texts: list[str], nlp) -> Catalogue:
             for part in re.split(r"\s*[/,;]\s*|\s+and\s+", ent.text):
                 part = part.strip(" .'’")
                 part = re.sub(r"['’]s$", "", part)
+                if any(t.lower() in cat.acronyms for t in part.split()):
+                    continue
                 if plausible_person(part, cat.place_tokens, cat.lower_words):
                     cat.add_person(part)
+
+    # People revealed by their email: "sachin.gawade@bank.com" next to the
+    # text "Sachin Gawade" names a person even when NER misses the name.
+    joined = "\n".join(paragraph_texts)
+    for local in {m.group(1) for t in paragraph_texts for m in EMAIL_LOCAL_RE.finditer(t)}:
+        parts = re.split(r"[._]", local)
+        if 2 <= len(parts) <= 3 and all(p.isalpha() and len(p) > 1 for p in parts):
+            name = " ".join(p.title() for p in parts)
+            if re.search(r"\b" + r"\s+".join(map(re.escape, name.split())) + r"\b", joined) and plausible_person(
+                    name, cat.place_tokens, cat.lower_words):
+                cat.add_person(name)
 
     # A token may be matched on its own (e.g. "Hegde", "KSH") only when it is
     # a proper noun in this document: it never appears in lower case. Otherwise

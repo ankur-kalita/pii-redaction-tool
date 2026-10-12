@@ -37,6 +37,13 @@ CITIES = sorted({c for c in AddressProvider.cities if c.isalpha()})
 STREET_SUFFIXES = ["Road", "Marg", "Nagar", "Lane", "Street", "Chowk", "Colony"]
 SYLLABLES = ["ka", "ro", "vel", "tan", "mi", "sor", "da", "len", "vi", "qua", "ra", "zen", "lo", "nex", "ta", "bri", "cor", "ven", "sa", "lu"]
 PUBLIC_EMAIL_DOMAINS = {"gmail.com", "yahoo.com", "outlook.com", "hotmail.com", "rediffmail.com", "icloud.com"}
+# Mailbox names that describe a role, not a person.
+ROLE_WORDS = {
+    "info", "support", "help", "helpdesk", "connect", "investor", "investors", "ipo", "customercare",
+    "customerservice", "care", "service", "services", "compliance", "grievance", "grievances", "complaints",
+    "admin", "contact", "sales", "mail", "office", "enquiry", "enquiries", "secretarial", "legal", "accounts",
+    "finance", "media", "team", "desk", "noreply", "reply", "billing", "privacy", "security", "hello", "careers",
+}
 STATE_CODES = ["MH", "KA", "TN", "GJ", "DL", "UP", "WB", "TG", "RJ", "HR", "KL", "MP"]
 
 
@@ -50,6 +57,17 @@ def match_case(fake: str, real: str) -> str:
     return fake
 
 
+def _country_code(number: str) -> str:
+    """Length of an international dialling code follows the ITU zones:
+    1 digit for +1/+7, 3 digits for the 2xx/35x-38x/42x/5x/6x-9x blocks
+    listed below, otherwise 2 digits (+44, +91, +61 ...)."""
+    if number[:1] in "17":
+        return number[:1]
+    if re.match(r"2[1-9]|3[578]|42|5[09]|6[7-9]|8[058]|9[679]", number):
+        return number[:3]
+    return number[:2]
+
+
 class Pseudonymizer:
     def __init__(self, secret: str = "evaratus-redaction", reserved: set[str] = frozenset()):
         self._key = secret.encode()
@@ -59,6 +77,7 @@ class Pseudonymizer:
         # accidentally reproduce a different real person's name).
         self._reserved = {r.lower() for r in reserved}
         self.person_roles: dict[str, str] = {}  # token -> "first" | "last"
+        self.common_words: set[str] = set()  # words the document uses in lower case
 
     # --- infrastructure ---------------------------------------------------
     def _rng(self, kind: str, value: str, attempt: int = 0) -> random.Random:
@@ -187,8 +206,14 @@ class Pseudonymizer:
             if low in self.person_roles:
                 return self.name_token(tok)
             replaced = self._replace_known(low)
-            # role words like "investor", "cs.connect" are not identifying
-            return match_case(replaced, tok) if replaced != low else tok
+            if replaced != low:
+                return match_case(replaced, tok)
+            # role words ("investor", "cs.connect") and ordinary words are not
+            # identifying; anything else is treated as a name, so an unknown
+            # person's address ("sachin.gawade") fails safe and is masked
+            if len(low) <= 2 or low in ROLE_WORDS or low in self.common_words:
+                return tok
+            return self.name_token(tok)
         return re.sub(r"[A-Za-z]+", repl, local)
 
     def email(self, real: str) -> str:
@@ -225,13 +250,13 @@ class Pseudonymizer:
         return self._consistent(kind, digits(real) or real, make)
 
     def phone(self, real: str) -> str:
-        """Keep the +91 country code, a leading 0 (STD prefix) and every
-        separator. The fake digits are tied to the real digits, so the same
-        number written differently ("+91 22 4009 4400" / "+91 22 40094400")
-        gets the same fake, rendered in each occurrence's own format."""
-        has_cc = bool(re.match(r"\s*\+\s?91", real))
+        """Keep the country code (+91, +1, +44 ...), a leading 0 (trunk/STD
+        prefix) and every separator. The fake digits are tied to the real
+        digits, so the same number written differently ("+91 22 4009 4400" /
+        "+91 22 40094400") gets the same fake, in each occurrence's format."""
         real_digits = digits(real)
-        national = real_digits[2:] if has_cc else real_digits
+        cc = _country_code(real_digits) if real.lstrip().startswith("+") else ""
+        national = real_digits[len(cc):]
 
         def make(r: random.Random) -> str:
             if national.startswith("0"):
@@ -243,7 +268,7 @@ class Pseudonymizer:
             return first + "".join(r.choice("0123456789") for _ in national[1:])
 
         fake_national = self._consistent("phone", national, make)
-        it = iter(("91" if has_cc else "") + fake_national)
+        it = iter(cc + fake_national)
         return "".join(next(it) if c.isdigit() else c for c in real)
 
     def pan(self, real: str) -> str:

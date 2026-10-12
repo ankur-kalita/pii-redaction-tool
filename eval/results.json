@@ -1,11 +1,11 @@
 {
  "table": "| PII type | Gold | Predicted | Precision | Recall | F1 |\n|---|---|---|---|---|---|\n| **All PII (redaction view)** | 63 | 63 | 100.0% | 100.0% | 100.0% |\n| ADDRESS | 5 | 5 | 100.0% | 100.0% | 100.0% |\n| EMAIL | 11 | 11 | 100.0% | 100.0% | 100.0% |\n| LOCATION | 1 | 1 | 100.0% | 100.0% | 100.0% |\n| ORGANIZATION | 20 | 20 | 100.0% | 100.0% | 100.0% |\n| PERSON | 14 | 14 | 100.0% | 100.0% | 100.0% |\n| PHONE | 3 | 3 | 100.0% | 100.0% | 100.0% |\n| REGISTRATION_ID | 4 | 4 | 100.0% | 100.0% | 100.0% |\n| URL | 5 | 5 | 100.0% | 100.0% | 100.0% |",
- "token_accuracy": "99.75% (2011/2016 tokens)",
+ "token_accuracy": "99.80% (2012/2016 tokens)",
  "paragraphs": 100,
  "gold_entities": 63,
  "false_negatives": [],
  "false_positives": [],
  "leaked_detected_values": [],
  "leaked_gold_values": [],
- "detected_values_checked": 234
+ "detected_values_checked": 237
 }

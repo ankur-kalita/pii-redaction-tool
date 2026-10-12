@@ -77,23 +77,30 @@ URL = RegexDetector(
     re.IGNORECASE,
 )
 
-# Indian phone numbers. A bare digit run is only accepted when it carries a
-# phone signal: a +91 prefix, an STD code joined by a hyphen/parentheses
-# (022-68052182), or a phone keyword just before it. This keeps share counts,
-# amounts and registration numbers out.
+# Phone numbers. A digit run is only accepted with a phone signal, so share
+# counts, amounts, order numbers and registration numbers stay out:
+#   * a country code: +91 22 4009 4400, +1-780-563-6083, +44(0)115 4960914
+#   * a trunk/area code written as one: 022-68052182, (0161) 4960066,
+#     0113 496 0141, (591)341-7776, 206.269.0743, 797-386-9073
+#   * a phone label just before it (PHONE_LABELLED below).
 PHONE = RegexDetector(
     "PHONE",
     r"(?:"
-    r"\+\s?91[\s-]?\(?\d{2,5}\)?(?:[\s-]?\d{2,5}){1,3}"  # +91 ...
-    r"|\(?0\d{2,4}\)?-\d{6,8}"  # 022-68052182 / (022)-...
-    r"|(?<=Tel: )\d[\d\s-]{8,14}\d"
-    r"|(?<=Tel\.: )\d[\d\s-]{8,14}\d"
-    r"|(?<=Telephone: )\d[\d\s-]{8,14}\d"
-    r"|(?<=Phone: )\d[\d\s-]{8,14}\d"
-    r"|(?<=Mobile: )\d[\d\s-]{8,14}\d"
-    r"|(?<=Fax: )\d[\d\s-]{8,14}\d"
+    r"\+\s?\d{1,3}[\s.-]?(?:\(\d{1,4}\)\s?)?\d{1,5}(?:[\s.-]?\d{2,5}){1,4}"  # +CC ...
+    r"|\(?\b0\d{2,4}\)?-\d{6,8}\b"  # 022-68052182
+    r"|\(0\d{2,4}\)\s?\d{3,4}\s?\d{3,4}\b"  # (0161) 4960066
+    r"|\b0\d{3,4}\s\d{3}\s\d{4}\b"  # 0113 496 0141
+    r"|(?:\(\d{3}\)\s?|\b\d{3}[.-])\d{3}[.-]\d{4}\b"  # (591)341-7776, 206.269.0743
     r")",
     validator=_valid_phone,
+)
+PHONE_LABELLED = RegexDetector(
+    "PHONE",
+    r"\b(?:tel\.?|telephone|phone|mobile|cell|fax|whatsapp|(?:callback|contact|phone|mobile)\s+(?:number|no\.?))"
+    r"\s*[:\-]?\s*(?P<p>\d[\d\s-]{8,14}\d)\b",
+    re.IGNORECASE,
+    validator=_valid_phone,
+    group="p",
 )
 
 # PAN: 5 letters, 4 digits, 1 letter; the 4th letter is the holder type.

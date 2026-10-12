@@ -1,0 +1,141 @@
+{
+ "table": "| PII type | Gold | Predicted | Precision | Recall | F1 |\n|---|---|---|---|---|---|\n| **All PII (redaction view)** | 635 | 622 | 100.0% | 96.7% | 98.3% |\n| ADDRESS | 33 | 30 | 100.0% | 90.9% | 95.2% |\n| CREDIT_CARD | 11 | 11 | 100.0% | 100.0% | 100.0% |\n| DATE_OF_BIRTH | 10 | 10 | 100.0% | 100.0% | 100.0% |\n| EMAIL | 120 | 120 | 100.0% | 100.0% | 100.0% |\n| IP_ADDRESS | 25 | 25 | 100.0% | 100.0% | 100.0% |\n| ORGANIZATION | 120 | 111 | 99.1% | 85.0% | 91.5% |\n| PERSON | 275 | 273 | 98.9% | 98.2% | 98.5% |\n| PHONE | 37 | 37 | 100.0% | 100.0% | 100.0% |\n| SSN | 4 | 4 | 100.0% | 100.0% | 100.0% |",
+ "token_accuracy": "99.31% (5905/5946 tokens)",
+ "paragraphs": 635,
+ "gold_entities": 635,
+ "false_negatives": [
+  [
+   "ORGANIZATION",
+   "Vargas-Johnson",
+   "ka Phillips (erika.phillips@yahoo.com), Vargas-Johnson"
+  ],
+  [
+   "ORGANIZATION",
+   "Hughes-Graham",
+   " Carl Lawson (carl.lawson@yahoo.co.uk), Hughes-Graham"
+  ],
+  [
+   "ORGANIZATION",
+   "Dey-Ganguly",
+   "ishnan (udarsh.balakrishnan@yahoo.com), Dey-Ganguly"
+  ],
+  [
+   "ORGANIZATION",
+   "Badal-Nayar",
+   "tomer: Eesha Lad (eesha.lad@yahoo.com), Badal-Nayar"
+  ],
+  [
+   "PERSON",
+   "Anthony",
+   "Anthony wants the SLA breac"
+  ],
+  [
+   "ORGANIZATION",
+   "Mendoza-Mercer",
+   "ustomer: Amy Rios (amy.rios@yahoo.com), Mendoza-Mercer"
+  ],
+  [
+   "ORGANIZATION",
+   "Kane-Adams",
+   " Andrea Soto (andrea.soto@hotmail.com), Kane-Adams"
+  ],
+  [
+   "PERSON",
+   "Luke",
+   "Luke asks why the PDF in"
+  ],
+  [
+   "ORGANIZATION",
+   "Nichols-Hernandez",
+   " Rebecca Diaz (rebecca.diaz@gmail.com), Nichols-Hernandez"
+  ],
+  [
+   "PERSON",
+   "Samantha",
+   "Samantha reports the export "
+  ],
+  [
+   "ORGANIZATION",
+   "Dutta-Jayaraman",
+   "sh Parmar (brijesh.parmar@hotmail.com), Dutta-Jayaraman"
+  ],
+  [
+   "ORGANIZATION",
+   "Aurora-Dua",
+   "adha Vaidya (radha.vaidya@hotmail.com), Aurora-Dua"
+  ],
+  [
+   "ORGANIZATION",
+   "Garcia-Woods",
+   "r: Jason Floyd (jason.floyd@yahoo.com), Garcia-Woods"
+  ],
+  [
+   "ORGANIZATION",
+   "Hester, Cox and Chambers",
+   "obert Lewis (robert.lewis@hotmail.com), Hester, Cox and Chambers"
+  ],
+  [
+   "ORGANIZATION",
+   "Chaudhary-Sarkar",
+   "r: Guneet Kala (guneet.kala@yahoo.com), Chaudhary-Sarkar"
+  ],
+  [
+   "ORGANIZATION",
+   "Bora-Chanda",
+   "yanti Kari (damyanti.kari@hotmail.com), Bora-Chanda"
+  ],
+  [
+   "ORGANIZATION",
+   "Waters-Roth",
+   "achary Moore (zachary.moore@gmail.com), Waters-Roth"
+  ],
+  [
+   "PERSON",
+   "Daniel",
+   "Daniel wants the SLA breac"
+  ],
+  [
+   "ORGANIZATION",
+   "Torres-Clark",
+   "r: Jeremy Beck (jeremy.beck@yahoo.com), Torres-Clark"
+  ],
+  [
+   "ORGANIZATION",
+   "Salazar-Morrison",
+   "Thompson (sandra.thompson@hotmail.com), Salazar-Morrison"
+  ],
+  [
+   "ORGANIZATION",
+   "Dunn-Griffin",
+   "r: Lisa Nelson (lisa.nelson@yahoo.com), Dunn-Griffin"
+  ]
+ ],
+ "false_positives": [],
+ "leaked_detected_values": [],
+ "leaked_gold_values": [
+  "Adam",
+  "Anthony",
+  "Aurora-Dua",
+  "Badal-Nayar",
+  "Bora-Chanda",
+  "Chaudhary-Sarkar",
+  "Daniel",
+  "Dey-Ganguly",
+  "Dunn-Griffin",
+  "Dutta-Jayaraman",
+  "Garcia-Woods",
+  "Hester, Cox and Chambers",
+  "Hughes-Graham",
+  "John",
+  "Kane-Adams",
+  "Luke",
+  "Mendoza-Mercer",
+  "Nichols-Hernandez",
+  "Salazar-Morrison",
+  "Samantha",
+  "Torres-Clark",
+  "Vargas-Johnson",
+  "Waters-Roth"
+ ],
+ "detected_values_checked": 565
+}

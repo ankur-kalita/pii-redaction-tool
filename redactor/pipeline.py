@@ -86,6 +86,7 @@ class Redactor:
         reserved = set(cat.person_tokens) | cat.brand_tokens
         fakes = Pseudonymizer(self.secret, reserved=reserved)
         fakes.person_roles = {t: ("last" if c["last"] > c["first"] else "first") for t, c in cat.person_tokens.items()}
+        fakes.common_words = cat.lower_words
         # Map every company first, so emails/websites seen earlier in the
         # document already reuse the company's fake name.
         # Mixed-case names first, so "Makalu" is styled as a word, not an acronym.

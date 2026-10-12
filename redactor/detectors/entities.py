@@ -59,10 +59,13 @@ GENERIC_ORG_WORDS = {
     "market", "institutional", "equities", "research", "legal", "law", "chambers",
     "chartered", "accountants", "formerly", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix",
     "x", "a", "b", "c", "1", "2", "3",
+    # institutions: never a place name, never the identifying part of a name
+    "institute", "institution", "laboratory", "laboratories", "university", "college", "school",
+    "academy", "division", "department", "bureau", "agency", "council", "centre", "center",
 }
 # Weak suffixes ("Refund Bank", "Long Term Bank") are often generic phrases, so
 # an organisation ending in one needs at least one rare (proper-noun) word.
-WEAK_SUFFIX_RE = re.compile(r"(?:Bank|Trust|Associates|Corporation)$", re.IGNORECASE)
+WEAK_SUFFIX_RE = re.compile(r"(?:Bank|Trust|Associates|Corporation|Group)$", re.IGNORECASE)
 
 # Public institutions present in every Indian prospectus: they do not identify
 # the issuer or any individual, and the document's structure depends on them.
@@ -81,13 +84,13 @@ KEEP_ORG_RE = re.compile("|".join(KEEP_ORG_PATTERNS), re.IGNORECASE)
 KEEP_DOMAINS = re.compile(
     r"(?:sebi\.gov\.in|bseindia\.com|nseindia\.com|rbi\.org\.in|mca\.gov\.in|nsdl\.co\.in|"
     r"cdslindia\.com|incometax|uidai\.gov\.in|npci\.org\.in|gov\.in|fbil\.org\.in|oanda\.com|"
-    r"citibank\.com)",
+    r"citibank\.com|\.gov\b|\.gov\.[a-z]{2}\b|\.mil\b|\.int\b)",
     re.IGNORECASE,
 )
 
 LEGAL_SUFFIX = (
     r"(?:Private\s+Limited|Pvt\.?\s+Ltd\.?|Limited|Ltd\.?|LLP|L\.L\.P\.|Family\s+Trust|Trust|"
-    r"Bank|Inc\.?|Corporation|LLC|GmbH|PLC|&\s+Associates|Associates|&\s+Co\.?)"
+    r"Bank|Inc\.?|Corporation|LLC|GmbH|PLC|&\s+Associates|Associates|&\s+Co\.?|Group|(?:&|and)\s+Sons)"
 )
 _ORG_WORD = r"(?:[A-Z][A-Za-z0-9'.\-]*|&|of|and|\(India\))"
 ORG_RE = re.compile(
@@ -97,6 +100,10 @@ ORG_RE_CAPS = re.compile(rf"\b(?:{_ORG_WORD}\s+){{0,6}}?{LEGAL_SUFFIX}(?![A-Za-z
 # "State Bank of India", "Bank of Baroda": "Bank of <Place>" is itself the
 # signal that this is a bank's name, even when every word is a common word.
 BANK_OF_RE = re.compile(r"\b(?:[A-Z][A-Za-z\-]+\s+){0,3}Bank\s+of\s+[A-Z][a-z]+\b")
+# Partnership-style names without a legal suffix: "Sharp, Wood and Chang".
+# Accepted only when every word is a proper noun in this document; a list of
+# surnames is PII anyway, so masking it is safe either way.
+PARTNERSHIP_RE = re.compile(r"\b[A-Z][a-z]+(?:-[A-Z][a-z]+)?, [A-Z][a-z]+(?:-[A-Z][a-z]+)? (?:and|&) [A-Z][a-z]+(?:-[A-Z][a-z]+)?\b")
 # Legal-form words: part of a company name, but never its distinctive part.
 LEGAL_WORDS = {"llc", "llp", "plc", "ltd", "inc", "pvt", "huf", "gmbh"}
 
@@ -140,6 +147,14 @@ def find_orgs(text: str, lower_words: set[str] = frozenset()) -> list[Span]:
         if KEEP_ORG_RE.search(value):
             continue
         spans.append(Span(start, m.end(), "ORGANIZATION", value))
+    for m in PARTNERSHIP_RE.finditer(text):
+        words = [w.lower() for w in re.findall(r"[A-Za-z]+", m.group(0)) if w not in ("and",)]
+        if (any(english_word(w, lower_words) or w in MAJOR_PLACES or w in GENERIC_ORG_WORDS or w in NON_NAME_WORDS
+                for w in words)
+                or not lower_words or re.match(r"\s+(?:Act|Rules|Regulations)\b", text[m.end():])
+                or any(s.start < m.end() and m.start() < s.end for s in spans)):
+            continue
+        spans.append(Span(m.start(), m.end(), "ORGANIZATION", m.group(0)))
     for m in BANK_OF_RE.finditer(text):
         start = m.start()
         words = m.group(0).split()
@@ -152,6 +167,18 @@ def find_orgs(text: str, lower_words: set[str] = frozenset()) -> list[Span]:
             continue
         spans.append(Span(start, m.end(), "ORGANIZATION", value))
     return sorted(spans, key=lambda s: s.start)
+
+
+def english_word(word: str, lower_words: set[str]) -> bool:
+    """The document uses this word, or its base form, in lower case
+    ("Employment" -> "employ", "Trades" -> "trade"), so it is a common word."""
+    word = word.lower()
+    if word in lower_words:
+        return True
+    for suffix in ("ments", "ment", "tions", "tion", "ings", "ing", "es", "s"):
+        if word.endswith(suffix) and len(word) - len(suffix) >= 3 and word[: -len(suffix)] in lower_words:
+            return True
+    return False
 
 
 def distinctive_tokens(org_name: str) -> list[str]:
@@ -173,6 +200,14 @@ ADDRESS_WORD_RE = re.compile(rf"\b(?:{ADDRESS_WORDS})\b", re.IGNORECASE)
 # City name, an optional dash, and a 6-digit Indian PIN code ("Pune – 411 045").
 PIN_RE = re.compile(r"(?<![\d₹.,])\b[1-9]\d{2}\s?\d{3}\b(?![\d%.,]\d)")
 CITY_PIN_RE = re.compile(r"\b[A-Z][A-Za-z]+(?:\s*[–—-]\s*|,\s*|\s+)[1-9]\d{2}\s?\d{3}\b")
+# US "Hollandburgh, NY 30246" (also military "DPO AP 70602") and UK postcodes
+# ("SR08 7UX"): the same role as "City – PIN" for addresses abroad.
+US_STATES = (
+    "AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|"
+    "NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC|PR|AA|AE|AP"
+)
+US_ZIP_RE = re.compile(rf"\b[A-Z][A-Za-z.'\- ]*,?\s+(?:{US_STATES})\s+\d{{5}}(?:-\d{{4}})?\b")
+UK_POSTCODE_RE = re.compile(r"\b(?:[A-Z]{1,2}\d[A-Z\d]?|GIR)\s?\d[ABD-HJLNP-UW-Z]{2}\b")
 ADDRESS_LABEL_RE = re.compile(
     r"^(?:.*?\b(?:address|registered office|corporate office|office|located at|situated at|at)\b\s*[:\-]?\s*)",
     re.IGNORECASE,
@@ -186,7 +221,7 @@ MAJOR_PLACES = {
 }
 
 _CUE = re.compile(
-    r"\b(?:located at|situated at|office at|address(?:ed)? at|address\s*:|(?:registered |corporate )?office\s*:|"
+    r"\b(?:located at|situated at|office at|address(?:ed)? at|address(?:\s+[a-z]+){0,3}\s*:|(?:registered |corporate )?office\s*:|"
     r"corporate office\s*:)\s*",
     re.IGNORECASE,
 )
@@ -205,7 +240,7 @@ def find_addresses(text: str, org_spans: list[Span] = ()) -> list[Span]:
     stripped = text.strip()
     if not stripped:
         return []
-    pins = list(CITY_PIN_RE.finditer(text))
+    pins = _postal_anchors(text)
     if not pins:
         # An address line without a PIN must look strongly like one.
         if len(ADDRESS_WORD_RE.findall(text)) < 2 or len(stripped) > 160 or not re.search(r"\d", text):
@@ -216,7 +251,7 @@ def find_addresses(text: str, org_spans: list[Span] = ()) -> list[Span]:
     prev_end = 0
     cue_re = _CUE_PROSE if len(stripped) > 100 else _CUE
     for pin in pins:
-        end = pin.end()
+        end = pin[1]
         window_start = max(prev_end, end - 200)
         cue = None
         for cue in cue_re.finditer(text, window_start, end):
@@ -232,6 +267,22 @@ def find_addresses(text: str, org_spans: list[Span] = ()) -> list[Span]:
     return spans
 
 
+def _postal_anchors(text: str) -> list[tuple[int, int]]:
+    """Every "City – PIN" (India), "City, ST 12345" (US) or UK postcode. A
+    city written in capitals inside ordinary text ("Ticket TCK-100000") is a
+    code, not a city."""
+    caps = is_caps(text)
+    spans = [m.span() for m in CITY_PIN_RE.finditer(text) if caps or not m.group(0).split()[0].rstrip(",–—-").isupper()]
+    spans += [m.span() for m in US_ZIP_RE.finditer(text)]
+    spans += [m.span() for m in UK_POSTCODE_RE.finditer(text)]
+    out = []
+    for s, e in sorted(spans, key=lambda x: (x[1], x[0])):
+        if out and s < out[-1][1]:
+            continue  # overlapping anchors end the same address
+        out.append((s, e))
+    return out
+
+
 def continues_address(prev_line: str, line: str) -> bool:
     """An address split over lines: a line that is only "City – PIN" ends an
     address whose street part is on the line above ("2401 Gen Thimmayya Road,
@@ -239,7 +290,8 @@ def continues_address(prev_line: str, line: str) -> bool:
     line: short, a number or an address word, and not a "Telephone:" style
     label or an email."""
     prev, cur = prev_line.strip(), line.strip().rstrip(",;")
-    if not CITY_PIN_RE.fullmatch(cur) or not prev or len(prev) > 120:
+    anchors = _postal_anchors(cur)
+    if not anchors or anchors[0][0] != 0 or anchors[-1][1] != len(cur) or not prev or len(prev) > 120:
         return False
     if re.search(r"@|:|www\.|https?://", prev):
         return False

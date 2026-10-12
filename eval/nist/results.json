@@ -1,0 +1,107 @@
+{
+ "table": "| PII type | Gold | Predicted | Precision | Recall | F1 |\n|---|---|---|---|---|---|\n| **All PII (redaction view)** | 45 | 41 | 78.0% | 82.2% | 80.1% |\n| ORGANIZATION | 8 | 2 | 100.0% | 25.0% | 40.0% |\n| PERSON | 37 | 30 | 93.3% | 83.8% | 88.3% |",
+ "token_accuracy": "99.81% (24273/24319 tokens)",
+ "paragraphs": 559,
+ "gold_entities": 45,
+ "false_negatives": [
+  [
+   "ORGANIZATION",
+   "Innovative Analytics & Training",
+   "te are the efforts of Joseph Nusbaum of Innovative Analytics & Training, Deanna DiCarlanton"
+  ],
+  [
+   "ORGANIZATION",
+   "Carnegie Mellon University",
+   " of Homeland Security; Idris Adjerid of Carnegie Mellon University; The Federal Commit"
+  ],
+  [
+   "PERSON",
+   "Daniel I. Steinberg",
+   "utual Group, and Michael L. Shapiro and Daniel I. Steinberg of Booz Allen Hamil"
+  ],
+  [
+   "ORGANIZATION",
+   "K.U.Leuven",
+   " Hamilton; Brendan Van Alsenoy of ICRI, K.U.Leuven; David Plocher and "
+  ],
+  [
+   "ORGANIZATION",
+   "ICRI",
+   " Allen Hamilton; Brendan Van Alsenoy of ICRI, K.U.Leuven; David "
+  ],
+  [
+   "PERSON",
+   "L. Sweeney",
+   " using only ZIP code and date of birth. L. Sweeney, Computational Disc"
+  ],
+  [
+   "PERSON",
+   "A. Pfitzmann",
+   "ional information about anonymity, see: A. Pfitzmann and M. Hansen, A Te"
+  ],
+  [
+   "PERSON",
+   "M. Hansen",
+   " about anonymity, see: A. Pfitzmann and M. Hansen, A Terminology for "
+  ]
+ ],
+ "false_positives": [
+  [
+   "ADDRESS",
+   "Computer Security Division Information Technology Laboratory National Institute of Standards and Technology Gaithersburg, MD 20899-8930",
+   "Computer Security Division Information Technology Laboratory National Institute of Standards and Technology Gaithersburg, MD 20899-8930 April 2010"
+  ],
+  [
+   "URL",
+   "http://query.nytimes.com/gst/fullpage.html?res=950DE2D6123AF936A35750C0A96F948260",
+   "idents Kennedy and Johnson (1961-1966). http://query.nytimes.com/gst/fullpage.html?res=950DE2D6123AF936A35750C0A96F948260 For the purposes of"
+  ],
+  [
+   "URL",
+   "http://www.amstat.org/news/statementondataaccess.cfm",
+   "f Disclosure Control, December 6, 2008, http://www.amstat.org/news/statementondataaccess.cfm. Section 4.2 discus"
+  ],
+  [
+   "URL",
+   "http://dud.inf.tu",
+   " and Identity Management, updated 2009, http://dud.inf.tu-dresden.de/literatu"
+  ],
+  [
+   "URL",
+   "http://www.amstat.org/news/statementondataaccess.cfm",
+   "f Disclosure Control, December 6, 2008, http://www.amstat.org/news/statementondataaccess.cfm."
+  ],
+  [
+   "URL",
+   "http://www.govexec.com/dailyfed/0207/022007tdpm1.htm",
+   "ach of millions of PII records in 2006. http://www.govexec.com/dailyfed/0207/022007tdpm1.htm. Some organizations"
+  ],
+  [
+   "URL",
+   "http://www.apec.org/etc/medialib/apec_media_library/downloads/taskforce/ecsg/pubs/2005.Par.0001.File.v1.1",
+   "http://www.apec.org/etc/medialib/apec_media_library/downloads/taskforce/ecsg/pubs/2005.Par.0001.File.v1.1"
+  ],
+  [
+   "URL",
+   "http://caselaw.lp.findlaw.com/casecode/uscodes/50/chapters/15/subc",
+   "http://caselaw.lp.findlaw.com/casecode/uscodes/50/chapters/15/subc hapters/iv/sections"
+  ],
+  [
+   "URL",
+   "http://www.govtrack.us/congress/bill.xpd?bill=h110-1",
+   "http://www.govtrack.us/congress/bill.xpd?bill=h110-1"
+  ]
+ ],
+ "leaked_detected_values": [],
+ "leaked_gold_values": [
+  "A. Pfitzmann",
+  "Carnegie Mellon University",
+  "Daniel I. Steinberg",
+  "ICRI",
+  "Innovative Analytics & Training",
+  "K.U.Leuven",
+  "L. Sweeney",
+  "M. Hansen"
+ ],
+ "detected_values_checked": 36
+}
