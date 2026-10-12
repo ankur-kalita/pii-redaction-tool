@@ -1,0 +1,57 @@
+{
+ "table": "| PII type | Gold | Predicted | Precision | Recall | F1 |\n|---|---|---|---|---|---|\n| **All PII (redaction view)** | 63 | 55 | 100.0% | 87.3% | 93.2% |\n| ADDRESS | 5 | 4 | 100.0% | 80.0% | 88.9% |\n| EMAIL | 11 | 11 | 100.0% | 100.0% | 100.0% |\n| LOCATION | 1 | 1 | 100.0% | 100.0% | 100.0% |\n| ORGANIZATION | 20 | 13 | 100.0% | 65.0% | 78.8% |\n| PERSON | 14 | 14 | 100.0% | 100.0% | 100.0% |\n| PHONE | 3 | 3 | 100.0% | 100.0% | 100.0% |\n| REGISTRATION_ID | 4 | 4 | 100.0% | 100.0% | 100.0% |\n| URL | 5 | 5 | 100.0% | 100.0% | 100.0% |",
+ "token_accuracy": "98.91% (1994/2016 tokens)",
+ "paragraphs": 100,
+ "gold_entities": 63,
+ "false_negatives": [
+  [
+   "ORGANIZATION",
+   "CareEdge Research",
+   "Industry Data Provider/ CareEdge Research"
+  ],
+  [
+   "ADDRESS",
+   "2401 Gen Thimmayya Road, Cantonment",
+   "IndusInd Bank Limited 2401 Gen Thimmayya Road, Cantonment"
+  ],
+  [
+   "ORGANIZATION",
+   "CareEdge Research",
+   "nalytics and Advisory Private Limited (“CareEdge Research”). All such informa"
+  ],
+  [
+   "ORGANIZATION",
+   "CARE",
+   "ormation based on, or derived from, the CARE Report or extracts "
+  ],
+  [
+   "ORGANIZATION",
+   "CARE",
+   "rom, the CARE Report or extracts of the CARE Report prepared by "
+  ],
+  [
+   "ORGANIZATION",
+   "CARE",
+   "is Red Herring Prospectus indicates the CARE Report as its sourc"
+  ],
+  [
+   "ORGANIZATION",
+   "CARE",
+   "ates the CARE Report as its source. The CARE Report is available"
+  ],
+  [
+   "ORGANIZATION",
+   "State Bank of India",
+   "State Bank of India, Industrial Finance"
+  ]
+ ],
+ "false_positives": [],
+ "leaked_detected_values": [],
+ "leaked_gold_values": [
+  "2401 Gen Thimmayya Road, Cantonment",
+  "CARE",
+  "CareEdge Research",
+  "State Bank of India"
+ ],
+ "detected_values_checked": 231
+}
